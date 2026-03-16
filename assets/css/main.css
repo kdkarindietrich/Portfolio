@@ -1,10 +1,5 @@
 @import url(fontawesome-all.min.css);
 
-/*
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -3907,67 +3902,60 @@ input, select, textarea {
 			}
 
 		}
-/* --- CUSTOM SENIOR LEAD DESIGN: DEEP SLATE & SILVER --- */
 
-/* Haupt-Hintergrund (ersetzt das Violett) */
+/* --- OPTIMIZED SENIOR DESIGN: SLATE, SILVER & DEPTH --- */
+
+/* Haupt-Hintergrund */
 body {
     background-color: #0F1113 !important;
 }
 
-/* Sidebar Navigation */
+/* Sidebar: Etwas heller als der Hintergrund für Tiefe */
 #sidebar {
-    background-color: #1A1D21 !important;
+    background-color: #16191D !important;
+    border-right: 1px solid #2D3748;
 }
 
-/* Sektions-Hintergründe */
-.wrapper.style1 { background-color: #0F1113 !important; }
-.wrapper.style2 { background-color: #14171A !important; }
-.wrapper.style3 { background-color: #1A1D21 !important; }
+/* Sektions-Farben für einen sanften Verlauf beim Scrollen */
+#wrapper > section.wrapper.style1 { background-color: #0F1113 !important; } /* Tiefschwarz */
+#wrapper > section.wrapper.style2 { background-color: #1A1D21 !important; } /* Anthrazit */
+#wrapper > section.wrapper.style3 { background-color: #14171A !important; } /* Dunkelschiefer */
 
-/* Typografie */
-h1, h2, h3, h4, h5, h6, strong {
-    color: #FFFFFF !important;
+/* Den lila Footer fixen */
+#footer {
+    background-color: #0F1113 !important;
+    border-top: 1px solid #2D3748 !important;
+    color: #A0AEC0 !important;
 }
 
-body, p, li, label {
-    color: #CBD5E0 !important; /* Dezentes Silber-Grau */
+/* Trennlinien zwischen den Sektionen (schafft Struktur) */
+.wrapper {
+    border-bottom: 1px solid #2D3748 !important;
 }
 
-/* Entfernung der violetten Trennlinie unter H1 */
-h1.major:after {
-    background-image: linear-gradient(to right, #E2E8F0, rgba(226, 232, 240, 0)) !important;
+/* Typografie: Weniger "hartes" Weiss für bessere Lesbarkeit */
+h1, h2, h3, strong {
+    color: #F7FAFC !important;
+    letter-spacing: 0.02em;
 }
 
-/* Button & Icon Styling */
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button,
+body, p, li {
+    color: #A0AEC0 !important; /* Weicheres Silber-Grau */
+}
+
+/* Akzent-Linie unter Überschriften (Silber statt Lila-Gradient) */
+h1.major:after, h2.major:after {
+    background-color: #4A5568 !important;
+    background-image: none !important;
+}
+
+/* Buttons: Klar und präzise */
 .button {
-    background-color: transparent !important;
-    border-color: #E2E8F0 !important;
+    border-color: #4A5568 !important;
     color: #E2E8F0 !important;
-    box-shadow: none !important;
 }
 
 .button:hover {
-    background-color: rgba(226, 232, 240, 0.1) !important;
-    border-color: #FFFFFF !important;
-    color: #FFFFFF !important;
-}
-
-.button.primary {
-    background-color: #E2E8F0 !important;
-    color: #0F1113 !important;
-}
-
-/* Icons in der Expertise-Sektion */
-.icon.major {
-    background-color: transparent !important;
-    color: #E2E8F0 !important;
-    box-shadow: inset 0 0 0 2px #E2E8F0 !important;
-}
-
-.icon.major:before {
-    color: #E2E8F0 !important;
+    border-color: #E2E8F0 !important;
+    background-color: rgba(226, 232, 240, 0.05) !important;
 }
