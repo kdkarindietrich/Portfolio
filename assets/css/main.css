@@ -3902,3 +3902,68 @@ input, select, textarea {
 			}
 
 		}
+
+/* --- MODERN LEADERSHIP CONCEPT: ELECTRIC MINT & DEEP CHARCOAL --- */
+
+/* Basis & Hintergründe */
+body {
+    background-color: #0F172A !important; /* Sehr tiefes Navy-Anthrazit */
+}
+
+#sidebar {
+    background-color: #1E293B !important; /* Etwas helleres Slate für die Navigation */
+    border-right: 1px solid rgba(110, 231, 183, 0.15);
+}
+
+/* Sektions-Farben für Tiefe */
+#wrapper > section.wrapper.style1 { background-color: #0F172A !important; }
+#wrapper > section.wrapper.style2 { background-color: #1E293B !important; }
+#wrapper > section.wrapper.style3 { background-color: #0F172A !important; }
+#footer { background-color: #020617 !important; border-top: 1px solid #1E293B !important; }
+
+/* Der "freundliche" Kontrast: Electric Mint */
+h1, h2, .icon.major {
+    color: #6EE7B7 !important; /* Helles, freundliches Mint-Grün */
+}
+
+/* Akzent-Linien */
+h1.major:after, h2.major:after {
+    background-color: #6EE7B7 !important;
+    background-image: linear-gradient(to right, #6EE7B7, rgba(110, 231, 183, 0)) !important;
+}
+
+/* Navigation & Text */
+#sidebar nav ul li a {
+    color: #94A3B8 !important; /* Sauberes Grau */
+}
+
+#sidebar nav ul li a.active, #sidebar nav ul li a:hover {
+    color: #6EE7B7 !important; /* Mint-Highlight bei Interaktion */
+}
+
+body, p, li {
+    color: #E2E8F0 !important; /* Helles, freundliches Silber-Weiss für Lesbarkeit */
+}
+
+/* Buttons: Professionell & Auffallend */
+.button {
+    border-color: #6EE7B7 !important;
+    color: #6EE7B7 !important;
+    box-shadow: none !important;
+}
+
+.button:hover {
+    background-color: rgba(110, 231, 183, 0.1) !important;
+    color: #FFFFFF !important;
+}
+
+.button.primary {
+    background-color: #6EE7B7 !important;
+    color: #0F172A !important; /* Kontrast-Invertierung für Lesbarkeit */
+}
+
+/* Fokus-Effekt für dein Portrait */
+#intro-portrait {
+    border: 2px solid #6EE7B7 !important;
+    box-shadow: 0 0 20px rgba(110, 231, 183, 0.1);
+}
