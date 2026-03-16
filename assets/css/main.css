@@ -4063,3 +4063,105 @@ h1.major:after, h2.major:after {
         margin-bottom: 1em;
     }
 }
+
+/* --- TIMELINE RESUME STYLE --- */
+
+.timeline-container {
+    position: relative;
+    margin-top: 4em;
+    padding-left: 0;
+}
+
+/* Die vertikale Linie */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 280px; /* Positioniert zwischen den Spalten */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(79, 156, 249, 0.3); /* Arctic Blue dezent */
+}
+
+.timeline-item {
+    display: flex;
+    position: relative;
+    margin-bottom: 3em;
+}
+
+/* Linke Seite: Datum & Firma */
+.timeline-left {
+    flex: 0 0 250px;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.timeline-left .date {
+    display: block;
+    font-weight: bold;
+    color: #4F9CF9; /* Arctic Blue */
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+}
+
+.timeline-left .company {
+    display: block;
+    font-size: 0.85em;
+    color: #A0AEC0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Der Punkt auf der Linie */
+.timeline-dot {
+    position: absolute;
+    left: 275px; /* Zentriert auf der Linie */
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    background: #4F9CF9;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 4px #0F1115; /* Hintergrundfarbe als "Ausschnitt" */
+}
+
+/* Rechte Seite: Titel & Fliesstext */
+.timeline-right {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.timeline-right h3 {
+    margin-bottom: 0.75em;
+    font-size: 1.2em;
+    color: #FFFFFF !important;
+}
+
+.timeline-right p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #CBD5E0 !important;
+}
+
+/* Mobile Optimierung */
+@media screen and (max-width: 980px) {
+    .timeline-container::before {
+        left: 10px;
+    }
+    .timeline-item {
+        flex-direction: column;
+        padding-left: 30px;
+    }
+    .timeline-left {
+        flex: 0 0 auto;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 0.5em;
+    }
+    .timeline-dot {
+        left: 5px;
+    }
+    .timeline-right {
+        padding-left: 0;
+    }
+}
