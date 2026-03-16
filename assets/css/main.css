@@ -3903,59 +3903,64 @@ input, select, textarea {
 
 		}
 
-/* --- OPTIMIZED SENIOR DESIGN: SLATE, SILVER & DEPTH --- */
+/* --- FRIENDLY SENIOR DESIGN: SOFT SLATE & SILK SILVER --- */
 
-/* Haupt-Hintergrund */
+/* Haupt-Hintergrund: Ein weicheres Anthrazit statt Schwarz */
 body {
-    background-color: #0F1113 !important;
+    background-color: #1F2428 !important;
 }
 
-/* Sidebar: Etwas heller als der Hintergrund für Tiefe */
+/* Sidebar: Professionelles Dunkelgrau mit weicher Kante */
 #sidebar {
-    background-color: #16191D !important;
-    border-right: 1px solid #2D3748;
+    background-color: #2D3339 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Sektions-Farben für einen sanften Verlauf beim Scrollen */
-#wrapper > section.wrapper.style1 { background-color: #0F1113 !important; } /* Tiefschwarz */
-#wrapper > section.wrapper.style2 { background-color: #1A1D21 !important; } /* Anthrazit */
-#wrapper > section.wrapper.style3 { background-color: #14171A !important; } /* Dunkelschiefer */
+/* Sektions-Farben: Abgestufte, wärmere Grautöne */
+#wrapper > section.wrapper.style1 { background-color: #24292E !important; } /* Intro: Etwas heller */
+#wrapper > section.wrapper.style2 { background-color: #1F2428 !important; } /* Core: Neutral */
+#wrapper > section.wrapper.style3 { background-color: #24292E !important; } /* Expertise: Wechsel */
 
-/* Den lila Footer fixen */
+/* Den Footer freundlich gestalten */
 #footer {
-    background-color: #0F1113 !important;
-    border-top: 1px solid #2D3748 !important;
-    color: #A0AEC0 !important;
+    background-color: #1A1D21 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #9CA3AF !important;
 }
 
-/* Trennlinien zwischen den Sektionen (schafft Struktur) */
-.wrapper {
-    border-bottom: 1px solid #2D3748 !important;
-}
-
-/* Typografie: Weniger "hartes" Weiss für bessere Lesbarkeit */
+/* Typografie: "Seidiges" Weiss für die Überschriften */
 h1, h2, h3, strong {
-    color: #F7FAFC !important;
-    letter-spacing: 0.02em;
+    color: #F3F4F6 !important; /* Silk White */
+    letter-spacing: 0.01em;
 }
 
-body, p, li {
-    color: #A0AEC0 !important; /* Weicheres Silber-Grau */
+/* Fliesstext: Helleres Grau für bessere Lesbarkeit und Freundlichkeit */
+body, p, li, label {
+    color: #D1D5DB !important; 
 }
 
-/* Akzent-Linie unter Überschriften (Silber statt Lila-Gradient) */
+/* Akzent-Linie: Dezentes Silber statt harter Balken */
 h1.major:after, h2.major:after {
-    background-color: #4A5568 !important;
+    background-color: #4B5563 !important;
     background-image: none !important;
+    height: 1px !important;
 }
 
-/* Buttons: Klar und präzise */
+/* Buttons: Freundlicheres Silber/Blau-Grau */
 .button {
-    border-color: #4A5568 !important;
-    color: #E2E8F0 !important;
+    border-color: #6B7280 !important;
+    color: #E5E7EB !important;
+    text-transform: none !important; /* Weniger "schreiend" */
+    letter-spacing: 0.05em !important;
 }
 
 .button:hover {
-    border-color: #E2E8F0 !important;
-    background-color: rgba(226, 232, 240, 0.05) !important;
+    border-color: #F3F4F6 !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #FFFFFF !important;
+}
+
+.button.primary {
+    background-color: #E5E7EB !important;
+    color: #1F2428 !important;
 }
