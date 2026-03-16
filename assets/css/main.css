@@ -4083,3 +4083,52 @@ h1.major:after, h2.major:after {
         padding-left: 0;
     }
 }
+
+/* --- SENIOR TYPOGRAPHY & COMPACT LAYOUT --- */
+
+/* Globale Schriftgrösse reduzieren (Weg vom "Kindlichen") */
+body, input, select, textarea {
+    font-size: 11.5pt !important; /* Standard war ca. 16pt */
+    line-height: 1.6;
+}
+
+/* Überschriften verkleinern und präzisieren */
+h1 { 
+    font-size: 2.2em !important; 
+    letter-spacing: -0.01em !important;
+}
+
+h2 { 
+    font-size: 1.5em !important; 
+    margin-bottom: 1.2em !important;
+}
+
+h3 { 
+    font-size: 1.1em !important; 
+    color: #4F9CF9 !important; /* Arctic Blue für die Zwischentitel */
+}
+
+/* Kompakte Icons für Achievements */
+#one .icon.major {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    margin-bottom: 1em;
+}
+
+#one .icon.major:before {
+    font-size: 0.8em;
+}
+
+/* Abstände in den Sektionen straffen */
+.wrapper > .inner {
+    padding: 4em 4em 2em 4em !important;
+}
+
+/* Buttons weniger massiv */
+.button {
+    height: 3.5em !important;
+    line-height: 3.5em !important;
+    padding: 0 2.5em !important;
+    font-size: 0.75em !important;
+}
