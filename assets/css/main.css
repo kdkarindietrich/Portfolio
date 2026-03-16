@@ -3979,7 +3979,7 @@ h1.major:after, h2.major:after {
     color: #0F1115 !important;
 }
 
-/* --- OPTIMIZED TIMELINE RESUME (EIGENMANN STYLE) --- */
+/* --- OPTIMIZED TIMELINE RESUME --- */
 
 .timeline-container {
     position: relative;
@@ -3991,7 +3991,7 @@ h1.major:after, h2.major:after {
 .timeline-container::before {
     content: '';
     position: absolute;
-    left: 220px; /* Präzise Position der Linie */
+    left: 250px; 
     top: 0;
     bottom: 0;
     width: 1px;
@@ -4000,17 +4000,16 @@ h1.major:after, h2.major:after {
 }
 
 .timeline-item {
-    display: flex !important; /* Erzwingt die Spalten nebeneinander */
+    display: flex !important;
     position: relative;
-    margin-bottom: 4em;
+    margin-bottom: 4.5em; 
     width: 100%;
 }
 
-/* Linke Seite: Datum & Firma */
 .timeline-left {
-    flex: 0 0 200px !important; /* Feste Breite für die linke Spalte */
+    flex: 0 0 220px !important;
     text-align: right;
-    padding-right: 40px;
+    padding-right: 50px; 
 }
 
 .timeline-left .date {
@@ -4018,7 +4017,7 @@ h1.major:after, h2.major:after {
     font-weight: bold;
     color: #4F9CF9;
     font-size: 0.9em;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.4em;
 }
 
 .timeline-left .company {
@@ -4030,40 +4029,38 @@ h1.major:after, h2.major:after {
     line-height: 1.4;
 }
 
-/* Der Dot auf der Linie */
 .timeline-dot {
     position: absolute;
-    left: 220px;
-    margin-left: -6px; /* Zentriert den 12px Punkt auf der 1px Linie */
+    left: 250px;
+    margin-left: -6px;
     top: 0.5em;
     width: 12px;
     height: 12px;
     background: #4F9CF9;
     border-radius: 50%;
     z-index: 2;
-    box-shadow: 0 0 0 5px #0F1115; /* Erzeugt den "Ausschnitt"-Effekt */
+    box-shadow: 0 0 0 5px #0F1115;
 }
 
-/* Rechte Seite: Titel & Fliesstext */
 .timeline-right {
     flex: 1;
-    padding-left: 40px;
+    padding-left: 70px; 
 }
 
 .timeline-right h3 {
-    margin-bottom: 0.75em;
-    font-size: 1.25em;
+    margin-bottom: 0.85em;
+    font-size: 1.3em;
     color: #FFFFFF !important;
 }
 
 .timeline-right p {
-    font-size: 0.95em;
-    line-height: 1.7;
-    margin-bottom: 0;
+    font-size: 1em; 
+    line-height: 1.75;
     color: #CBD5E0 !important;
+    max-width: 800px; 
 }
 
-/* Mobile Optimierung: Timeline untereinander stapeln */
+/* Mobile Optimierung */
 @media screen and (max-width: 980px) {
     .timeline-container::before {
         left: 15px;
@@ -4071,6 +4068,7 @@ h1.major:after, h2.major:after {
     .timeline-item {
         flex-direction: column !important;
         padding-left: 40px;
+        margin-bottom: 3.5em;
     }
     .timeline-left {
         flex: 0 0 auto !important;
