@@ -4016,3 +4016,15 @@ h1.major:after, h2.major:after {
     .timeline-dot { left: 15px; }
     .timeline-right { padding-left: 0; }
 }
+
+/* Footer-Hintergrund auf dein dunkles Anthrazit setzen */
+#footer, 
+.wrapper.style1-alt {
+    background-color: #222831 !important;
+}
+
+/* Die Farbe der Copyright-Zeile anpassen */
+#footer > .inner .menu {
+    color: #7F8CAA !important; 
+    opacity: 0.6;
+}
