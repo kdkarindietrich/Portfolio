@@ -4017,14 +4017,15 @@ h1.major:after, h2.major:after {
     .timeline-right { padding-left: 0; }
 }
 
-/* Footer-Hintergrund auf dein dunkles Anthrazit setzen */
-#footer, 
-.wrapper.style1-alt {
+/* --- FOOTER FARB-FIX --- */
+#footer.wrapper.style1-alt,
+#footer {
     background-color: #222831 !important;
+    background-image: none !important;
 }
 
-/* Die Farbe der Copyright-Zeile anpassen */
-#footer > .inner .menu {
-    color: #7F8CAA !important; 
-    opacity: 0.6;
+/* Optional: Die Textfarbe im Footer anpassen, falls sie zu dunkel ist */
+#footer .menu li {
+    color: #7F8CAA !important;
+    border-left-color: rgba(127, 140, 170, 0.3) !important;
 }
