@@ -2439,7 +2439,7 @@ input, select, textarea {
 		input[type="radio"]:checked + label:before {
 			background: #ffffff;
 			border-color: #ffffff;
-			color: #b74e91;
+			color: #78c6cf;
 			content: '\f00c';
 		}
 
@@ -2547,11 +2547,11 @@ input, select, textarea {
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #b74e91;
+					color: #78c6cf;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
-					color: #953d75;
+					color: #549096;
 				}
 
 /* Image */
@@ -3251,11 +3251,11 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: #78c6cf;
 		}
 
 		.wrapper.style3-alt {
-			background-color: #953d75;
+			background-color: #549096;
 		}
 
 		.wrapper.fullscreen {
@@ -3852,7 +3852,7 @@ input, select, textarea {
 
 						#sidebar nav a:after {
 							background-image: none;
-							background-color: #b74e91;
+							background-color: #78c6cf;
 						}
 
 		}
@@ -3912,7 +3912,7 @@ body, input, select, textarea {
 
 h1 { font-size: 2.2em !important; letter-spacing: -0.01em !important; color: #FFFFFF !important; }
 h2 { font-size: 1.5em !important; margin-bottom: 1.2em !important; color: #FFFFFF !important; }
-h3 { font-size: 1.15em !important; color: #4F9CF9 !important; }
+h3 { font-size: 1.15em !important; color: #95abde !important; }
 
 /* --- 2. BASE COLORS (GRAPHITE & ARCTIC BLUE) --- */
 body, #wrapper > section.wrapper.style1, #wrapper > section.wrapper.style3 {
@@ -3925,12 +3925,12 @@ body, #wrapper > section.wrapper.style1, #wrapper > section.wrapper.style3 {
 
 #sidebar { border-right: 1px solid #2D3748 !important; }
 #sidebar nav a { color: #A0AEC0 !important; }
-#sidebar nav a:after { background: #4F9CF9 !important; background-image: none !important; }
+#sidebar nav a:after { background: #95abde !important; background-image: none !important; }
 #sidebar nav a.active { color: #FFFFFF !important; }
 
 /* Akzent-Linien unter h1/h2 */
 h1.major:after, h2.major:after {
-    background-color: #4F9CF9 !important;
+    background-color: #95abde !important;
     background-image: none !important;
     height: 2px !important;
 }
@@ -3952,7 +3952,7 @@ h1.major:after, h2.major:after {
 }
 
 #one .icon.major {
-    color: #4F9CF9 !important;
+    color: #95abde !important;
     background: transparent !important;
     box-shadow: none !important;
     font-size: 1.5em;
@@ -3985,7 +3985,7 @@ h1.major:after, h2.major:after {
 }
 
 .timeline-left .date {
-    display: block; font-weight: bold; color: #4F9CF9;
+    display: block; font-weight: bold; color: #95abde;
     font-size: 0.9em; margin-bottom: 0.4em;
 }
 
@@ -3997,7 +3997,7 @@ h1.major:after, h2.major:after {
 .timeline-dot {
     position: absolute; left: 250px; margin-left: -6px;
     top: 0.5em; width: 12px; height: 12px;
-    background: #4F9CF9; border-radius: 50%; z-index: 2;
+    background: #95abde; border-radius: 50%; z-index: 2;
     box-shadow: 0 0 0 5px #0F1115;
 }
 
