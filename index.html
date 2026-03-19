@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="de">
+<html>
 	<head>
 		<title>Karin Dietrich | Portfolio</title>
 		<meta charset="utf-8" />
@@ -7,40 +7,22 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* --- Intro Text Styling --- */
-			.intro-subtitle {
-				display: block;
-				font-size: 1.25rem;
-				font-weight: 600;
-				color: #b743cd; /* Akzentfarbe */
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				margin: 0.5rem 0 1.5rem 0;
-			}
-
-			.intro-description {
-				line-height: 1.8;
-				max-width: 800px;
-				margin-bottom: 2.5rem;
-				font-size: 1.1rem;
-			}
-
-			/* --- Bento Grid Layout (Optimiert für 4 Projekte) --- */
+			/* Bento Grid Layout für Core Achievements */
 			.bento-grid {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
-				grid-auto-rows: 160px;
+				grid-auto-rows: 180px;
 				gap: 1.5rem;
 				margin-bottom: 4rem;
 			}
 
 			.bento-item {
-				background: rgba(255, 255, 255, 0.04);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				border-radius: 16px;
-				padding: 2rem;
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 12px;
+				padding: 1.5rem;
 				text-decoration: none !important;
-				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				transition: all 0.3s ease;
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
@@ -48,79 +30,56 @@
 			}
 
 			.bento-item:hover {
-				background: rgba(255, 255, 255, 0.08);
+				background: rgba(255, 255, 255, 0.1);
 				border-color: #b743cd;
-				transform: translateY(-8px);
-				box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 			}
 
-			/* Kachel-Proportionen */
+			/* Bento-Konfiguration */
 			.item-large { grid-column: span 2; grid-row: span 2; }
-			.item-wide { 
-				grid-column: span 3; 
-				grid-row: span 1; 
-				min-height: 140px;
-				justify-content: center;
-			}
+			.item-tall { grid-row: span 2; }
+			
+			.bento-item h3 { margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem; }
+			.bento-item p { font-size: 0.85rem; margin-bottom: 0; line-height: 1.4; }
+			.bento-item .icon { font-size: 1.5rem; margin-bottom: auto; color: #b743cd; }
 
-			.bento-item .icon {
-				font-size: 1.8rem;
-				margin-bottom: auto;
-				color: #b743cd;
-			}
-
-			.bento-item h3 { 
-				margin: 1rem 0 0.5rem 0; 
-				color: #fff; 
-				font-size: 1.2rem; 
-			}
-
-			.bento-item p { 
-				font-size: 0.9rem; 
-				margin: 0; 
-				line-height: 1.5; 
-				opacity: 0.8;
-			}
-
-			/* --- Subtiles Logoband --- */
+			/* Subtiles Logoband */
 			.partner-intro {
 				text-align: center;
-				font-size: 0.75rem;
+				font-size: 0.8rem;
 				text-transform: uppercase;
-				letter-spacing: 0.2em;
-				opacity: 0.5;
-				margin-top: 6rem !important;
+				letter-spacing: 0.1em;
+				opacity: 0.6;
 				margin-bottom: 1.5rem;
 			}
 
 			.logo-band {
 				display: flex;
-				justify-content: space-around;
+				justify-content: space-between;
 				align-items: center;
 				flex-wrap: wrap;
-				gap: 2.5rem;
-				padding: 1.5rem 0;
+				gap: 2rem;
+				padding: 1rem 0;
 			}
 
 			.logo-band img {
-				height: 28px;
+				height: 30px; /* Ein Logo hoch */
 				width: auto;
-				filter: grayscale(100%) brightness(1.5);
-				opacity: 0.4;
+				filter: grayscale(100%);
+				opacity: 0.5;
 				transition: all 0.4s ease;
 			}
 
 			.logo-band img:hover {
-				filter: grayscale(0%) brightness(1);
+				filter: grayscale(0%);
 				opacity: 1;
-				transform: scale(1.1);
 			}
 
-			/* --- Responsivität --- */
 			@media screen and (max-width: 980px) {
 				.bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-				.item-large, .item-wide { grid-column: auto; grid-row: auto; }
-				#intro h1 { font-size: 2.5rem; }
+				.item-large, .item-tall { grid-column: auto; grid-row: auto; }
+				.logo-band { justify-content: center; }
 			}
 		</style>
 	</head>
@@ -146,20 +105,15 @@
 				<div class="inner">
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
-							<span class="image fit" style="margin-bottom: 0;">
-								<img src="images/portrait.jpg" alt="Karin Dietrich" id="intro-portrait" />
+							<span class="image fit">
+								<img src="images/portrait.jpg" alt="Karin Dietrich" />
 							</span>
 						</div>
 						<div class="col-8 col-12-medium">
 							<h1>Karin Dietrich</h1>
-							<span class="intro-subtitle">Senior Marketing Operations Manager & Project Lead</span>
-							
-							<p class="intro-description">
-								Spezialisiert auf grenzüberschreitende Projektarchitektur, KI-gestützte Workflows und die Orchestrierung komplexer Dienstleister-Ökosysteme. 
-								Mit über 15 Jahren Erfahrung schliesse ich die Lücke zwischen strategischer Vision und messbarer operativer Umsetzung – 
-								mit Schweizer Präzision, direkt aus meinem digitalen Hub in Thailand.
-							</p>
-
+							<p>Senior Marketing Operations Manager & Project Lead<br />
+							Strategische Projektarchitektur und KI-gestützte Workflows.<br />
+							15+ Jahre Erfahrung in der operativen Umsetzung komplexer Visionen – mit Schweizer Präzision aus Thailand.</p>
 							<ul class="actions">
 								<li><a href="#one" class="button scrolly">Expertise ansehen</a></li>
 								<li><a href="CV_Karin_Dietrich.pdf" class="button primary icon solid fa-download" download>Lebenslauf (PDF)</a></li>
@@ -171,36 +125,29 @@
 
 			<section id="one" class="wrapper style2">
 				<div class="inner">
-					<h2>Core Achievements & Solutions</h2>
+					<h2>Core Achievements</h2>
 					
 					<div class="bento-grid">
-						<a href="projects/ki-workflow.html" class="bento-item item-large">
+						<div class="bento-item item-large">
+							<span class="icon solid fa-chart-pie"></span>
+							<h3>Strategisches Budget Management</h3>
+							<p>Verantwortung für globale Budgets bis 8 Mio. CHF. Zielgerichtete Allokation zur Maximierung des ROI bei voller Compliance.</p>
+						</div>
+						<div class="bento-item">
 							<span class="icon solid fa-microchip"></span>
-							<h3>KI-Workflow-Architektur</h3>
-							<p>Implementierung einer proprietären KI-Content-Engine zur Reduktion der Produktionszeit um ca. 40 %.</p>
-						</a>
-
-						<a href="projects/global-brand.html" class="bento-item">
-							<span class="icon solid fa-globe"></span>
-							<h3>Global Brand Management</h3>
-							<p>Strategisches Budgeting für Formula E & Solar Impulse.</p>
-						</a>
-
-						<a href="projects/samsung-lead.html" class="bento-item">
-							<span class="icon solid fa-desktop"></span>
-							<h3>Enterprise Project Lead</h3>
-							<p>Leitung der UI/UX-Streams für Samsung DACH.</p>
-						</a>
-
-						<a href="projects/strategic-rebranding.html" class="bento-item item-wide">
-							<div style="display: flex; align-items: center; gap: 2rem;">
-								<span class="icon solid fa-gem" style="margin: 0;"></span>
-								<div>
-									<h3 style="margin: 0;">Strategic Rebranding</h3>
-									<p>Federführung Corporate Rebranding inkl. Website-Overhaul und 8 Mio. CHF Budgetverantwortung.</p>
-								</div>
-							</div>
-						</a>
+							<h3>Operational Excellence</h3>
+							<p>40% Effizienzsteigerung durch KI-gestützte Workflows.</p>
+						</div>
+						<div class="bento-item item-tall">
+							<span class="icon solid fa-shield-alt"></span>
+							<h3>10 Jahre Remote Governance</h3>
+							<p>Bewährter Standard für Schweizer Unternehmen. Nahtlose Integration in CET-Arbeitszeiten aus Thailand.</p>
+						</div>
+						<div class="bento-item">
+							<span class="icon solid fa-gem"></span>
+							<h3>Präzision</h3>
+							<p>Detailtreue aus dem Goldschmiede-Handwerk.</p>
+						</div>
 					</div>
 
 					<p class="partner-intro">mit diesen Firmen habe ich bereits zusammengearbeitet</p>
@@ -221,6 +168,7 @@
 				<div class="inner">
 					<h2>Beruflicher Werdegang</h2>
 					<p>Ein Auszug meiner Stationen in der operativen Projektleitung.</p>
+					
 					<div class="timeline-container">
 						<div class="timeline-item">
 							<div class="timeline-left">
@@ -233,7 +181,7 @@
 								<p>Verantwortung für operative Prozess-Exzellenz und KI-unterstützte Workflows.</p>
 							</div>
 						</div>
-					</div>
+						</div>
 				</div>
 			</section>
 
