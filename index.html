@@ -1,11 +1,186 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="de">
 	<head>
 		<title>Karin Dietrich | Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* --- 1. GLOBAL RESET & MAIN BACKGROUND --- */
+			html, body {
+				background-color: #222831 !important;
+			}
+
+			body, input, select, textarea {
+				font-size: 11.5pt !important;
+				line-height: 1.6;
+				color: #CBD5E0 !important;
+			}
+
+			.wrapper, 
+			.wrapper.style1, 
+			.wrapper.style1-alt, 
+			.wrapper.style2, 
+			.wrapper.style3, 
+			#footer {
+				background-color: #222831 !important;
+				background-image: none !important;
+			}
+
+			/* --- 2. TITEL & AKZENT-LINIEN --- */
+			h1, h2 { color: #FFFFFF !important; }
+			h3 { color: #7F8CAA !important; }
+
+			h1.major:after, h2.major:after {
+				background-color: #7F8CAA !important;
+				background-image: none !important;
+				height: 2px !important;
+			}
+
+			/* --- 3. SIDEBAR & NAVIGATION --- */
+			#sidebar { 
+				background-color: #222831 !important;
+				border-right: 1px solid #333446 !important; 
+			}
+
+			#sidebar nav a { color: #7F8CAA !important; }
+
+			#sidebar nav a:before, #sidebar nav a:after {
+				height: 2px !important;
+				bottom: 0;
+			}
+
+			#sidebar nav a:before { 
+				background: #7F8CAA !important; 
+				opacity: 0.2;
+			}
+
+			#sidebar nav a.active { color: #FFFFFF !important; }
+			#sidebar nav a.active:after {
+				background: #78c6cf !important; /* Mint Akzent */
+				max-width: 100% !important;
+			}
+
+			/* --- 4. CORE ACHIEVEMENTS & HOVER EFFECTS --- */
+			#one .row > div.achievement-card {
+				background: #333446 !important;
+				padding: 2em !important;
+				border-radius: 8px;
+				border: 1px solid rgba(127, 140, 170, 0.2);
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+				margin-bottom: 2em;
+			}
+
+			#one .row > div.achievement-card:hover {
+				transform: translateY(-8px); 
+				background: #3d3e54 !important; 
+				border-color: #78c6cf !important; 
+				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
+			}
+
+			.icon.major, .icon.solid.major, .icon.major:before {
+				color: #78c6cf !important; /* Mint Icons */
+			}
+
+			/* --- 5. LOGOBAND --- */
+			.partner-section {
+				margin-top: 4rem;
+				width: 100%;
+			}
+
+			.partner-intro {
+				text-align: center;
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				opacity: 0.5;
+				margin-bottom: 1.5rem;
+				color: #7F8CAA;
+			}
+
+			.logo-band-container {
+				background: #333446;
+				padding: 2.5rem 2rem;
+				border-radius: 8px;
+				border: 1px solid rgba(127, 140, 170, 0.1);
+			}
+
+			.logo-band {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 2rem;
+			}
+
+			.logo-band img {
+				height: 32px;
+				width: auto;
+				filter: grayscale(100%) brightness(1.2);
+				opacity: 0.6;
+				transition: all 0.4s ease;
+			}
+
+			.logo-band img:hover {
+				filter: grayscale(0%) brightness(1);
+				opacity: 1;
+				transform: scale(1.05);
+			}
+
+			/* --- 6. STATISCHE TIMELINE (WERDEGANG) --- */
+			.timeline-container { position: relative; margin-top: 4em; }
+			.timeline-container::before {
+				content: ''; position: absolute; left: 250px; top: 0; bottom: 0; 
+				width: 1px; background: rgba(127, 140, 170, 0.3); z-index: 1;
+			}
+
+			.timeline-item {
+				display: flex !important;
+				position: relative;
+				margin-bottom: 2.5em; /* Verkleinerter Abstand */
+				width: 100%;
+			}
+
+			.timeline-left {
+				flex: 0 0 220px !important;
+				text-align: right;
+				padding-right: 50px;
+			}
+
+			.timeline-left .date { color: #7F8CAA; font-weight: bold; font-size: 0.9em; display: block; }
+
+			.timeline-dot {
+				position: absolute; left: 250px; margin-left: -6px;
+				top: 0.5em; width: 12px; height: 12px;
+				background: #78c6cf; /* Mint Punkt */
+				border-radius: 50%; z-index: 2;
+				box-shadow: 0 0 0 5px #222831;
+			}
+
+			.timeline-right { flex: 1; padding-left: 70px; }
+			.timeline-right h3 { margin-bottom: 0.5rem; color: #FFFFFF !important; }
+
+			@media screen and (max-width: 980px) {
+				.timeline-container::before { left: 15px; }
+				.timeline-item { flex-direction: column !important; padding-left: 40px; }
+				.timeline-left { text-align: left; margin-bottom: 0.5em; flex: none !important; width: 100%; }
+				.timeline-dot { left: 15px; }
+				.timeline-right { padding-left: 0; }
+				.logo-band { justify-content: center; }
+			}
+
+			/* --- 7. FOOTER FIX --- */
+			#footer.wrapper.style1-alt, #footer {
+				background-color: #222831 !important;
+				background-image: none !important;
+			}
+
+			#footer .menu li {
+				color: #7F8CAA !important;
+				border-left-color: rgba(127, 140, 170, 0.3) !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -26,177 +201,164 @@
 		<div id="wrapper">
 
 			<section id="intro" class="wrapper style1 fullscreen fade-up">
-    <div class="inner">
-        <div class="row gtr-150">
-            <div class="col-4 col-12-medium">
-                <span class="image fit">
-                    <img src="images/portrait.jpg" alt="Karin Dietrich" id="intro-portrait" />
-                </span>
-            </div>
-            <div class="col-8 col-12-medium">
-                <h1>Karin Dietrich</h1>
-                <p><strong>Senior Operations & Project Lead</strong> mit über 15 Jahren Erfahrung an der Schnittstelle von Strategie und Technik. Spezialisiert auf die Skalierung von Marketing-Operations durch KI-Integration und effizientes Stakeholder-Management, garantiere ich höchste Schweizer Qualitätsstandards in der operativen Umsetzung. Mein Remote-Setup in Thailand nutze ich dabei für maximale Schlagkraft: Nahtlos integriert in die CET-Kernarbeitszeiten, mit dem klaren Effizienzvorteil der Zeitverschiebung.</p>
-                <ul class="actions">
-                    <li><a href="#one" class="button scrolly">Expertise ansehen</a></li>
-                    <li><a href="CV_Karin_Dietrich.pdf" class="button primary icon solid fa-download" download>Lebenslauf (PDF)</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+				<div class="inner">
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<span class="image fit">
+								<img src="images/portrait.jpg" alt="Karin Dietrich" id="intro-portrait" />
+							</span>
+						</div>
+						<div class="col-8 col-12-medium">
+							<h1>Karin Dietrich</h1>
+							<p><strong>Senior Operations & Project Lead</strong> mit über 15 Jahren Erfahrung an der Schnittstelle von Strategie und Technik. Spezialisiert auf die Skalierung von Marketing-Operations durch KI-Integration und effizientes Stakeholder-Management, garantiere ich höchste Schweizer Qualitätsstandards in der operativen Umsetzung. Mein Remote-Setup in Thailand nutze ich dabei für maximale Schlagkraft: Nahtlos integriert in die CET-Kernarbeitszeiten, mit dem klaren Effizienzvorteil der Zeitverschiebung.</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Expertise ansehen</a></li>
+								<li><a href="CV_Karin_Dietrich.pdf" class="button primary icon solid fa-download" download>Lebenslauf (PDF)</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section id="one" class="wrapper style2">
-    <div class="inner">
-        <h2>Core Achievements</h2>
-        <div class="row gtr-150">
-            <div class="col-4 col-12-medium">
-                <span class="icon solid major fa-chart-pie"></span>
-                <h3>Enterprise Project Lead</h3>
-                <p>Leitung des Kreativ- und UI/UX-Produktionsstreams für die Samsung Retail-Trainingsplattform in der DACH-Region.</p>
-            </div>
-            <div class="col-4 col-12-medium">
-                <span class="icon solid major fa-microchip"></span>
-                <h3>KI-Workflow-Architektur</h3>
-                <p>Implementierung einer proprietären KI-Content-Engine, die die Produktionszeit für Marketing-Assets um ca. 40% reduzierte.</p>
-            </div>
-            <div class="col-4 col-12-medium">
-                <span class="icon solid major fa-shield-alt"></span>
-                <h3>Strategic Rebranding</h3>
-                <p>Federführung bei einem umfassenden Corporate Rebranding inklusive Website-Overhaul und Verwaltung eines 8 Mio. CHF Budgets.</p>
-            </div>
-			<div class="partner-section">
-    <p class="partner-intro">Mit diesen Firmen habe ich bereits zusammengearbeitet</p>
-    <div class="logo-band-container">
-        <div class="logo-band">
-            <img src="images/Samsung.svg" alt="Samsung">
-            <img src="images/Cocomore.svg" alt="Cocomore">
-            <img src="images/ABB.svg" alt="ABB">
-            <img src="images/MBblu.svg" alt="Marketing Butler">
-			<img src="images/pvMeister.svg" alt="PV Meister">
-            <img src="images/Merkerch.svg" alt="Merker">
-            <img src="images/Ptools.svg" alt="Promotion Tools">
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-</section>
+				<div class="inner">
+					<h2>Core Achievements</h2>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium achievement-card">
+							<span class="icon solid major fa-chart-pie"></span>
+							<h3>Enterprise Project Lead</h3>
+							<p>Leitung des Kreativ- und UI/UX-Produktionsstreams für die Samsung Retail-Trainingsplattform in der DACH-Region.</p>
+						</div>
+						<div class="col-4 col-12-medium achievement-card">
+							<span class="icon solid major fa-microchip"></span>
+							<h3>KI-Workflow-Architektur</h3>
+							<p>Implementierung einer proprietären KI-Content-Engine, die die Produktionszeit für Marketing-Assets um ca. 40% reduzierte.</p>
+						</div>
+						<div class="col-4 col-12-medium achievement-card">
+							<span class="icon solid major fa-shield-alt"></span>
+							<h3>Strategic Rebranding</h3>
+							<p>Federführung bei einem umfassenden Corporate Rebranding inklusive Website-Overhaul und Verwaltung eines 8 Mio. CHF Budgets.</p>
+						</div>
+					</div>
+
+					<div class="partner-section">
+						<p class="partner-intro">Mit diesen Firmen habe ich bereits zusammengearbeitet</p>
+						<div class="logo-band-container">
+							<div class="logo-band">
+								<img src="images/Samsung.svg" alt="Samsung">
+								<img src="images/Cocomore.svg" alt="Cocomore">
+								<img src="images/ABB.svg" alt="ABB">
+								<img src="images/MBblu.svg" alt="Marketing Butler">
+								<img src="images/pvMeister.svg" alt="PV Meister">
+								<img src="images/Merkerch.svg" alt="Merker">
+								<img src="images/Ptools.svg" alt="Promotion Tools">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section id="resume" class="wrapper style3 fade-up">
-    <div class="inner">
-        <h2>Beruflicher Werdegang</h2>
-        <p>Ein Auszug meiner Stationen in der operativen Projektleitung und Marketing-Steuerung.</p>
-        
-        <div class="timeline-container">
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">04/2023 — Heute</span>
-                    <span class="company">Marketing Butler by Klickwerk AG</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Lead Implementation Manager & Process Lead</h3>
-                    <p>In dieser Position verantwortete ich die operative Prozess-Exzellenz durch die Einführung strukturierter „Approval Gates“ und Quality-Checks, wodurch Fehler in der Produktion auf Null gesenkt wurden. Ich implementierte moderne Workflows unter Einbezug von KI-Support, welche die Time-to-Market für Marketing-Assets um ca. 40 % beschleunigten, und trug die End-to-End-Verantwortung für parallele Premium-Immobilienentwicklungen unter Einhaltung strikter Schweizer Qualitätsstandards.</p>
-                </div>
-            </div>
+				<div class="inner">
+					<h2>Beruflicher Werdegang</h2>
+					<p>Ein Auszug meiner Stationen in der operativen Projektleitung und Marketing-Steuerung.</p>
+					
+					<div class="timeline-container">
+						
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">04/2023 — Heute</span>
+								<span class="company">Marketing Butler by Klickwerk AG</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Lead Implementation Manager & Process Lead</h3>
+								<p>Marketing Butler erstellt als Agentur hochwertige Marketingunterlagen für Immobilienprojekte. Hier verantworte ich die operative Prozess-Exzellenz durch die Einführung strukturierter „Approval Gates“ und Quality-Checks. Durch die Implementierung KI-gestützter Workflows wurde die Time-to-Market für Assets um ca. 40 % beschleunigt.</p>
+							</div>
+						</div>
 
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">12/2021 — 06/2023</span>
-                    <span class="company">Samsung Germany</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Senior Project Manager (Creative & UI/UX)</h3>
-                    <p>Ich leitete den Kreativ- und UI/UX-Produktionsstream für die Retail-Trainingsplattform von Samsung und sicherte den Launch-Erfolg durch die Orchestrierung externer Agenturen und Fachexperten. Dabei gewährleistete ich die strikte Markenkonformität sowie die Rechte-Compliance für hochsichtbare Multimedia-Inhalte in der gesamten DACH-Region.</p>
-                </div>
-            </div>
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">12/2021 — 06/2023</span>
+								<span class="company">Samsung Germany</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Senior Project Manager (Creative & UI/UX)</h3>
+								<p>In direktem Kontakt mit dem Kunden Samsung leitete ich den Kreativ- und UI/UX-Produktionsstream für die Retail-Trainingsplattform in der DACH-Region. Ich sicherte den Launch-Erfolg durch die Orchestrierung externer Agenturen und garantierte die Einhaltung sämtlicher Marken- und Rechte-Compliance.</p>
+							</div>
+						</div>
 
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">02/2017 — 2023</span>
-                    <span class="company">Blueplanet Koh Tao</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Principal Consultant | Marketing Strategy</h3>
-                    <p>Aufgrund früherer Erfolge wurde ich als Beraterin für kritische Engpässe bei ABB im Bereich Global Brand Management gebucht, wobei ich Corporate Events und die Logistik-Koordination für die Formel E unterstützte. Parallel dazu steuerte ich den B2B-Rollout für eine Photovoltaik-Applikation im SaaS-Bereich.</p>
-                </div>
-            </div>
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">02/2017 — 2023</span>
+								<span class="company">Blueplanet Koh Tao</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Principal Consultant | Marketing Strategy</h3>
+								<p>Externe Beratung für ABB (Global Brand Management) mit Fokus auf Corporate Events und Logistik-Koordination für die Formula E. Parallel dazu Steuerung des B2B-Rollouts für eine Photovoltaik-SaaS-Applikation.</p>
+							</div>
+						</div>
 
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">09/2015 — 03/2016</span>
-                    <span class="company">ABB Ltd</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Global Project & Communications Coordinator</h3>
-                    <p>In dieser Rolle restrukturierte ich strategische Budgets für globale Leuchtturm-Projekte wie Solar Impulse und stellte die finanzielle Compliance durch eigenverantwortliche Rechnungsprüfung sicher. Ich verantwortete das Onboarding einer Nearshore-Kreativagentur zur Optimierung der Turnaround-Zeiten und koordinierte hochrangige Delegationen auf Executive-Ebene.</p>
-                </div>
-            </div>
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">09/2015 — 03/2016</span>
+								<span class="company">ABB Ltd</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Global Project & Communications Coordinator</h3>
+								<p>Restrukturierung strategischer Budgets für globale Leuchtturm-Projekte wie Solar Impulse. Optimierung der Vendor Operations durch Steuerung einer Nearshore-Kreativagentur in Krakau und Koordination hochrangiger Delegationen auf Executive-Ebene.</p>
+							</div>
+						</div>
 
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">10/2013 — 08/2015</span>
-                    <span class="company">Merker AG</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Marketing Manager (Budget Owner)</h3>
-                    <p>Ich trug die alleinige Verantwortung für die strategische Allokation eines Jahresbudgets von 8 Mio. CHF und leitete die operative Durchführung von jährlich über sechs Grossmessen sowie regionalen Kundenevents. Zudem verantwortete ich das Corporate Rebranding und koordinierte externe Partner zur termingerechten Bereitstellung sämtlicher Launch-Materialien.</p>
-                </div>
-            </div>
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">10/2013 — 08/2015</span>
+								<span class="company">Merker AG</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Marketing Manager (Budget Owner)</h3>
+								<p>Alleinige Verantwortung für ein Jahresbudget von 8 Mio. CHF. Operative Leitung von jährlich über sechs Grossmessen (inkl. Swissbau) und acht regionalen Kundenevents. Federführung beim Corporate Rebranding inklusive Website-Overhaul.</p>
+							</div>
+						</div>
 
-            <div class="timeline-item">
-                <div class="timeline-left">
-                    <span class="date">2004 — 2013</span>
-                    <span class="company">Werdegang</span>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right">
-                    <h3>Werdegang & Fundament</h3>
-                    <p>Meine berufliche Laufbahn umfasst Tätigkeiten bei der Expovina AG und Promotion Tools AG. Die Basis für meine heutige Präzision und Detailtreue bildet meine Ausbildung zur gelernten Goldschmiedin.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-			
+						<div class="timeline-item">
+							<div class="timeline-left">
+								<span class="date">2004 — 2013</span>
+								<span class="company">Werdegang & Fundament</span>
+							</div>
+							<div class="timeline-dot"></div>
+							<div class="timeline-right">
+								<h3>Professional Foundation</h3>
+								<p>Stationen bei der Expovina AG (Messe-Koordination) und Promotion Tools AG (Personal-Logistik). Die Basis für meine heutige Präzision bildet die Ausbildung zur gelernten Goldschmiedin EFZ.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
 			<section id="two" class="wrapper style3 fade-up">
 				<div class="inner">
 					<h2>Expertise & Präzision</h2>
-					<p>Vom Handwerk zur High-Level Operation: Mein Ansatz kombiniert die Akribie einer gelernten Goldschmiedin mit modernen Projektmanagement-Standards.</p>
 					<div class="features">
 						<section>
 							<span class="icon solid major fa-cog"></span>
 							<h3>Project Management</h3>
-							<p>PMP-orientierte Planung und Durchführung. Erfahren in agilen und hybriden Methodiken für Konzerne wie ABB und Samsung.</p>
+							<p>PMP-orientierte Planung und Durchführung hybrider Methodiken für Konzerne wie ABB und Samsung.</p>
 						</section>
 						<section>
 							<span class="icon solid major fa-microchip"></span>
 							<h3>AI Workflow Design</h3>
-							<p>Implementierung von LLMs und Automatisierungs-Tools zur Skalierung von Marketing-Operations.</p>
+							<p>Design asynchroner Workflows und Implementierung von KI-Tools zur Skalierung operativer Prozesse.</p>
 						</section>
 						<section>
 							<span class="icon solid major fa-gem"></span>
 							<h3>Schweizer Präzision</h3>
-							<p>Höchste Qualitätsansprüche in der Dokumentation und Prozessführung, verwurzelt im klassischen Handwerk.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-desktop"></span>
-							<h3>Digital Leadership</h3>
-							<p>Mastery von Jira, Asana, SAP und modernen Remote-Kollaborations-Tools für globale Teams.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-chart-line"></span>
-							<h3>Marketing Operations</h3>
-							<p>Ganzheitliche Steuerung von Kampagnen-Life-Cycles, von der Strategie bis zum finalen Reporting.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-globe"></span>
-							<h3>Global Mindset</h3>
-							<p>Erfahrung im interkulturellen Management und Standort-übergreifender Koordination.</p>
+							<p>Höchste Qualitätsansprüche in der Dokumentation und Prozessführung.</p>
 						</section>
 					</div>
 				</div>
@@ -205,7 +367,6 @@
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
 					<h2>Kontakt</h2>
-					<p>Bereit für die nächste Stufe Ihrer operativen Effizienz? Lassen Sie uns besprechen, wie ich Ihr Team verstärken kann.</p>
 					<div class="split style1">
 						<section>
 							<ul class="contact">
@@ -215,7 +376,7 @@
 								</li>
 								<li>
 									<h3>LinkedIn</h3>
-									<a href="https://linkedin.com/in/karindietrich">linkedin.com/in/karindietrich</a>
+									<a href="https://linkedin.com/in/karin-dietrich">linkedin.com/in/karin-dietrich</a>
 								</li>
 								<li>
 									<h3>Standort</h3>
