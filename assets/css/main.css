@@ -3903,48 +3903,22 @@ input, select, textarea {
 
 		}
 
-/* --- 1. GLOBAL SENIOR TYPOGRAPHY & BACKGROUND --- */
+/* --- 1. GLOBAL COLORS & TYPOGRAPHY --- */
 body, input, select, textarea {
     font-size: 11.5pt !important;
     line-height: 1.6;
     color: #CBD5E0 !important;
-    background-color: #222831 !important; /* Main Hintergrund */
+    background-color: #222831 !important;
+}
+
+/* Footer Fix: Violett entfernen */
+#footer, .wrapper.style1-alt {
+    background-color: #222831 !important;
 }
 
 h1 { font-size: 2.2em !important; letter-spacing: -0.01em !important; color: #FFFFFF !important; }
 h2 { font-size: 1.5em !important; margin-bottom: 1.2em !important; color: #FFFFFF !important; }
-h3 { font-size: 1.15em !important; color: #7F8CAA !important; } /* Titel ehemals Electric Blue */
-
-/* --- 2. BASE COLORS & WRAPPERS --- */
-#wrapper > section.wrapper.style1, 
-#wrapper > section.wrapper.style3,
-#wrapper > section.wrapper.style1-alt {
-    background-color: #222831 !important;
-}
-
-#sidebar, #wrapper > section.wrapper.style2 {
-    background-color: #222831 !important; /* Vereinheitlichter Main Background */
-}
-
-/* Elemente mit hellem Hintergrund */
-.wrapper.style-light {
-    background-color: #EAEFEF !important;
-    color: #222831 !important;
-}
-
-#sidebar { border-right: 1px solid #333446 !important; }
-#sidebar nav a { color: #A0AEC0 !important; }
-
-/* Navigations-Linien */
-#sidebar nav a:before { 
-    background: #7F8CAA !important; /* Inaktiv */
-}
-#sidebar nav a:after { 
-    background: #3B8CFCE !important; /* Aktiv */
-    background-image: none !important; 
-}
-
-#sidebar nav a.active { color: #FFFFFF !important; }
+h3 { font-size: 1.15em !important; color: #7F8CAA !important; }
 
 /* Akzent-Linien unter h1/h2 */
 h1.major:after, h2.major:after {
@@ -3953,45 +3927,114 @@ h1.major:after, h2.major:after {
     height: 2px !important;
 }
 
+/* --- 2. SIDEBAR NAVIGATION (LOGIK & FARBEN) --- */
+#sidebar { 
+    background-color: #222831 !important;
+    border-right: 1px solid #333446 !important; 
+}
+
+#sidebar nav a { 
+    color: #7F8CAA !important; 
+}
+
+/* Inaktive Linie */
+#sidebar nav a:before { 
+    background: #7F8CAA !important; 
+    opacity: 0.2;
+}
+
+/* Aktive Linie (Aufleuchten) */
+#sidebar nav a:after { 
+    background-image: none !important;
+    background-color: #3B8CFCE !important;
+    max-width: 0;
+}
+
+#sidebar nav a.active { 
+    color: #FFFFFF !important; 
+}
+
+#sidebar nav a.active:after {
+    max-width: 100% !important;
+}
+
 /* --- 3. PREMIUM ACHIEVEMENT CARDS (#one) --- */
+#wrapper > section.wrapper.style2 { background-color: #222831 !important; }
+
 #one .row > div {
-    background: #333446 !important; /* Kacheln */
+    background: #333446 !important;
     padding: 2em !important;
     border-radius: 4px;
-    border: 1px solid rgba(127, 140, 170, 0.2);
+    border: 1px solid rgba(184, 207, 206, 0.1);
     transition: transform 0.3s ease, background 0.3s ease;
     margin-bottom: 2em;
 }
 
 #one .row > div:hover {
-    background: #3d3e54 !important; /* Leichtes Aufhellen beim Hover */
+    background: #3d3e54 !important;
     transform: translateY(-5px);
-    border-color: #7F8CAA !important;
 }
 
-/* Icons global & in Kacheln */
-.icon.major, .icon.solid.major {
-    color: #B8CFCE !important; /* Deine neue Icon-Farbe */
+/* Icons global */
+.icon.major, .icon.solid.major, .icon.major:before {
+    color: #B8CFCE !important;
     background: transparent !important;
     box-shadow: none !important;
-    font-size: 1.5em;
-    margin-bottom: 1em;
 }
 
-.icon.major:before {
-    color: #B8CFCE !important;
+/* --- 4. TIMELINE LAYOUT (WIEDERHERGESTELLT) --- */
+.timeline-container { 
+    position: relative; 
+    margin-top: 4em; 
 }
 
-/* --- 4. OPTIMIZED TIMELINE RESUME (#resume) --- */
 .timeline-container::before {
-    background: rgba(127, 140, 170, 0.3); /* Angepasst an Titel-Farbe */
+    content: '';
+    position: absolute;
+    left: 250px;
+    top: 0; bottom: 0; width: 1px;
+    background: rgba(127, 140, 170, 0.3);
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex !important;
+    position: relative;
+    margin-bottom: 4.5em;
+    width: 100%;
+}
+
+.timeline-left {
+    flex: 0 0 220px !important;
+    text-align: right;
+    padding-right: 50px;
 }
 
 .timeline-left .date {
-    color: #7F8CAA;
+    display: block; font-weight: bold; color: #7F8CAA;
+    font-size: 0.9em; margin-bottom: 0.4em;
+}
+
+.timeline-left .company {
+    display: block; font-size: 0.85em; color: #A0AEC0;
+    text-transform: uppercase; letter-spacing: 0.05em;
 }
 
 .timeline-dot {
-    background: #3B8CFCE; /* Aktiv-Farbe für Fokus-Punkte */
+    position: absolute; left: 250px; margin-left: -6px;
+    top: 0.5em; width: 12px; height: 12px;
+    background: #3B8CFCE; border-radius: 50%; z-index: 2;
     box-shadow: 0 0 0 5px #222831;
+}
+
+.timeline-right { flex: 1; padding-left: 70px; }
+.timeline-right p { max-width: 800px; line-height: 1.75; }
+
+/* Responsive Timeline */
+@media screen and (max-width: 980px) {
+    .timeline-container::before { left: 15px; }
+    .timeline-item { flex-direction: column !important; padding-left: 40px; }
+    .timeline-left { text-align: left; margin-bottom: 1em; flex: none !important; width: 100%; }
+    .timeline-dot { left: 15px; }
+    .timeline-right { padding-left: 0; }
 }
