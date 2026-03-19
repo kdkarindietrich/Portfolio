@@ -3903,129 +3903,83 @@ input, select, textarea {
 
 		}
 
-/* --- 1. GLOBAL SENIOR TYPOGRAPHY --- */
+/* --- 1. GLOBAL RESET & MAIN BACKGROUND --- */
+html, body {
+    background-color: #222831 !important;
+}
+
 body, input, select, textarea {
-    font-size: 11.5pt !important; /* Kompakterer Senior-Look */
+    font-size: 11.5pt !important;
     line-height: 1.6;
-    color: #CBD5E0 !important; /* Helles Silber-Grau für bessere Lesbarkeit */
+    color: #CBD5E0 !important;
 }
 
-h1 { font-size: 2.2em !important; letter-spacing: -0.01em !important; color: #FFFFFF !important; }
-h2 { font-size: 1.5em !important; margin-bottom: 1.2em !important; color: #FFFFFF !important; }
-h3 { font-size: 1.15em !important; color: #95abde !important; }
-
-/* --- 2. BASE COLORS (GRAPHITE & ARCTIC BLUE) --- */
-body, #wrapper > section.wrapper.style1, #wrapper > section.wrapper.style3 {
-    background-color: #0F1115 !important;
+/* Alle Wrapper-Hintergründe (ink. Footer & Intro) auf die neue Farbe zwingen */
+.wrapper, 
+.wrapper.style1, 
+.wrapper.style1-alt, 
+.wrapper.style2, 
+.wrapper.style3, 
+#footer {
+    background-color: #222831 !important;
+    background-image: none !important; /* Entfernt lila Verläufe/Bilder */
 }
 
-#sidebar, #wrapper > section.wrapper.style2 {
-    background-color: #16191E !important;
-}
+/* --- 2. TITEL & AKZENT-LINIEN --- */
+h1, h2 { color: #FFFFFF !important; }
+h3 { color: #7F8CAA !important; }
 
-#sidebar { border-right: 1px solid #2D3748 !important; }
-#sidebar nav a { color: #A0AEC0 !important; }
-#sidebar nav a:after { background: #95abde !important; background-image: none !important; }
-#sidebar nav a.active { color: #FFFFFF !important; }
-
-/* Akzent-Linien unter h1/h2 */
 h1.major:after, h2.major:after {
-    background-color: #95abde !important;
+    background-color: #7F8CAA !important;
     background-image: none !important;
     height: 2px !important;
 }
 
-/* --- 3. PREMIUM ACHIEVEMENT CARDS (#one) --- */
+/* --- 3. SIDEBAR & NAVIGATION --- */
+#sidebar { 
+    background-color: #222831 !important;
+    border-right: 1px solid #333446 !important; 
+}
+
+#sidebar nav a { color: #7F8CAA !important; }
+
+/* Dicke der Linien vereinheitlicht (px statt em) */
+#sidebar nav a:before, #sidebar nav a:after {
+    height: 2px !important;
+    bottom: 0;
+}
+
+#sidebar nav a:before { 
+    background: #7F8CAA !important; 
+    opacity: 0.2;
+}
+
+#sidebar nav a.active { color: #FFFFFF !important; }
+#sidebar nav a.active:after {
+    background: #3B8CFCE !important;
+    max-width: 100% !important;
+}
+
+/* --- 4. CORE ACHIEVEMENTS (KACHELN) --- */
 #one .row > div {
-    background: rgba(255, 255, 255, 0.03);
+    background: #333446 !important; /* Deine Kachel-Farbe */
     padding: 2em !important;
     border-radius: 4px;
-    border: 1px solid rgba(79, 156, 249, 0.1);
-    transition: transform 0.3s ease, background 0.3s ease;
-    margin-bottom: 2em;
+    border: 1px solid rgba(184, 207, 206, 0.1);
 }
 
-#one .row > div:hover {
-    background: rgba(79, 156, 249, 0.05);
-    transform: translateY(-5px);
-    border-color: rgba(79, 156, 249, 0.4);
+.icon.major, .icon.solid.major, .icon.major:before {
+    color: #B8CFCE !important;
 }
 
-#one .icon.major {
-    color: #95abde !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
-
-/* --- 4. OPTIMIZED TIMELINE RESUME (#resume) --- */
-.timeline-container { position: relative; margin-top: 4em; }
-
+/* --- 5. TIMELINE (WERDEGANG) --- */
 .timeline-container::before {
-    content: '';
-    position: absolute;
-    left: 250px; /* Position der vertikalen Linie */
-    top: 0; bottom: 0; width: 1px;
-    background: rgba(79, 156, 249, 0.3);
-    z-index: 1;
-}
-
-.timeline-item {
-    display: flex !important;
-    position: relative;
-    margin-bottom: 4.5em;
-    width: 100%;
-}
-
-.timeline-left {
-    flex: 0 0 220px !important;
-    text-align: right;
-    padding-right: 50px;
-}
-
-.timeline-left .date {
-    display: block; font-weight: bold; color: #95abde;
-    font-size: 0.9em; margin-bottom: 0.4em;
-}
-
-.timeline-left .company {
-    display: block; font-size: 0.85em; color: #A0AEC0;
-    text-transform: uppercase; letter-spacing: 0.05em;
+    background: rgba(127, 140, 170, 0.3);
 }
 
 .timeline-dot {
-    position: absolute; left: 250px; margin-left: -6px;
-    top: 0.5em; width: 12px; height: 12px;
-    background: #95abde; border-radius: 50%; z-index: 2;
-    box-shadow: 0 0 0 5px #0F1115;
+    background: #3B8CFCE;
+    box-shadow: 0 0 0 5px #222831;
 }
 
-.timeline-right { flex: 1; padding-left: 70px; } /* Viel Luft für Desktop */
-.timeline-right p { max-width: 800px; line-height: 1.75; }
-
-/* --- 5. LAYOUT & MOBILE FIXES --- */
-@media screen and (min-width: 1281px) {
-    #sidebar + #wrapper, #sidebar + #wrapper + #footer { margin-left: 18em !important; }
-}
-
-@media screen and (max-width: 980px) {
-    .timeline-container::before { left: 15px; }
-    .timeline-item { flex-direction: column !important; padding-left: 40px; }
-    .timeline-left { text-align: left; margin-bottom: 1em; }
-    .timeline-dot { left: 15px; }
-    .timeline-right { padding-left: 0; }
-}
-
-/* --- FOOTER FARB-FIX --- */
-#footer.wrapper.style1-alt,
-#footer {
-    background-color: #222831 !important;
-    background-image: none !important;
-}
-
-/* Optional: Die Textfarbe im Footer anpassen, falls sie zu dunkel ist */
-#footer .menu li {
-    color: #7F8CAA !important;
-    border-left-color: rgba(127, 140, 170, 0.3) !important;
-}
+.timeline-left .date { color: #7F8CAA; }
