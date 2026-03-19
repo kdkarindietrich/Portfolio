@@ -4077,3 +4077,104 @@ h1.major:after, h2.major:after {
     color: #7F8CAA !important;
     border-left-color: rgba(127, 140, 170, 0.3) !important;
 }
+
+/* --- Interaktive Timeline --- */
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 4rem 0;
+    padding-left: 3rem;
+}
+
+/* Die vertikale Linie */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180px, #b743cd 0%, rgba(183, 67, 205, 0.1) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    transition: all 0.4s ease;
+}
+
+/* Der leuchtende Punkt */
+.timeline-dot {
+    position: absolute;
+    left: -3.45rem;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1b1b1b;
+    border: 2px solid #b743cd;
+    box-shadow: 0 0 10px rgba(183, 67, 205, 0.5);
+    z-index: 10;
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #b743cd;
+    box-shadow: 0 0 20px rgba(183, 67, 205, 0.8);
+    transform: scale(1.3);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(183, 67, 205, 0.3);
+    transform: translateX(10px);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #b743cd;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.timeline-company {
+    font-size: 1rem;
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.timeline-content h3 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 736px) {
+    .timeline-header { flex-direction: column; }
+    .timeline-container { padding-left: 2rem; }
+    .timeline-dot { left: -2.45rem; }
+}
