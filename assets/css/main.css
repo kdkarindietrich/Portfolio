@@ -3960,26 +3960,120 @@ h1.major:after, h2.major:after {
     max-width: 100% !important;
 }
 
-/* --- 4. CORE ACHIEVEMENTS (KACHELN) --- */
+/* --- 4. CORE ACHIEVEMENTS & HOVER EFFECTS (#one) --- */
 #one .row > div {
-    background: #333446 !important; /* Deine Kachel-Farbe */
+    background: #333446 !important; /* Deine Kachel-Farbe V1 */
     padding: 2em !important;
-    border-radius: 4px;
-    border: 1px solid rgba(184, 207, 206, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Der flüssige Effekt aus V2 */
+    margin-bottom: 2em;
+}
+
+/* Der Hover-Effekt aus V2, farblich auf dein V1 Blau (#3B8CFCE) abgestimmt */
+#one .row > div:hover {
+    transform: translateY(-8px); 
+    background: #3d3e54 !important; 
+    border-color: #3B8CFCE !important; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
 }
 
 .icon.major, .icon.solid.major, .icon.major:before {
     color: #B8CFCE !important;
 }
 
-/* --- 5. TIMELINE (WERDEGANG) --- */
-.timeline-container::before {
-    background: rgba(127, 140, 170, 0.3);
+/* --- 5. LOGOBAND (INTEGRIERT AUS V2) --- */
+.partner-section {
+    margin-top: 4rem;
 }
 
+.partner-intro {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+    color: #7F8CAA;
+}
+
+.logo-band-container {
+    background: #333446; /* Hintergrund wie Kacheln, damit schwarze Logos sichtbar sind */
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(127, 140, 170, 0.1);
+}
+
+.logo-band {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.logo-band img {
+    height: 32px;
+    width: auto;
+    filter: grayscale(100%) brightness(1.2); /* Logos dezent, solange kein Hover */
+    opacity: 0.6;
+    transition: all 0.4s ease;
+}
+
+.logo-band img:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* --- 6. TIMELINE (WERDEGANG) --- */
+.timeline-container { position: relative; margin-top: 4em; }
+.timeline-container::before {
+    content: ''; position: absolute; left: 250px; top: 0; bottom: 0; 
+    width: 1px; background: rgba(127, 140, 170, 0.3); z-index: 1;
+}
+
+.timeline-item {
+    display: flex !important;
+    position: relative;
+    margin-bottom: 4.5em;
+    width: 100%;
+}
+
+.timeline-left {
+    flex: 0 0 220px !important;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.timeline-left .date { color: #7F8CAA; font-weight: bold; font-size: 0.9em; }
+
 .timeline-dot {
-    background: #3B8CFCE;
+    position: absolute; left: 250px; margin-left: -6px;
+    top: 0.5em; width: 12px; height: 12px;
+    background: #3B8CFCE; border-radius: 50%; z-index: 2;
     box-shadow: 0 0 0 5px #222831;
 }
 
-.timeline-left .date { color: #7F8CAA; }
+.timeline-right { flex: 1; padding-left: 70px; }
+
+/* Responsive Fixes */
+@media screen and (max-width: 980px) {
+    .timeline-container::before { left: 15px; }
+    .timeline-item { flex-direction: column !important; padding-left: 40px; }
+    .timeline-left { text-align: left; margin-bottom: 1em; flex: none !important; width: 100%; }
+    .timeline-dot { left: 15px; }
+    .timeline-right { padding-left: 0; }
+    .logo-band { justify-content: center; }
+}
+
+/* --- 7. FOOTER FIX --- */
+#footer.wrapper.style1-alt, #footer {
+    background-color: #222831 !important;
+    background-image: none !important;
+}
+
+#footer .menu li {
+    color: #7F8CAA !important;
+    border-left-color: rgba(127, 140, 170, 0.3) !important;
+}
