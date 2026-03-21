@@ -4077,3 +4077,24 @@ h1.major:after, h2.major:after {
     color: #7F8CAA !important;
     border-left-color: rgba(127, 140, 170, 0.3) !important;
 }
+
+/* --- 8. SKILLS FRAME (Harmonisierung mit Meilensteinen) --- */
+.skills-outer-frame {
+    background: #333446 !important;
+    padding: 3.5rem !important;
+    border-radius: 12px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Anpassung der Abstände innerhalb des Rahmens */
+.skills-outer-frame h2 {
+    margin-top: 0;
+}
+
+/* Responsive Padding für kleinere Bildschirme */
+@media screen and (max-width: 736px) {
+    .skills-outer-frame {
+        padding: 2rem 1.5rem !important;
+    }
+}
