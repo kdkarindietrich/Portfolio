@@ -71,6 +71,136 @@
 </section>
 <style>
 
+	<style>
+    /* --- Minimalist Live Sync Monitor --- */
+    .sync-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .sync-text {
+        flex: 1;
+    }
+
+    /* Das kompakte Dashboard-Element */
+    .sync-monitor {
+        flex: 0 0 280px; /* Kompakter */
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(120, 198, 207, 0.2);
+        border-radius: 8px;
+        padding: 1.2rem;
+    }
+
+    .sync-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.8rem;
+    }
+
+    .sync-row:last-child {
+        margin-bottom: 0;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(127, 140, 170, 0.1);
+    }
+
+    .sync-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #7F8CAA;
+    }
+
+    .sync-time {
+        font-family: 'Courier New', monospace;
+        font-size: 1.2rem; /* Viel kleiner und dezenter */
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    /* Der strategische Vorsprung-Indikator */
+    .advance-badge {
+        display: inline-block;
+        font-size: 0.6rem;
+        font-weight: 800;
+        color: #78c6cf;
+        background: rgba(120, 198, 207, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-top: 4px;
+    }
+
+    .pulse-dot {
+        height: 6px;
+        width: 6px;
+        background-color: #78c6cf;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+        box-shadow: 0 0 8px #78c6cf;
+        animation: pulse-animation 2s infinite;
+    }
+
+    @keyframes pulse-animation {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+
+    @media screen and (max-width: 736px) {
+        .sync-section { flex-direction: column; }
+        .sync-monitor { width: 100%; flex: none; }
+    }
+</style>
+
+<section id="advantage" class="wrapper style2 fade-up">
+    <div class="inner">
+        <h2>Strategischer Zeitvorteil</h2>
+        <div class="sync-section">
+            <div class="sync-text">
+                <p><strong>Operativer Vorsprung für DACH & Europa:</strong> Mein Setup verwandelt geografische Distanz in einen massiven Geschwindigkeitsvorteil. Während in Europa die Nachtruhe herrscht, startet meine operative Engine bereits in den Tag.</p>
+                <p>Wenn Ihr Team am Morgen die Arbeit aufnimmt, liegt die Basis für den Tag bereits fertig vor. Ich eliminiere administrative Hürden und bereite strategische Analysen vor, bevor Ihr Markt erwacht. Dieser lückenlose Projektzyklus beschleunigt Ihre Time-to-Market massiv – bei voller Abdeckung der CET-Kernarbeitszeiten.</p>
+            </div>
+
+            <div class="sync-monitor">
+                <div class="sync-row">
+                    <span class="sync-label">Ihre Zeit (CET)</span>
+                    <span class="sync-time" id="local-clock">00:00</span>
+                </div>
+                <div class="sync-row">
+                    <span class="sync-label">Meine Zeit (ICT)</span>
+                    <div style="text-align: right;">
+                        <span class="sync-time" style="color: #78c6cf;" id="thai-clock">00:00</span>
+                        <span class="advance-badge" id="gap-info"><span class="pulse-dot"></span>+6H VORSPRUNG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateClocks() {
+        const now = new Date();
+        const localTimeStr = now.toLocaleString("en-US", {timeZone: "Europe/Berlin"});
+        const thaiTimeStr = now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+        const localDate = new Date(localTimeStr);
+        const thaiDate = new Date(thaiTimeStr);
+        
+        const diff = Math.round((thaiDate - localDate) / 3600000);
+        const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+        
+        document.getElementById('local-clock').textContent = localDate.toLocaleTimeString('de-DE', options);
+        document.getElementById('thai-clock').textContent = thaiDate.toLocaleTimeString('de-DE', options);
+        document.getElementById('gap-info').innerHTML = `<span class="pulse-dot"></span>+${diff}H VORSPRUNG`;
+    }
+    setInterval(updateClocks, 1000);
+    updateClocks();
+</script>
+			
 
 	<style>
   /* --- High-End Tactical Map Styling --- */
