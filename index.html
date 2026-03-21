@@ -262,7 +262,7 @@
 			<section id="resume" class="wrapper style3 fade-up">
 				<div class="inner">
 					<h2>Beruflicher Werdegang</h2>
-					<p>Ein Auszug meiner Stationen in der operativen Projektleitung und Marketing-Steuerung.</p>
+					<p>Ein Auszug meiner Stationen in der operativen leitung und Marketing-Steuerung.</p>
 					
 					<div class="timeline-container">
 						
@@ -298,7 +298,7 @@
 							<div class="timeline-dot"></div>
 							<div class="timeline-right">
 								<h3>Principal Consultant | Marketing Strategy</h3>
-								<p> Retained Consultant für das ABB Global Brand Management zur Sicherstellung von „Zero Operational Downtime“ bei globalen Projekten. Unterstützung bei Corporate Events und der Logistik-Koordination für die Formula E. Parallel dazu Steuerung des B2B-Rollouts und Feature-Releases für eine Photovoltaik-SaaS-Applikation.</p>
+								<p> Retained Consultant für das ABB Global Brand Management zur Sicherstellung von „Zero Operational Downtime“ bei globalen en. Unterstützung bei Corporate Events und der Logistik-Koordination für die Formula E. Parallel dazu Steuerung des B2B-Rollouts und Feature-Releases für eine Photovoltaik-SaaS-Applikation.</p>
 							</div>
 						</div>
 
@@ -713,6 +713,8 @@
     setInterval(updateOperationsClock, 1000);
     updateOperationsClock();
 </script>
+
+
 			<section id="three" class="wrapper style1 fade-up">
     <div class="inner">
         <h2>Lassen Sie uns sprechen</h2>
@@ -720,12 +722,12 @@
         
         <div class="contact-grid">
             
-            <div class="contact-card">
-                <span class="icon solid fa-envelope"></span>
-                <h3>Nachricht senden</h3>
-                <p>Schreiben Sie mir unkompliziert – ich antworte Ihnen verlässlich und zeitnah.</p>
-                <a href="mailto:kd@karindietrich.ch" class="button small">E-Mail schreiben</a>
-            </div>
+           <div class="contact-card">
+        <span class="icon solid fa-envelope"></span>
+        <h3>Nachricht senden</h3>
+        <p>Schreiben Sie mir unkompliziert – ich antworte Ihnen verlässlich und zeitnah.</p>
+        <a href="#" class="button small" onclick="decodeEmail(event)">E-Mail schreiben</a>
+    </div>
 
             <div class="contact-card">
                 <span class="icon solid fa-calendar-check"></span>
@@ -759,6 +761,7 @@
 			<div class="inner">
 				<ul class="menu">
 					<li>&copy; Karin Dietrich. All rights reserved.</li>
+					<li>&copy; kd [at] karindietrich.ch</li>
 				</ul>
 			</div>
 		</footer>
@@ -771,5 +774,19 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
+		<script>
+    function decodeEmail(event) {
+        // Verhindert, dass die Seite nach oben springt
+        event.preventDefault();
+        
+        // Die E-Mail wird erst beim Klick zusammengesetzt
+        const user = "kd";
+        const domain = "karindietrich.ch";
+        
+        // Öffnet das Mail-Programm des Nutzers
+        window.location.href = "mailto:" + user + "@" + domain;
+    }
+</script>
+		
 	</body>
 </html>
