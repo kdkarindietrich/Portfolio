@@ -567,136 +567,129 @@
     </div>
 </section>
 
-		<style>
-    /* --- Redesign: Strategischer Zeitvorteil & Uhr --- */
-    .advantage-flex {
+<style>
+    /* --- Layout: Strategic Time Advantage --- */
+    .advantage-row {
         display: flex;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: center;
         gap: 4rem;
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 
-    .advantage-text {
+    .advantage-text-side {
         flex: 1;
     }
 
-    .advantage-text h3 {
-        color: #FFFFFF;
+    .advantage-text-side p strong {
+        color: #78c6cf;
+        display: block;
+        margin-bottom: 0.5rem;
         font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        margin-bottom: 1.5rem;
     }
 
-    /* Neue Radiale Zeit-Visualisierung */
-    .clock-display {
-        flex: 0 0 450px;
-        position: relative;
-        text-align: center;
+    /* Sync Monitor: Kompaktes Dashboard-Element */
+    .sync-monitor-box {
+        flex: 0 0 300px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(120, 198, 207, 0.2);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .radial-clock-wrapper {
-        position: relative;
-        width: 320px;
-        height: 320px;
-        margin: 0 auto;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(127, 140, 170, 0.1);
-        border-radius: 50%;
-        padding: 20px;
-        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .radial-clock-segment {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        border-radius: 50%;
-    }
-
-    /* Der visuelle Vorsprung (Mint-Lichtbogen) */
-    .radial-clock-segment.advance {
-        background: conic-gradient(
-            from 180deg, /* Start bei 6 Uhr (Schweizer Abend) */
-            rgba(120, 198, 207, 0.1) 0%,
-            rgba(120, 198, 207, 0.8) 25%, /* Volle Leistung in der Nacht */
-            rgba(120, 198, 207, 0) 50% /* Abklingen am Schweizer Morgen */
-        );
-        filter: blur(2px);
-    }
-
-    /* Die zentrale Zeit-Anzeige */
-    .clock-center-display {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 220px;
-        height: 220px;
-        background: #222831; /* Site BG */
-        border-radius: 50%;
+    .monitor-row {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        border: 1px solid rgba(127, 140, 170, 0.2);
-    }
-
-    .time-label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: #7F8CAA;
-        margin-bottom: 0.2rem;
-    }
-
-    .time-digital {
-        font-family: 'Courier New', monospace;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #FFFFFF;
         margin-bottom: 1rem;
     }
 
-    /* Spezifische Styling für "Mein Vorsprung" */
-    .time-box.advance .time-digital {
-        color: #78c6cf; /* Mint */
-        text-shadow: 0 0 10px rgba(120, 198, 207, 0.5);
+    .monitor-row:last-child {
+        margin-bottom: 0;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(127, 140, 170, 0.1);
     }
 
-    /* Responsive Anpassung */
-    @media screen and (max-width: 1080px) {
-        .advantage-flex { flex-direction: column; align-items: center; gap: 3rem; }
-        .clock-display { width: 100%; flex: none; }
+    .monitor-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #7F8CAA;
+    }
+
+    .monitor-time {
+        font-family: 'Courier New', monospace;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    /* Lead Badge */
+    .lead-badge {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.6rem;
+        font-weight: 800;
+        color: #78c6cf;
+        background: rgba(120, 198, 207, 0.1);
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .lead-dot {
+        height: 6px;
+        width: 6px;
+        background-color: #78c6cf;
+        border-radius: 50%;
+        margin-right: 8px;
+        box-shadow: 0 0 8px #78c6cf;
+        animation: sync-pulse 2s infinite;
+    }
+
+    @keyframes sync-pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(1.2); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Responsive Stack */
+    @media screen and (max-width: 980px) {
+        .advantage-row {
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .sync-monitor-box {
+            width: 100%;
+            flex: none;
+        }
     }
 </style>
-			
+
 <section id="advantage" class="wrapper style2 fade-up">
     <div class="inner">
         <h2>Strategischer Zeitvorteil</h2>
-        <div class="advantage-flex">
-            <div class="advantage-text">
-                <p><strong>Operative Beschleunigung statt nur Remote-Work:</strong> In einer global vernetzten Wirtschaft ist Stillstand das grösste Risiko. Mein Setup verwandelt die geografische Distanz in einen massiven Geschwindigkeitsvorteil für Ihr Unternehmen. Während im Schweizer Markt der Feierabend einkehrt, startet meine operative Engine.</p>
-                <p>Das Ergebnis ist ein nahezu lückenloser 24-Stunden-Projektzyklus: Administrative Hürden, komplexe Prozessvorbereitungen und strategische Analysen sind bereits abgeschlossen, wenn Ihr Team den ersten Kaffee trinkt. Diese „Always-on“-Dynamik eliminiert Leerläufe und halbiert Ihre Time-to-Market. Ich liefere Schweizer Präzision mit der Schlagkraft eines globalen Hubs – nahtlos integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von sechs Stunden. <br>Für Onboardings, Strategie-Meetings oder Key-Events bin ich zudem regelmässig persönlich vor Ort in der Schweiz.</p>
+        <div class="advantage-row">
+            
+            <div class="advantage-text-side">
+                <p><strong>Operative Beschleunigung statt nur Remote-Work:</strong> Mein Setup verwandelt geografische Distanz in einen massiven Geschwindigkeitsvorteil. Durch diesen asynchronen Workflow eliminiere ich den morgendlichen „Kaltstart“ Ihres Teams.</p>
+                <p>Wenn Ihre Kollegen die Arbeit aufnehmen, sind administrative Hürden bereits genommen und strategische Vorarbeiten abgeschlossen. Dieser nahtlose Übergang garantiert Schweizer Präzision bei deutlich verkürzter Time-to-Market – voll integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von 5 bis 6 Stunden.</p>
             </div>
 
-          <div class="clock-display">
-                <div class="radial-clock-wrapper">
-                    <div class="radial-clock-segment advance"></div>
-                    <div class="clock-center-display">
-                        
-                        <div class="time-box">
-                            <span class="time-label">Schweizer Markt</span>
-                            <span class="time-digital" id="local-clock">00:00</span>
+            <div class="sync-monitor-box">
+                <div class="monitor-row">
+                    <span class="monitor-label">Bei Ihnen (CET)</span>
+                    <span class="monitor-time" id="local-clock">00:00</span>
+                </div>
+                <div class="monitor-row">
+                    <span class="monitor-label">Bei mir (ICT)</span>
+                    <div style="text-align: right;">
+                        <span class="monitor-time" style="color: #78c6cf;" id="thai-clock">00:00</span>
+                        <div class="lead-badge" id="gap-info">
+                            <span class="lead-dot"></span>
+                            <span>Sync Active</span>
                         </div>
-
-                        <div class="time-box advance">
-                            <span class="time-label">Mein Vorsprung</span>
-                            <span class="time-digital" id="thai-clock">00:00</span>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -706,27 +699,30 @@
 </section>
 
 <script>
-    function updateClocks() {
+    function updateOperationsClock() {
         const now = new Date();
+        
+        // DACH-Zeit (Zürich/Berlin)
+        const localOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Zurich' };
+        const localTimeStr = now.toLocaleTimeString('de-CH', localOptions);
+        
+        // Thailand-Zeit (Bangkok)
+        const thaiOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Bangkok' };
+        const thaiTimeStr = now.toLocaleTimeString('de-CH', thaiOptions);
+        
+        // Differenz-Berechnung für den Badge
+        const dachDate = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Zurich"}));
+        const thaiDate = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"}));
+        const diff = Math.round((thaiDate - dachDate) / 3600000);
 
-        // Lokale Zeit des Besuchers
-        const localOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
-        document.getElementById('local-clock').textContent = now.toLocaleTimeString('de-CH', localOptions);
-
-        // Thailand Zeit (UTC+7)
-        const thaiOptions = { 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            hour12: false, 
-            timeZone: 'Asia/Bangkok' 
-        };
-        document.getElementById('thai-clock').textContent = now.toLocaleTimeString('de-CH', thaiOptions);
+        document.getElementById('local-clock').textContent = localTimeStr;
+        document.getElementById('thai-clock').textContent = thaiTimeStr;
+        document.getElementById('gap-info').innerHTML = `<span class="lead-dot"></span>+${diff}H VORSPRUNG`;
     }
 
-    setInterval(updateClocks, 1000);
-    updateClocks(); // Initialer Aufruf
+    setInterval(updateOperationsClock, 1000);
+    updateOperationsClock();
 </script>
-			
 			
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
