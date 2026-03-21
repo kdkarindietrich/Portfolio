@@ -4038,3 +4038,53 @@ h1.major:after, h2.major:after {
     .timeline-dot { left: 15px; }
     .timeline-right { padding-left: 0; }
 }
+
+/* --- 9. KONTAKT CARDS --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: #333446 !important;
+    padding: 2.5rem 1.5rem !important;
+    border-radius: 8px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: #78c6cf !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card i, .contact-card .icon {
+    font-size: 2rem;
+    color: #78c6cf;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.contact-card h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: #7F8CAA !important;
+}
+
+.contact-card a, .contact-card span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 980px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
