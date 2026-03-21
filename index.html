@@ -350,7 +350,7 @@
         margin-top: 3rem;
     }
 
-    /* --- Linke Spalte: Icon Cloud (3 Kategorien) --- */
+    /* --- Linke Spalte: Tech-Stack Icon Cloud --- */
     .tech-stack-column {
         flex: 1;
         display: flex;
@@ -371,7 +371,13 @@
     .icon-cloud {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem;
+        gap: 1.8rem; /* Etwas mehr Platz für die Tooltips */
+    }
+
+    /* Wrapper für Tooltip & Glow */
+    .icon-wrapper {
+        position: relative;
+        display: inline-block;
     }
 
     .icon-cloud img {
@@ -379,13 +385,44 @@
         width: auto;
         filter: grayscale(100%) brightness(1.5);
         opacity: 0.6;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
+        display: block;
     }
 
-    .icon-cloud img:hover {
-        filter: grayscale(0%) brightness(1);
-        opacity: 1;
+    /* Mint Aufleuchten & Glow */
+    .icon-wrapper:hover img {
+        filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px rgba(120, 198, 207, 0.8));
         transform: scale(1.1);
+        opacity: 1;
+    }
+
+    /* Tooltip Styling */
+    .icon-wrapper::after {
+        content: attr(data-name);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(34, 40, 49, 0.95);
+        color: #78c6cf; /* Mint Name */
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(120, 198, 207, 0.2);
+        z-index: 10;
+    }
+
+    .icon-wrapper:hover::after {
+        opacity: 1;
+        visibility: visible;
+        bottom: -35px;
     }
 
     /* --- Rechte Spalte: Progressbalken --- */
@@ -431,13 +468,14 @@
     @media screen and (max-width: 980px) {
         .expertise-container { flex-direction: column; gap: 4rem; }
         .tech-stack-column, .skills-column { width: 100%; }
+        .icon-cloud { justify-content: center; }
     }
 </style>
 
 <section id="two" class="wrapper style3 fade-up">
     <div class="inner">
         <h2>Core Skills & Tools</h2>
-        <p>Eine Auswahl der Schwerpunkte meiner operativen Expertise und mein Tech-Stack für hocheffiziente und skalierbare Business-Workflows.</p>
+        <p>Ein kompakter Überblick meiner operativen Expertise und der Tech-Stack, mit dem ich Projekte effizient und skalierbar steuere.</p>
 
         <div class="expertise-container">
             
@@ -446,35 +484,35 @@
                 <div class="tech-group">
                     <h4>Workflows & Collaboration</h4>
                     <div class="icon-cloud">
-                        <img src="images/atlassian.svg" alt="Atlassian">
-                        <img src="images/jira.svg" alt="Jira">
-                        <img src="images/asana.svg" alt="Asana">
-                        <img src="images/trello.svg" alt="Trello">
-                        <img src="images/confluence.svg" alt="Confluence">
-                        <img src="images/social-sharepoint-svgrepo-com.svg" alt="SharePoint">
+                        <div class="icon-wrapper" data-name="Atlassian"><img src="images/atlassian.svg" alt="Atlassian"></div>
+                        <div class="icon-wrapper" data-name="Jira"><img src="images/jira.svg" alt="Jira"></div>
+                        <div class="icon-wrapper" data-name="Asana"><img src="images/asana.svg" alt="Asana"></div>
+                        <div class="icon-wrapper" data-name="Trello"><img src="images/trello.svg" alt="Trello"></div>
+                        <div class="icon-wrapper" data-name="Confluence"><img src="images/confluence.svg" alt="Confluence"></div>
+                        <div class="icon-wrapper" data-name="SharePoint"><img src="images/social-sharepoint-svgrepo-com.svg" alt="SharePoint"></div>
                     </div>
                 </div>
 
                 <div class="tech-group">
                     <h4>Business & Marketing Ops</h4>
                     <div class="icon-cloud">
-                        <img src="images/hubspot.svg" alt="HubSpot">
-                        <img src="images/salesforce-svgrepo-com.svg" alt="Salesforce">
-                        <img src="images/sap.svg" alt="SAP">
-                        <img src="images/googleads.svg" alt="Google Ads">
-                        <img src="images/google.svg" alt="Google Workspace">
-                        <img src="images/wordpress.svg" alt="WordPress">
+                        <div class="icon-wrapper" data-name="HubSpot"><img src="images/hubspot.svg" alt="HubSpot"></div>
+                        <div class="icon-wrapper" data-name="Salesforce"><img src="images/salesforce-svgrepo-com.svg" alt="Salesforce"></div>
+                        <div class="icon-wrapper" data-name="SAP"><img src="images/sap.svg" alt="SAP"></div>
+                        <div class="icon-wrapper" data-name="Google Ads"><img src="images/googleads.svg" alt="Google Ads"></div>
+                        <div class="icon-wrapper" data-name="Google Workspace"><img src="images/google.svg" alt="Google Workspace"></div>
+                        <div class="icon-wrapper" data-name="WordPress"><img src="images/wordpress.svg" alt="WordPress"></div>
                     </div>
                 </div>
 
                 <div class="tech-group">
                     <h4>Creative & AI Innovation</h4>
                     <div class="icon-cloud">
-                        <img src="images/adobe-svgrepo-com.svg" alt="Adobe CC">
-                        <img src="images/figma.svg" alt="Figma">
-                        <img src="images/googlegemini.svg" alt="Gemini">
-                        <img src="images/googleassistant.svg" alt="AI Support">
-                        <img src="images/gimp.svg" alt="GIMP">
+                        <div class="icon-wrapper" data-name="Adobe CC"><img src="images/adobe-svgrepo-com.svg" alt="Adobe CC"></div>
+                        <div class="icon-wrapper" data-name="Figma"><img src="images/figma.svg" alt="Figma"></div>
+                        <div class="icon-wrapper" data-name="Gemini"><img src="images/googlegemini.svg" alt="Gemini"></div>
+                        <div class="icon-wrapper" data-name="AI Assistant"><img src="images/googleassistant.svg" alt="AI Support"></div>
+                        <div class="icon-wrapper" data-name="GIMP"><img src="images/gimp.svg" alt="GIMP"></div>
                     </div>
                 </div>
 
@@ -483,37 +521,37 @@
             <div class="skills-column">
                 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Project & Program Management (15+ J.)</span>
+                    <span class="skill-bar-label">Project & Program Management (15+ J.) [cite: 8, 93, 176, 256]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Budget-Steuerung (bis 8 Mio. CHF)</span>
+                    <span class="skill-bar-label">Budget-Steuerung (bis 8 Mio. CHF) [cite: 9, 94, 177, 257]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">AI Workflow Architecture</span>
+                    <span class="skill-bar-label">AI Workflow Architecture [cite: 258, 270]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Stakeholder-Management</span>
+                    <span class="skill-bar-label">Stakeholder-Management [cite: 34, 201, 274]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Business Process Optimization</span>
+                    <span class="skill-bar-label">Business Process Optimization [cite: 31, 116, 198, 273]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Remote Governance & Async Ops</span>
+                    <span class="skill-bar-label">Remote Governance & Async Ops [cite: 12, 97, 179]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
                 </div>
 
                 <div class="skill-bar-row">
-                    <span class="skill-bar-label">Agile & Hybrid Methodologies</span>
+                    <span class="skill-bar-label">Agile & Hybrid Methodologies [cite: 149, 229]</span>
                     <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
                 </div>
 
@@ -527,6 +565,7 @@
         </div>
     </div>
 </section>
+			
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
 					<h2>Kontakt</h2>
