@@ -4170,7 +4170,7 @@ h1.major:after, h2.major:after {
 
 #main-logo {
     width: 100%;
-    max-width: 140px; /* Regelt die sichtbare Grösse des Logos */
+    max-width: 120px; /* Regelt die sichtbare Grösse des Logos */
     height: auto;
     display: inline-block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
