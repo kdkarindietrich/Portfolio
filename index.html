@@ -69,7 +69,165 @@
         </div>
     </div>
 </section>
+<style>
+  /* --- Sophisticated Asynchronous Hub Styling --- */
+  .advantage-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
 
+  .advantage-text {
+    flex: 1;
+  }
+
+  /* Der neue, kompakte und elegante Visual-Wrapper */
+  .visual-wrapper {
+    flex: 0 0 320px; /* Deutlich kleiner */
+    position: relative;
+    width: 320px;
+    height: 320px;
+  }
+
+  /* Sophisticated Vector Globe SVG */
+  .sophisticated-globe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Clock Overlay Styling */
+  .clock-overlay {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    pointer-events: none; /* Klicks gehen durch */
+  }
+
+  .clock-label {
+    font-size: 0.65rem;
+    color: #7F8CAA;
+    margin-bottom: 2px;
+  }
+
+  .clock-time {
+    font-size: 1.6rem;
+    font-weight: bold;
+    display: block;
+  }
+
+  .clock-tz {
+    font-size: 0.6rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Positionierung DACH Hub */
+  .time-dach {
+    top: 15%;
+    left: 0%;
+    transform: translateX(-15%);
+  }
+  .time-dach .clock-tz { color: #78c6cf; } /* Mint Akzent für die Zielzeitzone */
+
+  /* Positionierung Thai Hub */
+  .time-thai {
+    bottom: 10%;
+    right: 0%;
+    transform: translateX(15%);
+  }
+  .time-thai .clock-time { color: #78c6cf; } /* Dein Vorsprung in Mint */
+  .time-thai .clock-tz { opacity: 0.5; }
+
+  /* Responsive Anpassung */
+  @media screen and (max-width: 980px) {
+    .advantage-container { flex-direction: column; text-align: center; }
+    .visual-wrapper { flex: none; width: 280px; height: 280px; }
+    .time-dach { left: 50%; transform: translateX(-50%); top: 10%; }
+    .time-thai { right: 50%; transform: translateX(50%); bottom: 5%; }
+  }
+</style>
+
+<section id="advantage" class="wrapper style2 fade-up">
+  <div class="inner">
+    <h2>Strategischer Zeitvorteil</h2>
+    <div class="advantage-container">
+      <div class="advantage-text">
+        <p><strong>Wettbewerbsvorteil durch asynchrone Exzellenz:</strong> In einer global vernetzten Wirtschaft ist Stillstand das grösste Risiko. Mein Setup verwandelt die geografische Distanz in einen massiven Geschwindigkeitsvorteil für Ihr Unternehmen. Während im europäischen Markt der Feierabend einkehrt, startet meine operative Engine.</p>
+        <p>Das Ergebnis ist ein lückenloser **24-Stunden-Projektzyklus**: Komplexe Prozessvorbereitungen und strategische Analysen sind bereits abgeschlossen, wenn Ihr Team den ersten Kaffee trinkt. Diese Dynamik halbiert Ihre Time-to-Market. Ich liefere Schweizer Präzision mit der Schlagzahl eines globalen Hubs – nahtlos integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung.</p>
+      </div>
+
+      <div class="visual-wrapper">
+        <svg class="sophisticated-globe" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="gradGlobe" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:#2a313d;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#222831;stop-opacity:1" />
+            </radialGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          
+          <circle cx="50" cy="50" r="48" fill="url(#gradGlobe)" stroke="#4e5668" stroke-width="0.3"/>
+          
+          <ellipse cx="50" cy="50" rx="30" ry="48" fill="none" stroke="#4e5668" stroke-width="0.15" opacity="0.3"/>
+          <ellipse cx="50" cy="50" rx="48" ry="30" fill="none" stroke="#4e5668" stroke-width="0.15" opacity="0.3"/>
+          <line x1="2" y1="50" x2="98" y2="50" stroke="#4e5668" stroke-width="0.15" opacity="0.3"/>
+          <line x1="50" y1="2" x2="50" y2="98" stroke="#4e5668" stroke-width="0.15" opacity="0.3"/>
+
+          <path d="M48 35 A 25 25 0 0 1 75 55" stroke="#78c6cf" fill="none" stroke-width="1.2" filter="url(#glow)"/>
+
+          <circle cx="48" cy="35" r="2" fill="#fff" filter="url(#glow)"/>
+
+          <circle cx="75" cy="55" r="2.5" fill="#78c6cf" filter="url(#glow)">
+             <animate attributeName="r" values="2.5;4;2.5" dur="3s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+
+        <div class="clock-overlay time-dach">
+          <div class="clock-label">Ihre Zeit</div>
+          <div class="clock-time" id="local-clock">00:00</div>
+          <div class="clock-tz">CET / CEST</div>
+        </div>
+
+        <div class="clock-overlay time-thai">
+          <div class="clock-label">Meine Zeit</div>
+          <div class="clock-time" id="thai-clock">00:00</div>
+          <div class="clock-tz">Koh Tao, TH</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateClocks() {
+    const now = new Date();
+    // Zeit für DACH (Berlin/Zürich/Wien)
+    const localTimeStr = now.toLocaleString("en-US", {timeZone: "Europe/Berlin"});
+    // Zeit für Thailand
+    const thaiTimeStr = now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+    
+    const localDate = new Date(localTimeStr);
+    const thaiDate = new Date(thaiTimeStr);
+    
+    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+    
+    document.getElementById('local-clock').textContent = localDate.toLocaleTimeString('de-DE', options);
+    document.getElementById('thai-clock').textContent = thaiDate.toLocaleTimeString('de-DE', options);
+  }
+
+  setInterval(updateClocks, 1000);
+  updateClocks();
+</script>
+			
 			<style>
     /* --- The Global Advantage: 3D-Globe & Zeitvorteil --- */
     .advantage-flex {
