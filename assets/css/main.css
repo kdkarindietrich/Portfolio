@@ -4162,38 +4162,73 @@ h1.major:after, h2.major:after {
     .contact-grid { grid-template-columns: 1fr; }
 }
 
-/* --- NAV LOGO STYLING --- */
-.nav-logo-container {
-    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Abstand oben und unten */
+/* --- SITE LOGO STYLING --- */
+
+/* Platziere diesen Block in deinem <style>-Bereich */
+
+/* --- Allgemeine Logo-Stile --- */
+.logo-group {
+    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Abstand oben und unten in der Sidebar */
     text-align: center;
+    position: relative;
+    z-index: 1000;
 }
 
-#main-logo {
+.site-logo {
     width: 100%;
-    max-width: 120px; /* Regelt die sichtbare Grösse des Logos */
+    max-width: 120px; /* Regelt die sichtbare Grösse des Logos in der Sidebar */
     height: auto;
-    display: inline-block;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    display: block;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-#main-logo:hover {
+.site-logo:hover {
     transform: scale(1.02); /* Dezenter Interaktionseffekt */
 }
 
-/* Sidebar-Anpassung für sehr schmale Bildschirme */
-@media screen and (max-width: 1280px) {
-    .nav-logo-container {
-        padding: 2rem 1rem 1rem 1rem;
-    }
-    #main-logo {
-        max-width: 110px;
+/* --- Standard-Sichtbarkeit auf Desktops --- */
+#main-logo-desktop {
+    display: block; /* Desktop-Logo anzeigen */
+}
+
+#main-logo-mobile {
+    display: none; /* Mobiles Logo standardmäßig ausblenden */
+}
+
+/* --- Mobiles Top-Leisten-Styling (wenn Navigation nach oben rutscht) --- */
+#sidebar {
+    position: fixed; /* Sidebar oben festpinnen auf Mobilgeräten */
+}
+
+@media screen and (max-width: 980px) {
+    #sidebar {
+        height: 4rem; /* Höhe der mobilen Top-Leiste */
     }
 }
 
-/* Auf Mobilgeräten (wenn die Sidebar zur Top-Bar wird) */
+/* --- Medienabfrage für Mobile Ansicht --- */
 @media screen and (max-width: 980px) {
-    .nav-logo-container {
-        display: none; /* Verhindert Dopplung mit dem mobilen Menü */
+    
+    /* Logos austauschen */
+    #main-logo-desktop {
+        display: none; /* Desktop-Logo ausblenden */
+    }
+
+    #main-logo-mobile {
+        display: block; /* Mobiles Logo einblenden */
+    }
+
+    /* Anpassung des mobilen Logos */
+    #main-logo-mobile {
+        max-width: 100px; /* Kleinere Größe für die mobile Top-Leiste */
+        position: absolute;
+        top: 0.5rem; /* Vertikale Zentrierung */
+        left: 1rem; /* Horizontale Ausrichtung */
+    }
+
+    /* Padding-Anpassung, damit der Inhalt nicht unter dem Header verschwindet */
+    #wrapper {
+        padding-top: 4rem; /* Entspricht der Höhe der Top-Leiste */
     }
 }
