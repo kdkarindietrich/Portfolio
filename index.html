@@ -341,175 +341,154 @@
 				</div>
 			</section>
 
-			<style>
-    /* --- Expertise & Progress Bars --- */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 4rem;
-        margin-bottom: 5rem;
+		<style>
+    /* --- Kompakte Expertise & Tech-Stack Sektion --- */
+    .expertise-list {
+        max-width: 800px;
+        margin: 0 auto 4rem auto;
     }
 
-    .skill-item {
-        width: 100%;
-    }
-
-    .skill-header {
+    .skill-row {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.2rem;
+        padding: 0.5rem 0;
     }
 
-    .skill-title {
+    /* Icon-Container für einheitliche Breite */
+    .skill-icon {
+        flex: 0 0 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .skill-icon img {
+        width: 24px;
+        height: auto;
+        filter: grayscale(100%) brightness(1.5);
+        opacity: 0.7;
+    }
+
+    .skill-icon i {
+        font-size: 1.2rem;
+        color: #78c6cf;
+    }
+
+    /* Text-Bereich */
+    .skill-info {
+        flex: 0 0 250px; /* Feste Breite für bündige Balken */
+    }
+
+    .skill-name {
+        font-size: 0.85rem;
         font-weight: 600;
         color: #FFFFFF;
-        font-size: 0.95rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
 
-    .skill-value {
-        color: #78c6cf;
-        font-weight: bold;
-    }
-
-    .progress-bar-bg {
+    /* Minimalistischer Statusbalken */
+    .skill-bar-container {
+        flex: 1;
         background: rgba(255, 255, 255, 0.05);
-        height: 8px;
-        border-radius: 4px;
+        height: 4px; /* Sehr dezent */
+        border-radius: 2px;
         overflow: hidden;
     }
 
-    .progress-bar-fill {
+    .skill-bar-fill {
         background: #78c6cf;
         height: 100%;
-        border-radius: 4px;
-        transition: width 1.5s ease-in-out;
+        border-radius: 2px;
     }
 
-    /* --- Tech Stack Logo Cloud --- */
-    .tech-stack-container {
-        margin-top: 4rem;
-    }
-
-    .tech-category {
-        margin-bottom: 3rem;
-    }
-
-    .tech-category h4 {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: #7F8CAA;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-
-    .tech-badges {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2.5rem;
-        align-items: center;
-    }
-
-    .tech-badges img {
-        height: 35px;
-        width: auto;
-        filter: grayscale(100%) brightness(1.5);
-        opacity: 0.5;
-        transition: all 0.4s ease;
-    }
-
-    .tech-badges img:hover {
+    /* Tech-Stack Icons dezent hervorheben bei Hover */
+    .skill-row:hover .skill-icon img {
         filter: grayscale(0%) brightness(1);
         opacity: 1;
-        transform: scale(1.15);
+        transform: scale(1.1);
+        transition: all 0.3s ease;
     }
 
-    @media screen and (max-width: 980px) {
-        .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+    @media screen and (max-width: 736px) {
+        .skill-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        .skill-info { flex: none; }
+        .skill-bar-container { width: 100%; }
     }
 </style>
 
 <section id="two" class="wrapper style3 fade-up">
     <div class="inner">
         <h2>Expertise & Tools</h2>
-        <p>Strategische Kernkompetenzen und technisches Ökosystem für hocheffiziente Marketing Operations.</p>
+        <p>Ein Überblick über strategische Kompetenzen und das technische Ökosystem.</p>
 
-        <div class="skills-grid">
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Project & Program Management</span><span class="skill-value">10/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+        <div class="expertise-list">
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                <div class="skill-info"><span class="skill-name">Project & Program Management</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Budget-Steuerung & Compliance</span><span class="skill-value">9/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-wallet"></i></div>
+                <div class="skill-info"><span class="skill-name">Budget-Steuerung & Compliance</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">AI Workflow Architecture</span><span class="skill-value">9/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                <div class="skill-info"><span class="skill-name">AI Workflow Architecture</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Stakeholder-Management</span><span class="skill-value">10/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-users"></i></div>
+                <div class="skill-info"><span class="skill-name">Stakeholder-Management</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Business Process Optimization</span><span class="skill-value">9/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="skill-info"><span class="skill-name">Process Optimization</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Remote Governance</span><span class="skill-value">10/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-laptop-house"></i></div>
+                <div class="skill-info"><span class="skill-name">Remote Governance</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
             </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Asynchrone Kommunikation</span><span class="skill-value">10/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Rapid Learning & Adaptability</span><span class="skill-value">10/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Agile Frameworks</span><span class="skill-value">8/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-header"><span class="skill-title">Change Management</span><span class="skill-value">8/10</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
-            </div>
-        </div>
 
-        <div class="tech-stack-container">
-            <div class="tech-category">
-                <h4>Workflows & Collaboration</h4>
-                <div class="tech-badges">
-                    <img src="images/atlassian.svg" alt="Atlassian">
-                    <img src="images/jira.svg" alt="Jira">
-                    <img src="images/asana.svg" alt="Asana">
-                    <img src="images/trello.svg" alt="Trello">
-                    <img src="images/confluence.svg" alt="Confluence">
-                </div>
+            <div class="skill-row">
+                <div class="skill-icon"><img src="images/sap.svg" alt="SAP"></div>
+                <div class="skill-info"><span class="skill-name">SAP (Finance & ERP)</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 85%;"></div></div>
             </div>
-            <div class="tech-category">
-                <h4>Business & Marketing Ops</h4>
-                <div class="tech-badges">
-                    <img src="images/hubspot.svg" alt="HubSpot">
-                    <img src="images/wordpress.svg" alt="WordPress">
-                    </div>
+            <div class="skill-row">
+                <div class="skill-icon"><img src="images/salesforce-svgrepo-com.svg" alt="Salesforce"></div>
+                <div class="skill-info"><span class="skill-name">Salesforce CRM</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
             </div>
-            <div class="tech-category">
-                <h4>Creative & AI Innovation</h4>
-                <div class="tech-badges">
-                    <img src="images/googlegemini.svg" alt="Gemini">
-                    <img src="images/figma.svg" alt="Figma">
-                    <img src="images/gimp.svg" alt="GIMP">
-                    </div>
+            <div class="skill-row">
+                <div class="skill-icon"><img src="images/jira.svg" alt="Jira"></div>
+                <div class="skill-info"><span class="skill-name">Atlassian Jira / Confluence</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-row">
+                <div class="skill-icon"><img src="images/googlegemini.svg" alt="Gemini"></div>
+                <div class="skill-info"><span class="skill-name">AI Tools (Gemini/ChatGPT)</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-row">
+                <div class="skill-icon"><img src="images/adobe-svgrepo-com.svg" alt="Adobe"></div>
+                <div class="skill-info"><span class="skill-name">Adobe Creative Cloud</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-row">
+                <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="skill-info"><span class="skill-name">Rapid Tool Adaptability</span></div>
+                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
             </div>
         </div>
     </div>
 </section>
-
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
 					<h2>Kontakt</h2>
