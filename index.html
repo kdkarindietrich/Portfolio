@@ -70,6 +70,166 @@
     </div>
 </section>
 
+		<style>
+    /* --- The Flow Index: Strategischer Zeitvorteil --- */
+    .advantage-flex {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-top: 3rem;
+    }
+
+    .advantage-text {
+        flex: 1;
+    }
+
+    /* Modern Flow Display */
+    .flow-container {
+        flex: 0 0 420px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(120, 198, 207, 0.15);
+        padding: 2.5rem;
+        border-radius: 16px;
+        position: relative;
+    }
+
+    .flow-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .flow-zone {
+        text-align: center;
+    }
+
+    .zone-name {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #7F8CAA;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .zone-time {
+        font-family: 'Courier New', monospace;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    /* Dynamische Gap-Anzeige */
+    .flow-visual {
+        position: relative;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        margin-bottom: 1rem;
+    }
+
+    .flow-bar {
+        height: 40px;
+        background: linear-gradient(90deg, rgba(120, 198, 207, 0.2) 0%, #78c6cf 100%);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15px;
+        transition: width 1s ease-in-out;
+        box-shadow: 0 0 15px rgba(120, 198, 207, 0.3);
+    }
+
+    .flow-status {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #222831;
+        text-transform: uppercase;
+    }
+
+    .gap-indicator {
+        text-align: center;
+        font-size: 0.8rem;
+        color: #78c6cf;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+    }
+
+    @media screen and (max-width: 980px) {
+        .advantage-flex { flex-direction: column; gap: 3rem; }
+        .flow-container { width: 100%; flex: none; }
+    }
+</style>
+
+<section id="advantage" class="wrapper style2 fade-up">
+    <div class="inner">
+        <h2>Strategischer Zeitvorteil</h2>
+        <div class="advantage-flex">
+            <div class="advantage-text">
+                <p><strong>Maximale Schlagzahl für den DACH-Markt:</strong> Mein Setup ist kein Kompromiss, sondern ein operativer Turbo. Während in Europa die Nachtruhe herrscht, startet meine operative Engine bereits in den Tag.</p>
+                <p>Durch diesen asynchronen Workflow eliminiere ich den morgendlichen „Kaltstart“ Ihres Teams. Wenn Ihre Kollegen die Arbeit aufnehmen, sind administrative Hürden bereits genommen und strategische Vorarbeiten abgeschlossen. Dieser nahtlose Übergang garantiert Schweizer Präzision bei deutlich verkürzter Time-to-Market – voll integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von 5 bis 6 Stunden.</p>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-header">
+                    <div class="flow-zone">
+                        <span class="zone-name">DACH (CET)</span>
+                        <span class="zone-time" id="local-clock">00:00</span>
+                    </div>
+                    <div class="flow-zone">
+                        <span class="zone-name">Mein Vorsprung (ICT)</span>
+                        <span class="zone-time" id="thai-clock" style="color: #78c6cf;">00:00</span>
+                    </div>
+                </div>
+
+                <div class="flow-visual">
+                    <div class="flow-bar" id="flow-bar" style="width: 75%;">
+                        <span class="flow-status">Active Engine</span>
+                    </div>
+                </div>
+
+                <div class="gap-indicator" id="gap-text">
+                    Lade Vorsprung...
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateClocks() {
+        const now = new Date();
+        
+        // Zeiten berechnen
+        const localTimeStr = now.toLocaleString("en-US", {timeZone: "Europe/Berlin"});
+        const thaiTimeStr = now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+        
+        const localDate = new Date(localTimeStr);
+        const thaiDate = new Date(thaiTimeStr);
+        
+        // Differenz in Stunden berechnen
+        const diff = Math.round((thaiDate - localDate) / 3600000);
+
+        // Uhren updaten
+        const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+        document.getElementById('local-clock').textContent = localDate.toLocaleTimeString('de-CH', options);
+        document.getElementById('thai-clock').textContent = thaiDate.toLocaleTimeString('de-CH', options);
+        
+        // Gap-Text und Bar updaten
+        document.getElementById('gap-text').textContent = `AKTUELLER VORSPRUNG: +${diff} STUNDEN`;
+        
+        // Optional: Die Bar-Breite dezent anpassen (z.B. 70% bei 5h, 85% bei 6h)
+        const barWidth = diff === 5 ? "70%" : "85%";
+        document.getElementById('flow-bar').style.width = barWidth;
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks();
+</script>
+			
 			<section id="resume" class="wrapper style3 fade-up">
     <div class="inner">
         <h2>Beruflicher Werdegang</h2>
