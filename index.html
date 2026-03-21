@@ -70,6 +70,174 @@
     </div>
 </section>
 <style>
+
+
+	<style>
+  /* --- High-End Tactical Map Styling --- */
+  .advantage-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .advantage-text {
+    flex: 1;
+  }
+
+  /* Kompakter, technischer Visual-Container */
+  .map-visual-wrapper {
+    flex: 0 0 450px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(120, 198, 207, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  /* Weltkarten-Container */
+  .map-svg-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .world-map {
+    width: 100%;
+    height: auto;
+    fill: #3a4454; /* Dezentes Blau-Grau für Landmassen */
+    opacity: 0.6;
+  }
+
+  /* Zeit-Anzeigen als Dashboard-Elemente */
+  .dashboard-clocks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(127, 140, 170, 0.2);
+  }
+
+  .db-item {
+    flex: 1;
+  }
+
+  .db-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #7F8CAA;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .db-time {
+    font-family: 'Courier New', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: block;
+  }
+
+  .db-status {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Spezifische Farben */
+  .status-active { color: #78c6cf; } /* Mint für deinen Vorsprung */
+  .status-standby { color: #7F8CAA; }
+
+  /* Markierungen auf der Karte */
+  .map-marker {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+  }
+
+  .marker-dach { top: 32%; left: 49%; }
+  .marker-thai { 
+    top: 58%; left: 80%; 
+    background: #78c6cf; 
+    box-shadow: 0 0 12px #78c6cf;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @media screen and (max-width: 1080px) {
+    .advantage-container { flex-direction: column; }
+    .map-visual-wrapper { width: 100%; flex: none; }
+  }
+</style>
+
+<section id="advantage" class="wrapper style2 fade-up">
+  <div class="inner">
+    <h2>Strategischer Zeitvorteil</h2>
+    <div class="advantage-container">
+      <div class="advantage-text">
+        <p><strong>Operative Beschleunigung durch asynchrone Exzellenz:</strong> Mein Setup verwandelt die geografische Distanz in einen messbaren Zeitvorteil. Während in Europa die Nachtruhe herrscht, startet meine operative Engine bereits in den Tag.</p>
+        <p>Das Ergebnis: Wenn Ihr Team am Morgen die Arbeit aufnimmt, liegt die operative Basis für den Tag bereits fertig vor. Ich eliminiere administrative Hürden und bereite strategische Entscheidungen vor, während Ihr Markt noch schläft. Dieser 24-Stunden-Zyklus garantiert Schweizer Qualitätsstandards bei deutlich verkürzter Time-to-Market – voll integriert in Ihre CET-Kernarbeitszeiten.</p>
+      </div>
+
+      <div class="map-visual-wrapper">
+        <div class="map-svg-container">
+          <svg class="world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+            <path d="M164.1,130.4c-0.6-2.1-1.3-4.2-2-6.3c-0.1-0.2-0.2-0.4-0.4-0.5c-0.3-0.2-0.7-0.1-1,0c-0.7,0.4-1.1,1-1.4,1.8 c-0.1,0.3-0.2,0.6-0.3,0.9c-0.3,1.4-0.1,2.8,0.5,4.1c0.3,0.7,0.8,1.3,1.3,1.8c0.5,0.5,1.1,0.9,1.7,1.1c0.7,0.3,1.4,0.3,2.1,0.1 c0.7-0.2,1.2-0.6,1.7-1.1c0.5-0.5,0.8-1.2,0.9-1.9c0.1-0.7,0-1.4-0.2-2.1L164.1,130.4z" />
+            <rect x="450" y="100" width="150" height="100" rx="10" fill="rgba(255,255,255,0.05)" /> <rect x="750" y="250" width="100" height="80" rx="10" fill="rgba(120, 198, 207, 0.1)" /> </svg>
+          
+          <div class="map-marker marker-dach"></div>
+          <div class="map-marker marker-thai"></div>
+        </div>
+
+        <div class="dashboard-clocks">
+          <div class="db-item">
+            <span class="db-label">Bei Ihnen (DACH)</span>
+            <span class="db-time" id="local-clock">00:00</span>
+            <span class="db-status status-standby">Regional Market</span>
+          </div>
+          <div class="db-item" style="text-align: right;">
+            <span class="db-label">Bei mir (Koh Tao)</span>
+            <span class="db-time" id="thai-clock" style="color: #78c6cf;">00:00</span>
+            <span id="gap-info" class="db-status status-active">+6H VORSPRUNG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateClocks() {
+    const now = new Date();
+    const localTimeStr = now.toLocaleString("en-US", {timeZone: "Europe/Berlin"});
+    const thaiTimeStr = now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"});
+    const localDate = new Date(localTimeStr);
+    const thaiDate = new Date(thaiTimeStr);
+    
+    const diff = Math.round((thaiDate - localDate) / 3600000);
+    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+    
+    document.getElementById('local-clock').textContent = localDate.toLocaleTimeString('de-DE', options);
+    document.getElementById('thai-clock').textContent = thaiDate.toLocaleTimeString('de-DE', options);
+    document.getElementById('gap-info').textContent = `+${diff}H VORSPRUNG`;
+  }
+
+  setInterval(updateClocks, 1000);
+  updateClocks();
+</script>
+
+			
   /* --- Sophisticated Asynchronous Hub Styling --- */
   .advantage-container {
     display: flex;
