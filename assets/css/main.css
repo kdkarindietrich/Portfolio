@@ -3860,7 +3860,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#sidebar {
-				display: none;
+				display: block !important;
 			}
 
 		}
@@ -3956,7 +3956,7 @@ h1.major:after, h2.major:after {
 
 #sidebar nav a.active { color: #FFFFFF !important; }
 #sidebar nav a.active:after {
-    background: #3B8CFCE !important;
+    background: #3B8CFC !important;
     max-width: 100% !important;
 }
 
@@ -3970,11 +3970,11 @@ h1.major:after, h2.major:after {
     margin-bottom: 2em;
 }
 
-/* Der Hover-Effekt aus V2, farblich auf dein V1 Blau (#3B8CFCE) abgestimmt */
+/* Der Hover-Effekt aus V2, farblich auf dein V1 Blau (#3B8CFC) abgestimmt */
 #one .row > div:hover {
     transform: translateY(-8px); 
     background: #3d3e54 !important; 
-    border-color: #3B8CFCE !important; 
+    border-color: #3B8CFC !important; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
 }
 
@@ -4051,7 +4051,7 @@ h1.major:after, h2.major:after {
 .timeline-dot {
     position: absolute; left: 250px; margin-left: -6px;
     top: 0.5em; width: 12px; height: 12px;
-    background: #3B8CFCE; border-radius: 50%; z-index: 2;
+    background: #3B8CFC; border-radius: 50%; z-index: 2;
     box-shadow: 0 0 0 5px #222831;
 }
 
@@ -4162,73 +4162,74 @@ h1.major:after, h2.major:after {
     .contact-grid { grid-template-columns: 1fr; }
 }
 
-/* --- SITE LOGO STYLING --- */
+/* --- SITE LOGO STYLING (Optimiert & Sicher) --- */
 
-/* Platziere diesen Block in deinem <style>-Bereich */
-
-/* --- Allgemeine Logo-Stile --- */
+/* Allgemeine Stile für die Sidebar (Desktop) */
 .logo-group {
-    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Abstand oben und unten in der Sidebar */
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
     text-align: center;
-    position: relative;
-    z-index: 1000;
 }
 
 .site-logo {
     width: 100%;
-    max-width: 120px; /* Regelt die sichtbare Grösse des Logos in der Sidebar */
+    max-width: 120px; 
     height: auto;
-    display: block;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-.site-logo:hover {
-    transform: scale(1.02); /* Dezenter Interaktionseffekt */
-}
+#main-logo-desktop { display: block; }
+#main-logo-mobile { display: none; }
 
-/* --- Standard-Sichtbarkeit auf Desktops --- */
-#main-logo-desktop {
-    display: block; /* Desktop-Logo anzeigen */
-}
-
-#main-logo-mobile {
-    display: none; /* Mobiles Logo standardmäßig ausblenden */
-}
-
-/* --- Mobiles Top-Leisten-Styling (wenn Navigation nach oben rutscht) --- */
-#sidebar {
-    position: fixed; /* Sidebar oben festpinnen auf Mobilgeräten */
-}
-
+/* Mobile Ansicht: Sobald die Sidebar zur Top-Bar wird */
 @media screen and (max-width: 980px) {
     #sidebar {
-        height: 4rem; /* Höhe der mobilen Top-Leiste */
+        height: 4rem !important;
+        width: 100% !important;
+        display: block !important; /* Verhindert das Verschwinden unter 736px */
+        padding: 0 !important;
+        position: fixed;
+    }
+
+    #sidebar .inner {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between;
+        padding: 0 1.5rem !important;
+        height: 100%;
+    }
+
+    /* Logo-Tausch */
+    #main-logo-desktop { display: none !important; }
+    #main-logo-mobile { 
+        display: block !important; 
+        max-width: 160px; /* Breite für den Schriftzug KarinDietrich_wht.svg */
+        height: auto;
+    }
+
+    .logo-group {
+        padding: 0 !important;
+        margin: 0;
+    }
+
+    #sidebar nav {
+        display: block !important;
+        height: auto;
+    }
+
+    /* Verhindert, dass der Content unter der Top-Bar startet */
+    #sidebar + #wrapper {
+        margin-left: 0;
+        padding-top: 4rem;
     }
 }
 
-/* --- Medienabfrage für Mobile Ansicht --- */
-@media screen and (max-width: 980px) {
-    
-    /* Logos austauschen */
-    #main-logo-desktop {
-        display: none; /* Desktop-Logo ausblenden */
+/* Spezieller Fix für sehr kleine Bildschirme (Handys) */
+@media screen and (max-width: 736px) {
+    #sidebar {
+        display: block !important; 
     }
-
-    #main-logo-mobile {
-        display: block; /* Mobiles Logo einblenden */
-    }
-
-    /* Anpassung des mobilen Logos */
-    #main-logo-mobile {
-        max-width: 100px; /* Kleinere Größe für die mobile Top-Leiste */
-        position: absolute;
-        top: 0.5rem; /* Vertikale Zentrierung */
-        left: 1rem; /* Horizontale Ausrichtung */
-    }
-
-    /* Padding-Anpassung, damit der Inhalt nicht unter dem Header verschwindet */
-    #wrapper {
-        padding-top: 4rem; /* Entspricht der Höhe der Top-Leiste */
-    }
+    /* Falls die Menüpunkte auf dem Handy zu viel Platz fressen, 
+       kannst du hier entscheiden, ob sie ausgeblendet werden sollen */
 }
