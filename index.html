@@ -189,10 +189,10 @@
 				<nav>
 					<ul>
 						<li><a href="#intro">Home</a></li>
-						<li><a href="#one">Core Achievements</a></li>
+						<li><a href="#one">Meilensteine</a></li>
 						<li><a href="#resume">Werdegang</a></li>
-						<li><a href="#two">Core Skills & Tools</a></li>
-						<li><a href="#three">Contact</a></li>
+						<li><a href="#two">Kompetenzen</a></li>
+						<li><a href="#three">Kontakt</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -565,6 +565,121 @@
         </div>
     </div>
 </section>
+
+			<style>
+    /* --- Advantage Section Styling --- */
+    .advantage-flex {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-top: 2rem;
+    }
+
+    .advantage-text {
+        flex: 1;
+    }
+
+    .advantage-text p strong {
+        color: #78c6cf; /* Mint Akzent */
+    }
+
+    /* World Clock Styling */
+    .clock-display {
+        flex: 0 0 400px;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .clock-box {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(120, 198, 207, 0.2);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: border-color 0.3s ease;
+    }
+
+    .clock-box:hover {
+        border-color: #78c6cf;
+    }
+
+    .clock-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #7F8CAA;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .clock-time {
+        font-family: "Courier New", monospace;
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #FFFFFF;
+        display: block;
+    }
+
+    .clock-location {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        opacity: 0.6;
+    }
+
+    @media screen and (max-width: 980px) {
+        .advantage-flex { flex-direction: column; gap: 3rem; }
+        .clock-display { width: 100%; flex: none; }
+    }
+</style>
+
+<section id="advantage" class="wrapper style2 fade-up">
+    <div class="inner">
+        <h2>The Thailand Advantage</h2>
+        <div class="advantage-flex">
+            <div class="advantage-text">
+                <p><strong>Asynchrone Schlagkraft:</strong> Während die Schweiz schläft, bereite ich die operative Basis vor, sodass Ihr Team mit fertigen Ergebnissen in den Tag startet.</p>
+                <p>Durch mein Setup nutze ich die Zeitverschiebung produktiv: Administrative Vorarbeiten sind oft bereits erledigt, wenn das Schweizer Team den Tag beginnt. Ich decke die Schweizer Kernarbeitszeiten (bis 17:00 Uhr CET) vollständig ab und bin digital nahtlos integriert. Für Strategie-Meetings oder Key-Events bin ich zudem regelmässig persönlich vor Ort in der Schweiz.</p>
+            </div>
+
+            <div class="clock-display">
+                <div class="clock-box">
+                    <span class="clock-label">Ihre Zeit</span>
+                    <span class="clock-time" id="local-clock">00:00</span>
+                    <span class="clock-location">Besucher</span>
+                </div>
+                <div class="clock-box">
+                    <span class="clock-label">Meine Zeit</span>
+                    <span class="clock-time" id="thai-clock">00:00</span>
+                    <span class="clock-location">Koh Tao, TH</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateClocks() {
+        const now = new Date();
+
+        // Lokale Zeit des Besuchers
+        const localOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
+        document.getElementById('local-clock').textContent = now.toLocaleTimeString('de-CH', localOptions);
+
+        // Thailand Zeit (UTC+7)
+        const thaiOptions = { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            hour12: false, 
+            timeZone: 'Asia/Bangkok' 
+        };
+        document.getElementById('thai-clock').textContent = now.toLocaleTimeString('de-CH', thaiOptions);
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks(); // Initialer Aufruf
+</script>
+			
 			
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
