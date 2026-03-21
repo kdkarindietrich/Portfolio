@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /CV_Karin_Dietrich_2026.pdf
