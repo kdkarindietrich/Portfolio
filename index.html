@@ -567,73 +567,112 @@
     </div>
 </section>
 
-			<style>
-    /* --- Advantage Section Styling --- */
+		<style>
+    /* --- Redesign: Strategischer Zeitvorteil & Uhr --- */
     .advantage-flex {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 4rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
 
     .advantage-text {
         flex: 1;
     }
 
-    .advantage-text p strong {
-        color: #78c6cf; /* Mint Akzent */
-    }
-
-    /* World Clock Styling */
-    .clock-display {
-        flex: 0 0 400px;
-        display: flex;
-        gap: 2rem;
-    }
-
-    .clock-box {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(120, 198, 207, 0.2);
-        padding: 1.5rem;
-        border-radius: 12px;
-        text-align: center;
-        transition: border-color 0.3s ease;
-    }
-
-    .clock-box:hover {
-        border-color: #78c6cf;
-    }
-
-    .clock-label {
-        font-size: 0.7rem;
+    .advantage-text h3 {
+        color: #FFFFFF;
+        font-size: 1.1rem;
         text-transform: uppercase;
         letter-spacing: 0.15em;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Neue Radiale Zeit-Visualisierung */
+    .clock-display {
+        flex: 0 0 450px;
+        position: relative;
+        text-align: center;
+    }
+
+    .radial-clock-wrapper {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(127, 140, 170, 0.1);
+        border-radius: 50%;
+        padding: 20px;
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .radial-clock-segment {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border-radius: 50%;
+    }
+
+    /* Der visuelle Vorsprung (Mint-Lichtbogen) */
+    .radial-clock-segment.advance {
+        background: conic-gradient(
+            from 180deg, /* Start bei 6 Uhr (Schweizer Abend) */
+            rgba(120, 198, 207, 0.1) 0%,
+            rgba(120, 198, 207, 0.8) 25%, /* Volle Leistung in der Nacht */
+            rgba(120, 198, 207, 0) 50% /* Abklingen am Schweizer Morgen */
+        );
+        filter: blur(2px);
+    }
+
+    /* Die zentrale Zeit-Anzeige */
+    .clock-center-display {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 220px;
+        height: 220px;
+        background: #222831; /* Site BG */
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(127, 140, 170, 0.2);
+    }
+
+    .time-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
         color: #7F8CAA;
-        margin-bottom: 0.5rem;
-        display: block;
+        margin-bottom: 0.2rem;
     }
 
-    .clock-time {
-        font-family: "Courier New", monospace;
-        font-size: 2.2rem;
-        font-weight: bold;
+    .time-digital {
+        font-family: 'Courier New', monospace;
+        font-size: 1.8rem;
+        font-weight: 700;
         color: #FFFFFF;
-        display: block;
+        margin-bottom: 1rem;
     }
 
-    .clock-location {
-        font-size: 0.8rem;
-        margin-top: 0.5rem;
-        opacity: 0.6;
+    /* Spezifische Styling für "Mein Vorsprung" */
+    .time-box.advance .time-digital {
+        color: #78c6cf; /* Mint */
+        text-shadow: 0 0 10px rgba(120, 198, 207, 0.5);
     }
 
-    @media screen and (max-width: 980px) {
-        .advantage-flex { flex-direction: column; gap: 3rem; }
+    /* Responsive Anpassung */
+    @media screen and (max-width: 1080px) {
+        .advantage-flex { flex-direction: column; align-items: center; gap: 3rem; }
         .clock-display { width: 100%; flex: none; }
     }
 </style>
-
+			
 <section id="advantage" class="wrapper style2 fade-up">
     <div class="inner">
         <h2>Strategischer Zeitvorteil</h2>
@@ -643,18 +682,25 @@
                 <p>Das Ergebnis ist ein nahezu lückenloser 24-Stunden-Projektzyklus: Administrative Hürden, komplexe Prozessvorbereitungen und strategische Analysen sind bereits abgeschlossen, wenn Ihr Team den ersten Kaffee trinkt. Diese „Always-on“-Dynamik eliminiert Leerläufe und halbiert Ihre Time-to-Market. Ich liefere Schweizer Präzision mit der Schlagkraft eines globalen Hubs – nahtlos integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von sechs Stunden. <br>Für Onboardings, Strategie-Meetings oder Key-Events bin ich zudem regelmässig persönlich vor Ort in der Schweiz.</p>
             </div>
 
-            <div class="clock-display">
-                <div class="clock-box">
-                    <span class="clock-label">Ihre Zeit</span>
-                    <span class="clock-time" id="local-clock">00:00</span>
-                    <span class="clock-location">Besucher</span>
-                </div>
-                <div class="clock-box">
-                    <span class="clock-label">Meine Zeit</span>
-                    <span class="clock-time" id="thai-clock">00:00</span>
-                    <span class="clock-location">Koh Tao, TH</span>
+          <div class="clock-display">
+                <div class="radial-clock-wrapper">
+                    <div class="radial-clock-segment advance"></div>
+                    <div class="clock-center-display">
+                        
+                        <div class="time-box">
+                            <span class="time-label">Schweizer Markt</span>
+                            <span class="time-digital" id="local-clock">00:00</span>
+                        </div>
+
+                        <div class="time-box advance">
+                            <span class="time-label">Mein Vorsprung</span>
+                            <span class="time-digital" id="thai-clock">00:00</span>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
