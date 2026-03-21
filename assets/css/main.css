@@ -4098,3 +4098,61 @@ h1.major:after, h2.major:after {
         padding: 2rem 1.5rem !important;
     }
 }
+
+/* --- 9. KONTAKT CARDS --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Spalten für 4 Karten */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: #333446 !important;
+    padding: 2rem 1.5rem !important;
+    border-radius: 8px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hover-Effekt wie bei den Meilensteinen */
+.contact-card:hover {
+    border-color: #78c6cf !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card i, .contact-card .icon {
+    font-size: 1.8rem;
+    color: #78c6cf;
+    margin-bottom: 0.8rem;
+}
+
+.contact-card h3 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    color: #7F8CAA !important;
+}
+
+.contact-card p {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+}
+
+/* Vereinheitlichung der Buttons */
+.contact-card .button.small {
+    width: 100%;
+    max-width: 200px;
+}
+
+@media screen and (max-width: 736px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
