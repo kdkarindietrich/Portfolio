@@ -341,151 +341,189 @@
 				</div>
 			</section>
 
-		<style>
-    /* --- Kompakte Expertise & Tech-Stack Sektion --- */
-    .expertise-list {
-        max-width: 800px;
-        margin: 0 auto 4rem auto;
+<style>
+    /* --- Layout Container --- */
+    .expertise-container {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+        margin-top: 3rem;
     }
 
-    .skill-row {
+    /* --- Linke Spalte: Icon Cloud (3 Kategorien) --- */
+    .tech-stack-column {
+        flex: 1;
         display: flex;
-        align-items: center;
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .tech-group h4 {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #7F8CAA;
         margin-bottom: 1.2rem;
-        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(127, 140, 170, 0.2);
+        padding-bottom: 0.4rem;
     }
 
-    /* Icon-Container für einheitliche Breite */
-    .skill-icon {
-        flex: 0 0 30px;
+    .icon-cloud {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
     }
 
-    .skill-icon img {
-        width: 24px;
-        height: auto;
+    .icon-cloud img {
+        height: 28px;
+        width: auto;
         filter: grayscale(100%) brightness(1.5);
-        opacity: 0.7;
+        opacity: 0.6;
+        transition: all 0.3s ease;
     }
 
-    .skill-icon i {
-        font-size: 1.2rem;
-        color: #78c6cf;
+    .icon-cloud img:hover {
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+        transform: scale(1.1);
     }
 
-    /* Text-Bereich */
-    .skill-info {
-        flex: 0 0 250px; /* Feste Breite für bündige Balken */
+    /* --- Rechte Spalte: Progressbalken --- */
+    .skills-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
     }
 
-    .skill-name {
-        font-size: 0.85rem;
+    .skill-bar-row {
+        width: 100%;
+    }
+
+    .skill-bar-label {
+        font-size: 0.8rem;
         font-weight: 600;
         color: #FFFFFF;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        margin-bottom: 0.4rem;
+        display: block;
     }
 
-    /* Minimalistischer Statusbalken */
-    .skill-bar-container {
-        flex: 1;
+    .skill-bar-bg {
         background: rgba(255, 255, 255, 0.05);
-        height: 4px; /* Sehr dezent */
+        height: 4px;
         border-radius: 2px;
         overflow: hidden;
     }
 
     .skill-bar-fill {
-        background: #78c6cf;
+        background: #78c6cf; /* Mint Akzent */
         height: 100%;
         border-radius: 2px;
     }
 
-    /* Tech-Stack Icons dezent hervorheben bei Hover */
-    .skill-row:hover .skill-icon img {
-        filter: grayscale(0%) brightness(1);
-        opacity: 1;
-        transform: scale(1.1);
-        transition: all 0.3s ease;
+    /* Responsive Anpassung */
+    @media screen and (max-width: 1280px) {
+        .expertise-container { gap: 2rem; }
     }
 
-    @media screen and (max-width: 736px) {
-        .skill-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-        .skill-info { flex: none; }
-        .skill-bar-container { width: 100%; }
+    @media screen and (max-width: 980px) {
+        .expertise-container { flex-direction: column; gap: 4rem; }
+        .tech-stack-column, .skills-column { width: 100%; }
     }
 </style>
 
 <section id="two" class="wrapper style3 fade-up">
     <div class="inner">
         <h2>Expertise & Tools</h2>
-        <p>Ein Überblick über strategische Kompetenzen und das technische Ökosystem.</p>
+        <p>Die Synergie aus strategischer Steuerung und einem hochgradig optimierten Tech-Stack.</p>
 
-        <div class="expertise-list">
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
-                <div class="skill-info"><span class="skill-name">Project & Program Management</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-wallet"></i></div>
-                <div class="skill-info"><span class="skill-name">Budget-Steuerung & Compliance</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                <div class="skill-info"><span class="skill-name">AI Workflow Architecture</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-users"></i></div>
-                <div class="skill-info"><span class="skill-name">Stakeholder-Management</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
-                <div class="skill-info"><span class="skill-name">Process Optimization</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-laptop-house"></i></div>
-                <div class="skill-info"><span class="skill-name">Remote Governance</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+        <div class="expertise-container">
+            
+            <div class="tech-stack-column">
+                
+                <div class="tech-group">
+                    <h4>Workflows & Collaboration</h4>
+                    <div class="icon-cloud">
+                        <img src="images/atlassian.svg" alt="Atlassian">
+                        <img src="images/jira.svg" alt="Jira">
+                        <img src="images/asana.svg" alt="Asana">
+                        <img src="images/trello.svg" alt="Trello">
+                        <img src="images/confluence.svg" alt="Confluence">
+                        <img src="images/social-sharepoint-svgrepo-com.svg" alt="SharePoint">
+                    </div>
+                </div>
+
+                <div class="tech-group">
+                    <h4>Business & Marketing Ops</h4>
+                    <div class="icon-cloud">
+                        <img src="images/hubspot.svg" alt="HubSpot">
+                        <img src="images/salesforce-svgrepo-com.svg" alt="Salesforce">
+                        <img src="images/sap.svg" alt="SAP">
+                        <img src="images/googleads.svg" alt="Google Ads">
+                        <img src="images/google.svg" alt="Google Workspace">
+                        <img src="images/wordpress.svg" alt="WordPress">
+                    </div>
+                </div>
+
+                <div class="tech-group">
+                    <h4>Creative & AI Innovation</h4>
+                    <div class="icon-cloud">
+                        <img src="images/adobe-svgrepo-com.svg" alt="Adobe CC">
+                        <img src="images/figma.svg" alt="Figma">
+                        <img src="images/googlegemini.svg" alt="Gemini">
+                        <img src="images/googleassistant.svg" alt="AI Support">
+                        <img src="images/gimp.svg" alt="GIMP">
+                    </div>
+                </div>
+
             </div>
 
-            <div class="skill-row">
-                <div class="skill-icon"><img src="images/sap.svg" alt="SAP"></div>
-                <div class="skill-info"><span class="skill-name">SAP (Finance & ERP)</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            <div class="skills-column">
+                
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Project & Program Management (15+ J.)</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Budget-Steuerung (bis 8 Mio. CHF)</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">AI Workflow Architecture</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Stakeholder-Management</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Business Process Optimization</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Remote Governance & Async Ops</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Agile & Hybrid Methodologies</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-bar-row">
+                    <span class="skill-bar-label">Rapid Tool Adaptability</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                </div>
+
             </div>
-            <div class="skill-row">
-                <div class="skill-icon"><img src="images/salesforce-svgrepo-com.svg" alt="Salesforce"></div>
-                <div class="skill-info"><span class="skill-name">Salesforce CRM</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><img src="images/jira.svg" alt="Jira"></div>
-                <div class="skill-info"><span class="skill-name">Atlassian Jira / Confluence</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><img src="images/googlegemini.svg" alt="Gemini"></div>
-                <div class="skill-info"><span class="skill-name">AI Tools (Gemini/ChatGPT)</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><img src="images/adobe-svgrepo-com.svg" alt="Adobe"></div>
-                <div class="skill-info"><span class="skill-name">Adobe Creative Cloud</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 80%;"></div></div>
-            </div>
-            <div class="skill-row">
-                <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
-                <div class="skill-info"><span class="skill-name">Rapid Tool Adaptability</span></div>
-                <div class="skill-bar-container"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-            </div>
+
         </div>
     </div>
 </section>
