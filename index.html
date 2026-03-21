@@ -341,28 +341,174 @@
 				</div>
 			</section>
 
-			<section id="two" class="wrapper style3 fade-up">
-				<div class="inner">
-					<h2>Expertise & Präzision</h2>
-					<div class="features">
-						<section>
-							<span class="icon solid major fa-cog"></span>
-							<h3>Project Management</h3>
-							<p>PMP-orientierte Planung und Durchführung hybrider Methodiken für Konzerne wie ABB und Samsung.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-microchip"></span>
-							<h3>AI Workflow Design</h3>
-							<p>Design asynchroner Workflows und Implementierung von KI-Tools zur Skalierung operativer Prozesse.</p>
-						</section>
-						<section>
-							<span class="icon solid major fa-gem"></span>
-							<h3>Schweizer Präzision</h3>
-							<p>Höchste Qualitätsansprüche in der Dokumentation und Prozessführung.</p>
-						</section>
-					</div>
-				</div>
-			</section>
+			<style>
+    /* --- Expertise & Progress Bars --- */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 4rem;
+        margin-bottom: 5rem;
+    }
+
+    .skill-item {
+        width: 100%;
+    }
+
+    .skill-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-title {
+        font-weight: 600;
+        color: #FFFFFF;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .skill-value {
+        color: #78c6cf;
+        font-weight: bold;
+    }
+
+    .progress-bar-bg {
+        background: rgba(255, 255, 255, 0.05);
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .progress-bar-fill {
+        background: #78c6cf;
+        height: 100%;
+        border-radius: 4px;
+        transition: width 1.5s ease-in-out;
+    }
+
+    /* --- Tech Stack Logo Cloud --- */
+    .tech-stack-container {
+        margin-top: 4rem;
+    }
+
+    .tech-category {
+        margin-bottom: 3rem;
+    }
+
+    .tech-category h4 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #7F8CAA;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .tech-badges {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        align-items: center;
+    }
+
+    .tech-badges img {
+        height: 35px;
+        width: auto;
+        filter: grayscale(100%) brightness(1.5);
+        opacity: 0.5;
+        transition: all 0.4s ease;
+    }
+
+    .tech-badges img:hover {
+        filter: grayscale(0%) brightness(1);
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    @media screen and (max-width: 980px) {
+        .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+</style>
+
+<section id="two" class="wrapper style3 fade-up">
+    <div class="inner">
+        <h2>Expertise & Tools</h2>
+        <p>Strategische Kernkompetenzen und technisches Ökosystem für hocheffiziente Marketing Operations.</p>
+
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Project & Program Management</span><span class="skill-value">10/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Budget-Steuerung & Compliance</span><span class="skill-value">9/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">AI Workflow Architecture</span><span class="skill-value">9/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Stakeholder-Management</span><span class="skill-value">10/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Business Process Optimization</span><span class="skill-value">9/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Remote Governance</span><span class="skill-value">10/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Asynchrone Kommunikation</span><span class="skill-value">10/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Rapid Learning & Adaptability</span><span class="skill-value">10/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Agile Frameworks</span><span class="skill-value">8/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header"><span class="skill-title">Change Management</span><span class="skill-value">8/10</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+            </div>
+        </div>
+
+        <div class="tech-stack-container">
+            <div class="tech-category">
+                <h4>Workflows & Collaboration</h4>
+                <div class="tech-badges">
+                    <img src="images/atlassian.svg" alt="Atlassian">
+                    <img src="images/jira.svg" alt="Jira">
+                    <img src="images/asana.svg" alt="Asana">
+                    <img src="images/trello.svg" alt="Trello">
+                    <img src="images/confluence.svg" alt="Confluence">
+                </div>
+            </div>
+            <div class="tech-category">
+                <h4>Business & Marketing Ops</h4>
+                <div class="tech-badges">
+                    <img src="images/hubspot.svg" alt="HubSpot">
+                    <img src="images/wordpress.svg" alt="WordPress">
+                    </div>
+            </div>
+            <div class="tech-category">
+                <h4>Creative & AI Innovation</h4>
+                <div class="tech-badges">
+                    <img src="images/googlegemini.svg" alt="Gemini">
+                    <img src="images/figma.svg" alt="Figma">
+                    <img src="images/gimp.svg" alt="GIMP">
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 			<section id="three" class="wrapper style1 fade-up">
 				<div class="inner">
