@@ -3914,6 +3914,7 @@ body, input, select, textarea {
     color: #CBD5E0 !important;
 }
 
+/* Alle Wrapper-Hintergründe (ink. Footer & Intro) auf die neue Farbe zwingen */
 .wrapper, 
 .wrapper.style1, 
 .wrapper.style1-alt, 
@@ -3921,7 +3922,7 @@ body, input, select, textarea {
 .wrapper.style3, 
 #footer {
     background-color: #222831 !important;
-    background-image: none !important;
+    background-image: none !important; /* Entfernt lila Verläufe/Bilder */
 }
 
 /* --- 2. TITEL & AKZENT-LINIEN --- */
@@ -3942,6 +3943,7 @@ h1.major:after, h2.major:after {
 
 #sidebar nav a { color: #7F8CAA !important; }
 
+/* Dicke der Linien vereinheitlicht (px statt em) */
 #sidebar nav a:before, #sidebar nav a:after {
     height: 2px !important;
     bottom: 0;
@@ -3954,86 +3956,279 @@ h1.major:after, h2.major:after {
 
 #sidebar nav a.active { color: #FFFFFF !important; }
 #sidebar nav a.active:after {
-    background: #3B8CFC !important; /* Korrigierter Hex-Code */
+    background: #3B8CFCE !important;
     max-width: 100% !important;
 }
 
 /* --- 4. CORE ACHIEVEMENTS & HOVER EFFECTS (#one) --- */
 #one .row > div {
-    background: #333446 !important;
+    background: #333446 !important; /* Deine Kachel-Farbe V1 */
     padding: 2em !important;
     border-radius: 8px;
     border: 1px solid rgba(127, 140, 170, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Der flüssige Effekt aus V2 */
     margin-bottom: 2em;
 }
 
+/* Der Hover-Effekt aus V2, farblich auf dein V1 Blau (#3B8CFCE) abgestimmt */
 #one .row > div:hover {
     transform: translateY(-8px); 
     background: #3d3e54 !important; 
-    border-color: #3B8CFC !important; /* Korrigierter Hex-Code */
+    border-color: #3B8CFCE !important; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
 }
 
-/* --- 6. TIMELINE (WERDEGANG) --- */
-.timeline-dot {
-    background: #3B8CFC !important; /* Korrigierter Hex-Code */
+.icon.major, .icon.solid.major, .icon.major:before {
+    color: #B8CFCE !important;
 }
 
-/* --- SITE LOGO STYLING (Optimiert für Mobile) --- */
-.logo-group {
-    padding: 3rem 1.5rem 1.5rem 1.5rem;
+/* --- 5. LOGOBAND (INTEGRIERT AUS V2) --- */
+.partner-section {
+    margin-top: 4rem;
+}
+
+.partner-intro {
     text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+    color: #7F8CAA;
+}
+
+.logo-band-container {
+    background: #333446; /* Hintergrund wie Kacheln, damit schwarze Logos sichtbar sind */
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(127, 140, 170, 0.1);
+}
+
+.logo-band {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.logo-band img {
+    height: 32px;
+    width: auto;
+    filter: grayscale(100%) brightness(1.2); /* Logos dezent, solange kein Hover */
+    opacity: 0.6;
+    transition: all 0.4s ease;
+}
+
+.logo-band img:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* --- 6. TIMELINE (WERDEGANG) --- */
+.timeline-container { position: relative; margin-top: 4em; }
+.timeline-container::before {
+    content: ''; position: absolute; left: 250px; top: 0; bottom: 0; 
+    width: 1px; background: rgba(127, 140, 170, 0.3); z-index: 1;
+}
+
+.timeline-item {
+    display: flex !important;
+    position: relative;
+    margin-bottom: 4.5em;
+    width: 100%;
+}
+
+.timeline-left {
+    flex: 0 0 220px !important;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.timeline-left .date { color: #7F8CAA; font-weight: bold; font-size: 0.9em; }
+
+.timeline-dot {
+    position: absolute; left: 250px; margin-left: -6px;
+    top: 0.5em; width: 12px; height: 12px;
+    background: #3B8CFCE; border-radius: 50%; z-index: 2;
+    box-shadow: 0 0 0 5px #222831;
+}
+
+.timeline-right { flex: 1; padding-left: 70px; }
+
+/* Responsive Fixes */
+@media screen and (max-width: 980px) {
+    .timeline-container::before { left: 15px; }
+    .timeline-item { flex-direction: column !important; padding-left: 40px; }
+    .timeline-left { text-align: left; margin-bottom: 1em; flex: none !important; width: 100%; }
+    .timeline-dot { left: 15px; }
+    .timeline-right { padding-left: 0; }
+    .logo-band { justify-content: center; }
+}
+
+/* --- 7. FOOTER FIX --- */
+#footer.wrapper.style1-alt, #footer {
+    background-color: #222831 !important;
+    background-image: none !important;
+}
+
+#footer .menu li {
+    color: #7F8CAA !important;
+    border-left-color: rgba(127, 140, 170, 0.3) !important;
+}
+
+/* --- 8. SKILLS FRAME (Harmonisierung mit Meilensteinen) --- */
+.skills-outer-frame {
+    background: #333446 !important;
+    padding: 3.5rem !important;
+    border-radius: 12px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Anpassung der Abstände innerhalb des Rahmens */
+.skills-outer-frame h2 {
+    margin-top: 0;
+}
+
+/* Responsive Padding für kleinere Bildschirme */
+@media screen and (max-width: 736px) {
+    .skills-outer-frame {
+        padding: 2rem 1.5rem !important;
+    }
+}
+
+/* --- 9. KONTAKT CARDS (Slim 4-Column Layout) --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Kacheln nebeneinander */
+    gap: 1rem; /* Kompakterer Abstand */
+    margin-top: 2rem;
+}
+
+.contact-card {
+    background: #333446 !important;
+    padding: 1.5rem 0.8rem !important; /* Schmales Padding */
+    border-radius: 6px;
+    border: 1px solid rgba(127, 140, 170, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 280px; /* Einheitliche Höhe */
+}
+
+.contact-card:hover {
+    border-color: #78c6cf !important;
+    transform: translateY(-5px);
+}
+
+.contact-card .icon {
+    font-size: 1.5rem;
+    color: #78c6cf;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card h3 {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    color: #7F8CAA !important;
+}
+
+.contact-card p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: #CBD5E0;
+}
+
+.contact-card .button.small {
+    width: 100%;
+    font-size: 0.65rem;
+    padding: 0 0.5rem;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1280px) {
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 736px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* --- SITE LOGO STYLING --- */
+
+/* Platziere diesen Block in deinem <style>-Bereich */
+
+/* --- Allgemeine Logo-Stile --- */
+.logo-group {
+    padding: 3rem 1.5rem 1.5rem 1.5rem; /* Abstand oben und unten in der Sidebar */
+    text-align: center;
+    position: relative;
+    z-index: 1000;
 }
 
 .site-logo {
     width: 100%;
-    max-width: 120px;
+    max-width: 120px; /* Regelt die sichtbare Grösse des Logos in der Sidebar */
     height: auto;
+    display: block;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-#main-logo-desktop { display: block; }
-#main-logo-mobile { display: none; }
+.site-logo:hover {
+    transform: scale(1.02); /* Dezenter Interaktionseffekt */
+}
 
-/* MEDIA QUERIES: Mobile Ansicht korrigieren */
-@media screen and (max-width: 1280px) {
-    #sidebar + #wrapper { margin-left: 0; padding-top: 4rem; }
+/* --- Standard-Sichtbarkeit auf Desktops --- */
+#main-logo-desktop {
+    display: block; /* Desktop-Logo anzeigen */
+}
+
+#main-logo-mobile {
+    display: none; /* Mobiles Logo standardmäßig ausblenden */
+}
+
+/* --- Mobiles Top-Leisten-Styling (wenn Navigation nach oben rutscht) --- */
+#sidebar {
+    position: fixed; /* Sidebar oben festpinnen auf Mobilgeräten */
 }
 
 @media screen and (max-width: 980px) {
     #sidebar {
-        height: 4rem !important;
-        width: 100% !important;
-        display: block !important; /* Verhindert das Ausblenden durch alten Code */
-        padding: 0 !important;
+        height: 4rem; /* Höhe der mobilen Top-Leiste */
     }
-
-    #sidebar .inner {
-        flex-direction: row !important;
-        align-items: center !important;
-        padding: 0 1rem !important;
-    }
-
-    .logo-group {
-        padding: 0 !important;
-        margin-right: auto;
-    }
-
-    #main-logo-desktop { display: none; }
-    #main-logo-mobile { 
-        display: block; 
-        max-width: 160px; /* Logo in der Top-Bar etwas breiter */
-    }
-
-    #sidebar nav { display: block !important; }
 }
 
-@media screen and (max-width: 736px) {
-    #sidebar {
-        display: block !important; /* Zwingt die Top-Bar sichtbar zu bleiben */
+/* --- Medienabfrage für Mobile Ansicht --- */
+@media screen and (max-width: 980px) {
+    
+    /* Logos austauschen */
+    #main-logo-desktop {
+        display: none; /* Desktop-Logo ausblenden */
     }
-    #sidebar nav {
-        display: none !important; /* Versteckt die Menüpunkte auf kleinsten Handys für das "Burger-Menü" */
+
+    #main-logo-mobile {
+        display: block; /* Mobiles Logo einblenden */
+    }
+
+    /* Anpassung des mobilen Logos */
+    #main-logo-mobile {
+        max-width: 100px; /* Kleinere Größe für die mobile Top-Leiste */
+        position: absolute;
+        top: 0.5rem; /* Vertikale Zentrierung */
+        left: 1rem; /* Horizontale Ausrichtung */
+    }
+
+    /* Padding-Anpassung, damit der Inhalt nicht unter dem Header verschwindet */
+    #wrapper {
+        padding-top: 4rem; /* Entspricht der Höhe der Top-Leiste */
     }
 }
