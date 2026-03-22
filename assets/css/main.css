@@ -4237,82 +4237,93 @@ h1.major:after, h2.major:after {
        kannst du hier entscheiden, ob sie ausgeblendet werden sollen */
 }
 
-/* --- UNIFIED NAVIGATION & LOGO SYNC --- */
+/* --- STUFE 1: Sidebar (Desktop > 1280px) --- */
+@media screen and (min-width: 1281px) {
+    .menu-toggle { display: none !important; }
+    #sidebar nav { display: block !important; }
+}
 
-.menu-toggle { display: none; } /* Standardmässig versteckt */
-
-/* Ab 1280px abwärts wird die Sidebar zur Top-Bar */
-@media screen and (max-width: 1280px) {
+/* --- STUFE 2: Top-Menu Horizontal (Tablet 841px - 1280px) --- */
+@media screen and (max-width: 1280px) and (min-width: 841px) {
     #sidebar {
         height: 4.5rem !important;
         width: 100% !important;
-        padding: 0 !important;
         position: fixed;
-        background: #222831 !important;
-        border-right: none !important;
+        top: 0;
+        padding: 0 !important;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
+    }
+    
+    #sidebar .inner {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 0 2rem !important;
+    }
+
+    .menu-toggle { display: none !important; } /* Noch kein Hamburger */
+
+    #sidebar nav { display: block !important; }
+    #sidebar nav ul {
+        display: flex !important;
+        flex-direction: row !important;
+        margin: 0 !important;
+    }
+
+    #sidebar nav ul li {
+        margin-left: 1.5rem !important;
+        margin-top: 0 !important;
+    }
+
+    #sidebar nav a { padding: 0 !important; font-size: 0.7rem !important; }
+
+    #main-logo-desktop { display: none !important; }
+    #main-logo-mobile { display: block !important; max-width: 140px; }
+
+    #sidebar + #wrapper { margin-left: 0 !important; padding-top: 4.5rem !important; }
+}
+
+/* --- STUFE 3: Hamburger-Menu (Mobile < 840px) --- */
+@media screen and (max-width: 840px) {
+    #sidebar {
+        height: 4rem !important;
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        padding: 0 !important;
     }
 
     #sidebar .inner {
         flex-direction: row !important;
-        align-items: center !important;
         justify-content: space-between !important;
         padding: 0 1.5rem !important;
-        height: 100%;
     }
 
-    /* Logo-Wechsel synchronisiert bei 1280px */
-    #main-logo-desktop { display: none !important; }
-    #main-logo-mobile { 
-        display: block !important; 
-        max-width: 150px; 
-        height: auto; 
-    }
-
-    .logo-group { padding: 0 !important; }
-
-    /* Hamburger-Icon anzeigen */
     .menu-toggle {
-        display: block;
+        display: block !important;
         font-size: 1.5rem;
         color: #78c6cf;
         cursor: pointer;
-        z-index: 10001;
     }
 
-    /* Navigation als Overlay (Dropdown) */
     #sidebar nav {
-        display: none; /* Initial versteckt */
+        display: none; /* Versteckt bis Toggle */
         position: absolute;
-        top: 4.5rem;
+        top: 4rem;
         left: 0;
         width: 100%;
         background: #222831;
+        padding: 1rem 0;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
     }
 
-    #sidebar nav.active { display: block; }
+    #sidebar nav.active { display: block !important; }
 
     #sidebar nav ul {
         flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 1rem 1.5rem !important;
+        align-items: center !important;
     }
 
-    #sidebar nav ul li {
-        margin: 0 !important;
-        width: 100%;
-    }
+    #sidebar nav ul li { margin: 0.5rem 0 !important; }
 
-    #sidebar nav a {
-        padding: 0.8rem 0 !important;
-        font-size: 0.75rem !important;
-        border-bottom: 1px solid rgba(127, 140, 170, 0.1);
-    }
-
-    /* Wrapper-Anpassung */
-    #sidebar + #wrapper {
-        margin-left: 0 !important;
-        padding-top: 4.5rem !important;
-    }
+    #sidebar + #wrapper { margin-left: 0 !important; padding-top: 4rem !important; }
 }
