@@ -4236,17 +4236,16 @@ h1.major:after, h2.major:after {
 
 /* --- UNIFIED NAVIGATION & LOGO SYNC (2-Stufen-Modell) --- */
 
-.menu-toggle { display: none; } /* Standardmässig auf Desktop versteckt */
+.menu-toggle { display: none; } /* Standardmässig versteckt */
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 980px) {
     #sidebar {
         height: 4.5rem !important;
         width: 100% !important;
-        display: block !important;
         padding: 0 !important;
         position: fixed;
-        z-index: 10000;
         background: #222831 !important;
+        border-right: none !important;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
     }
 
@@ -4258,46 +4257,43 @@ h1.major:after, h2.major:after {
         height: 100%;
     }
 
-    /* Logo-Tausch bei 1280px */
+    /* Logo-Wechsel synchronisiert bei 980px */
     #main-logo-desktop { display: none !important; }
     #main-logo-mobile { 
         display: block !important; 
-        max-width: 150px; 
-        height: auto;
+        max-width: 130px; 
+        height: auto; 
     }
 
-    .logo-group { padding: 0 !important; margin: 0; }
-
-    /* Hamburger Icon anzeigen & Weiss färben */
+    /* Hamburger-Icon in Weiss */
     .menu-toggle {
         display: block !important;
         font-size: 1.5rem;
-        color: #FFFFFF !important;
+        color: #FFFFFF !important; /* Hier Weiss eingestellt */
         cursor: pointer;
+        z-index: 10001;
     }
 
-    /* Navigation als Dropdown (initial versteckt) */
-    #nav-menu {
+    /* Navigation als Dropdown */
+    #nav-menu { /* Nutze hier direkt die ID statt #sidebar nav */
         display: none; 
         position: absolute;
         top: 4.5rem;
         left: 0;
         width: 100%;
         background: #222831;
-        padding: 1rem 0;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
     }
 
-    /* Anzeigen wenn durch JS 'active' gesetzt wird */
-    #nav-menu.active {
-        display: block !important;
+    /* Dieser Status wird vom JS aktiviert */
+    #nav-menu.active { 
+        display: block !important; 
     }
 
     #sidebar nav ul {
         flex-direction: column !important;
         align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
+        padding: 1.5rem !important;
     }
 
     #sidebar nav ul li {
@@ -4311,7 +4307,7 @@ h1.major:after, h2.major:after {
         font-size: 0.75rem !important;
     }
 
-    /* Content unter das Menü schieben */
+    /* Wrapper rutscht nach oben */
     #sidebar + #wrapper {
         margin-left: 0 !important;
         padding-top: 4.5rem !important;
