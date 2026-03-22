@@ -3795,7 +3795,7 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 980px) {
 
 			#sidebar {
 				height: 3.5em;
@@ -4238,12 +4238,11 @@ h1.major:after, h2.major:after {
 }
 
 
-/* --- UNIFIED NAVIGATION & LOGO SYNC --- */
+/* --- UNIFIED NAVIGATION & LOGO SYNC (2-Stufen-Modell) --- */
 
 .menu-toggle { display: none; } /* Standardmässig versteckt */
 
-/* Ab 1280px abwärts wird die Sidebar zur Top-Bar */
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 980px) {
     #sidebar {
         height: 4.5rem !important;
         width: 100% !important;
@@ -4262,26 +4261,24 @@ h1.major:after, h2.major:after {
         height: 100%;
     }
 
-    /* Logo-Wechsel synchronisiert bei 1280px */
+    /* Logo-Wechsel synchronisiert bei 980px */
     #main-logo-desktop { display: none !important; }
     #main-logo-mobile { 
         display: block !important; 
-        max-width: 150px; 
+        max-width: 130px; 
         height: auto; 
     }
 
-    .logo-group { padding: 0 !important; }
-
-    /* Hamburger-Icon anzeigen */
+    /* Hamburger-Icon in Weiss */
     .menu-toggle {
-        display: block;
+        display: block !important;
         font-size: 1.5rem;
-        color: #78c6cf;
+        color: #FFFFFF !important; /* Hier Weiss eingestellt */
         cursor: pointer;
         z-index: 10001;
     }
 
-    /* Navigation als Overlay (Dropdown) */
+    /* Navigation als Dropdown */
     #sidebar nav {
         display: none; /* Initial versteckt */
         position: absolute;
@@ -4292,26 +4289,29 @@ h1.major:after, h2.major:after {
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
     }
 
-    #sidebar nav.active { display: block; }
+    /* Dieser Status wird vom JS aktiviert */
+    #sidebar nav.active { 
+        display: block !important; 
+    }
 
     #sidebar nav ul {
         flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 1rem 1.5rem !important;
+        align-items: center !important;
+        padding: 1.5rem !important;
     }
 
     #sidebar nav ul li {
-        margin: 0 !important;
+        margin: 0.5rem 0 !important;
         width: 100%;
+        text-align: center;
     }
 
     #sidebar nav a {
         padding: 0.8rem 0 !important;
         font-size: 0.75rem !important;
-        border-bottom: 1px solid rgba(127, 140, 170, 0.1);
     }
 
-    /* Wrapper-Anpassung */
+    /* Wrapper rutscht nach oben */
     #sidebar + #wrapper {
         margin-left: 0 !important;
         padding-top: 4.5rem !important;
