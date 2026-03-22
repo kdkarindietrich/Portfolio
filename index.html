@@ -839,7 +839,22 @@
         // Öffnet das Mail-Programm des Nutzers
         window.location.href = "mailto:" + user + "@" + domain;
     }
+
+			
 </script>
-		
+		function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    if (nav) {
+        nav.classList.toggle("active");
+    }
+}
+
+// Schliesst das Menü automatisch, wenn ein Link geklickt wird
+$(document).on('click', '#sidebar nav a', function() {
+    if (window.innerWidth <= 980) {
+        const nav = document.getElementById("nav-menu");
+        if (nav) nav.classList.remove("active");
+    }
+});
 	</body>
 </html>
