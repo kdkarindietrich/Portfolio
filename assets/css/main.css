@@ -4234,10 +4234,12 @@ h1.major:after, h2.major:after {
 }
 
 
-/* --- UNIFIED NAVIGATION & LOGO SYNC (Korrektur Logo & Sichtbarkeit) --- */
+/* --- FINALE NAVIGATIONSLOGIK (Logo, Top-Bar & Hamburger) --- */
 
-.menu-toggle { display: none; } 
+/* 1. Grundzustand: Hamburger immer versteckt */
+.menu-toggle { display: none; }
 
+/* 2. STUFE: Ab 1280px (Sidebar wird zur Top-Bar, Logo wechselt) */
 @media screen and (max-width: 1280px) {
     #sidebar {
         height: 4.5rem !important;
@@ -4248,7 +4250,6 @@ h1.major:after, h2.major:after {
         z-index: 10000;
         background: #222831 !important;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
-        /* WICHTIG: Erlaubt, dass das Menü nach unten aus der Leiste herausragt */
         overflow: visible !important; 
     }
 
@@ -4260,7 +4261,6 @@ h1.major:after, h2.major:after {
         padding: 0 1.5rem !important;
     }
 
-    /* Logo-Wechsel sofort bei 1280px */
     #main-logo-desktop { display: none !important; }
     #main-logo-mobile { 
         display: block !important; 
@@ -4268,63 +4268,100 @@ h1.major:after, h2.major:after {
         height: auto; 
     }
 
-    /* Hamburger-Logik ab 980px */
-    /* --- OPTIMIERTES MOBILE MENU LAYOUT --- */
-@media (max-width: 980px) {
+    #sidebar + #wrapper {
+        margin-left: 0 !important;
+        padding-top: 4.5rem !important;
+    }
+}
+
+/* 3. STUFE: Ab 980px (Hamburger erscheint, Menü wird zum Dropdown) */
+@media screen and (max-width: 980px) {
     .menu-toggle {
         display: block !important;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
         color: #FFFFFF !important;
         font-size: 1.5rem;
         cursor: pointer;
+        z-index: 10002;
     }
 
+    /* Das Dropdown-Panel */
     #nav-menu {
-        display: none; 
+        display: block !important; /* Immer präsent für die Animation */
         position: absolute;
-        top: 4.5rem; /* Direkt unter der Top-Bar */
-        left: 0;
-        width: 100%;
-        background: #222831 !important; /* Gleiche Farbe wie die Bar, 100% deckend */
-        border-bottom: 2px solid #78c6cf; /* Akzentlinie unten */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Schatten für mehr Tiefe */
+        top: 4.5rem;
+        right: 0;
+        left: auto;
+        width: 280px;
+        /* Absolut blickdicht */
+        background-color: #222831 !important;
+        background-image: none !important;
+        border-left: 1px solid rgba(120, 198, 207, 0.3);
+        border-bottom: 1px solid rgba(120, 198, 207, 0.3);
+        box-shadow: -15px 15px 40px rgba(0, 0, 0, 0.8);
         z-index: 10001;
+
+        /* Effekt: Slide-In von oben & Fade */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    #nav-menu.active { 
-        display: block !important; 
+    /* Wenn aktiv (durch Klick) */
+    #nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     #nav-menu ul {
         flex-direction: column !important;
-        align-items: stretch !important; /* Links über ganze Breite klickbar */
+        background: #222831 !important;
         padding: 1rem 0 !important;
         margin: 0 !important;
     }
 
     #nav-menu ul li {
-        margin: 0 !important;
-        border-bottom: 1px solid rgba(127, 140, 170, 0.1);
+        border-bottom: 1px solid rgba(127, 140, 170, 0.05);
+        position: relative;
     }
-
-    #nav-menu ul li:last-child { border-bottom: none; }
 
     #nav-menu ul li a {
         display: block;
-        padding: 1.2rem 2rem !important;
-        text-align: left;
+        padding: 1.2rem 2.5rem !important;
+        text-align: right;
         color: #FFFFFF !important;
-        border-bottom: none !important; /* Entfernt die Standard-Linie */
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        border-bottom: none !important;
+        transition: all 0.2s ease;
     }
 
+    /* Hover & Active Effekte (Mint Akzent) */
     #nav-menu ul li a:hover {
-        background: rgba(120, 198, 207, 0.1);
+        background: rgba(120, 198, 207, 0.05);
         color: #78c6cf !important;
     }
-}
 
-    /* Content-Abstand fixieren */
-    #sidebar + #wrapper {
-        margin-left: 0 !important;
-        padding-top: 4.5rem !important;
+    /* Vertikale Mint-Linie rechts (wie in Desktop-Sidebar) */
+    #nav-menu ul li a:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #78c6cf;
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+    }
+
+    #nav-menu ul li a:hover:after {
+        transform: scaleY(1);
     }
 }
