@@ -810,10 +810,10 @@
 
 		</div>
 
-		<footer id="footer" class="wrapper style1-alt">
+	<footer id="footer" class="wrapper style1-alt">
 			<div class="inner">
 				<ul class="menu">
-					<li>&copy; Karin Dietrich. All rights reserved.</li>
+					<li>&copy; Karin Dietrich. Alle Rechte vorbehalten.</li>
 					<li>kd [at] karindietrich.ch</li>
 				</ul>
 			</div>
@@ -827,29 +827,31 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-	<script>
-    function decodeEmail(event) {
-        event.preventDefault();
-        const user = "kd";
-        const domain = "karindietrich.ch";
-        window.location.href = "mailto:" + user + "@" + domain;
-    }
+		<script>
+			/* E-Mail Decoder gegen Spam-Bots */
+			function decodeEmail(event) {
+				event.preventDefault();
+				const user = "kd";
+				const domain = "karindietrich.ch";
+				window.location.href = "mailto:" + user + "@" + domain;
+			}
 
-    function toggleMenu() {
-        const nav = document.getElementById("nav-menu");
-        if (nav) {
-            nav.classList.toggle("active");
-        }
-    }
+			/* Hamburger Menü Funktion */
+			function toggleMenu() {
+				const nav = document.getElementById("nav-menu");
+				if (nav) {
+					nav.classList.toggle("active");
+				}
+			}
 
-    // Schliesst das Menü automatisch bei Klick auf einen Link
-    $(document).on('click', '#sidebar nav a', function() {
-        if (window.innerWidth <= 980) {
-            const nav = document.getElementById("nav-menu");
-            if (nav) nav.classList.remove("active");
-        }
-    });
-</script>
-		
+			/* Menü auf Mobile nach Klick automatisch schliessen */
+			$(document).on('click', '#sidebar nav a', function() {
+				if (window.innerWidth <= 980) {
+					const nav = document.getElementById("nav-menu");
+					if (nav) nav.classList.remove("active");
+				}
+			});
+		</script>
+
 	</body>
 </html>
