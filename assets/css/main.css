@@ -4269,34 +4269,58 @@ h1.major:after, h2.major:after {
     }
 
     /* Hamburger-Logik ab 980px */
-    @media (max-width: 980px) {
-        .menu-toggle {
-            display: block !important;
-            color: #FFFFFF !important;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        #nav-menu {
-            display: none; 
-            position: absolute;
-            top: 4.5rem;
-            left: 0;
-            width: 100%;
-            background: #222831;
-            border-bottom: 1px solid rgba(127, 140, 170, 0.2);
-        }
-
-        #nav-menu.active { 
-            display: block !important; 
-        }
-
-        #nav-menu ul {
-            flex-direction: column !important;
-            align-items: center !important;
-            padding: 1.5rem !important;
-        }
+    /* --- OPTIMIERTES MOBILE MENU LAYOUT --- */
+@media (max-width: 980px) {
+    .menu-toggle {
+        display: block !important;
+        color: #FFFFFF !important;
+        font-size: 1.5rem;
+        cursor: pointer;
     }
+
+    #nav-menu {
+        display: none; 
+        position: absolute;
+        top: 4.5rem; /* Direkt unter der Top-Bar */
+        left: 0;
+        width: 100%;
+        background: #222831 !important; /* Gleiche Farbe wie die Bar, 100% deckend */
+        border-bottom: 2px solid #78c6cf; /* Akzentlinie unten */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Schatten für mehr Tiefe */
+        z-index: 10001;
+    }
+
+    #nav-menu.active { 
+        display: block !important; 
+    }
+
+    #nav-menu ul {
+        flex-direction: column !important;
+        align-items: stretch !important; /* Links über ganze Breite klickbar */
+        padding: 1rem 0 !important;
+        margin: 0 !important;
+    }
+
+    #nav-menu ul li {
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(127, 140, 170, 0.1);
+    }
+
+    #nav-menu ul li:last-child { border-bottom: none; }
+
+    #nav-menu ul li a {
+        display: block;
+        padding: 1.2rem 2rem !important;
+        text-align: left;
+        color: #FFFFFF !important;
+        border-bottom: none !important; /* Entfernt die Standard-Linie */
+    }
+
+    #nav-menu ul li a:hover {
+        background: rgba(120, 198, 207, 0.1);
+        color: #78c6cf !important;
+    }
+}
 
     /* Content-Abstand fixieren */
     #sidebar + #wrapper {
