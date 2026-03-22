@@ -4239,43 +4239,76 @@ h1.major:after, h2.major:after {
 .menu-toggle { display: none; } 
 
 @media screen and (max-width: 1280px) {
+    #sidebar {
+        height: 4.5rem !important;
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        background: #222831 !important;
+        border-bottom: 1px solid rgba(127, 140, 170, 0.2);
+        overflow: visible !important; 
+    }
 
-    /* 1. Die Logo-Gruppe zwingen, die Mitte zu halten */
+    #sidebar .inner {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 100%;
+        /* Erhöht den Abstand zum Rand auf 4rem */
+        padding: 0 4rem !important; 
+    }
+
     .logo-group {
         display: flex !important;
         align-items: center !important;
-        height: 100%; /* Nutzt die volle Höhe der Bar (4.5rem) */
+        height: 100%;
         padding: 0 !important;
-        margin: 0;
     }
 
     .logo-group a {
         display: flex !important;
         align-items: center !important;
         height: 100%;
-        border-bottom: none !important; /* Entfernt die Akzentlinie unter dem Logo */
+        border-bottom: none !important;
     }
 
-    /* Logo-Wechsel Logik & Nudge nach oben */
-    #main-logo-desktop { 
-        display: none !important; 
-    }
-
+    #main-logo-desktop { display: none !important; }
     #main-logo-mobile { 
         display: block !important; 
         max-width: 130px; 
         height: auto;
-        /* Schiebt das Logo 2px hoch, um die optische Mitte zu treffen */
-        margin-top: -2px; 
+        margin-top: -2px; /* Optische Korrektur nach oben */
     }
 
-    /* 2. Navigation zentrieren, damit sie das Logo nicht vertikal verschiebt */
+    /* Navigation in der Top-Bar (Tablet-Ansicht) */
     #sidebar nav {
         display: flex !important;
         align-items: center !important;
         height: 100%;
+        margin-right: 1.5rem; /* Zusätzlicher Puffer nach rechts */
     }
-}
+
+    #sidebar nav ul {
+        display: flex !important;
+        flex-direction: row !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+    }
+
+    #sidebar nav ul li {
+        margin: 0 0 0 2rem !important; /* Abstand zwischen den Wörtern */
+        padding: 0 !important;
+    }
+
+    #sidebar nav a {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.15em !important;
+        border-bottom: none !important;
+    }
 
    /* Hamburger-Logik ab 980px (Absolut blickdicht & kompakt) */
 @media (max-width: 980px) {
