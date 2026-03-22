@@ -4216,10 +4216,6 @@ h1.major:after, h2.major:after {
         margin: 0;
     }
 
-    #sidebar nav {
-        display: block !important;
-        height: auto;
-    }
 
     /* Verhindert, dass der Content unter der Top-Bar startet */
     #sidebar + #wrapper {
@@ -4279,8 +4275,8 @@ h1.major:after, h2.major:after {
     }
 
     /* Navigation als Dropdown */
-    #sidebar nav {
-        display: none; /* Initial versteckt */
+    #nav-menu { /* Nutze hier direkt die ID statt #sidebar nav */
+        display: none; 
         position: absolute;
         top: 4.5rem;
         left: 0;
@@ -4290,7 +4286,7 @@ h1.major:after, h2.major:after {
     }
 
     /* Dieser Status wird vom JS aktiviert */
-    #sidebar nav.active { 
+    #nav-menu.active { 
         display: block !important; 
     }
 
