@@ -4234,7 +4234,7 @@ h1.major:after, h2.major:after {
 }
 
 
-/* --- UNIFIED NAVIGATION & LOGO SYNC (Korrektur Logo & Sichtbarkeit) --- */
+/* --- UNIFIED NAVIGATION & LOGO SYNC (Optimierte Version) --- */
 
 .menu-toggle { display: none; } 
 
@@ -4248,7 +4248,6 @@ h1.major:after, h2.major:after {
         z-index: 10000;
         background: #222831 !important;
         border-bottom: 1px solid rgba(127, 140, 170, 0.2);
-        /* WICHTIG: Erlaubt, dass das Menü nach unten aus der Leiste herausragt */
         overflow: visible !important; 
     }
 
@@ -4275,16 +4274,22 @@ h1.major:after, h2.major:after {
             color: #FFFFFF !important;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 10002;
         }
 
         #nav-menu {
             display: none; 
             position: absolute;
             top: 4.5rem;
-            left: 0;
-            width: 100%;
-            background: #222831;
-            border-bottom: 1px solid rgba(127, 140, 170, 0.2);
+            right: 0;    /* Rechts positioniert */
+            left: auto;   /* Hebt linksbündig auf */
+            width: auto;  /* Breite nach Inhalt */
+            min-width: 280px; /* Verhindert Zeilenumbruch */
+            background-color: #222831 !important; /* Absolut blickdicht */
+            border-left: 1px solid rgba(120, 198, 207, 0.2);
+            border-bottom: 1px solid rgba(120, 198, 207, 0.2);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 10001;
         }
 
         #nav-menu.active { 
@@ -4293,8 +4298,51 @@ h1.major:after, h2.major:after {
 
         #nav-menu ul {
             flex-direction: column !important;
-            align-items: center !important;
-            padding: 1.5rem !important;
+            align-items: stretch !important; /* Links füllen ganze Breite */
+            padding: 1rem 0 !important;
+            margin: 0 !important;
+            list-style: none;
+        }
+
+        #nav-menu ul li {
+            position: relative;
+            margin: 0 !important;
+        }
+
+        #nav-menu ul li a {
+            display: block;
+            padding: 1rem 2rem !important;
+            text-align: right;
+            color: #FFFFFF !important;
+            border-bottom: none !important;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        /* Hover-Effekt: Mint-Akzent wie in der Sidebar */
+        #nav-menu ul li a:hover {
+            background: rgba(120, 198, 207, 0.05);
+            color: #78c6cf !important;
+        }
+
+        /* Vertikale Mint-Linie rechts beim Hover */
+        #nav-menu ul li a:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #78c6cf;
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+
+        #nav-menu ul li a:hover:after {
+            transform: scaleY(1);
         }
     }
 
