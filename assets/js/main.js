@@ -188,3 +188,15 @@
 			});
 
 })(jQuery);
+
+function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("active");
+}
+
+// Schliesst das Menü automatisch, wenn ein Link geklickt wird
+$(document).on('click', '#sidebar nav a', function() {
+    if (window.innerWidth <= 1280) {
+        document.getElementById("nav-menu").classList.remove("active");
+    }
+});
