@@ -194,8 +194,8 @@
         </div>
 
         <a href="javascript:void(0);" class="menu-toggle" onclick="toggleMenu()">
-            <span class="icon solid fa-bars"></span>
-        </a>
+    <span class="icon solid fa-bars"></span>
+</a>
 
         <nav id="nav-menu">
             <ul>
@@ -827,34 +827,29 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 
-		<script>
+	<script>
     function decodeEmail(event) {
-        // Verhindert, dass die Seite nach oben springt
         event.preventDefault();
-        
-        // Die E-Mail wird erst beim Klick zusammengesetzt
         const user = "kd";
         const domain = "karindietrich.ch";
-        
-        // Öffnet das Mail-Programm des Nutzers
         window.location.href = "mailto:" + user + "@" + domain;
     }
 
-			
-</script>
-		function toggleMenu() {
-    const nav = document.getElementById("nav-menu");
-    if (nav) {
-        nav.classList.toggle("active");
-    }
-}
-
-// Schliesst das Menü automatisch, wenn ein Link geklickt wird
-$(document).on('click', '#sidebar nav a', function() {
-    if (window.innerWidth <= 980) {
+    function toggleMenu() {
         const nav = document.getElementById("nav-menu");
-        if (nav) nav.classList.remove("active");
+        if (nav) {
+            nav.classList.toggle("active");
+        }
     }
-});
+
+    // Schliesst das Menü automatisch bei Klick auf einen Link
+    $(document).on('click', '#sidebar nav a', function() {
+        if (window.innerWidth <= 980) {
+            const nav = document.getElementById("nav-menu");
+            if (nav) nav.classList.remove("active");
+        }
+    });
+</script>
+		
 	</body>
 </html>
