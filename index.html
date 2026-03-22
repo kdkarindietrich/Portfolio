@@ -828,30 +828,29 @@
 		<script src="assets/js/main.js"></script>
 
 		<script>
-			/* E-Mail Decoder gegen Spam-Bots */
-			function decodeEmail(event) {
-				event.preventDefault();
-				const user = "kd";
-				const domain = "karindietrich.ch";
-				window.location.href = "mailto:" + user + "@" + domain;
-			}
-			<script>
+			/* 1. E-Mail Decoder gegen Spam-Bots */
+    function decodeEmail(event) {
+        event.preventDefault();
+        const user = "kd";
+        const domain = "karindietrich.ch";
+        window.location.href = "mailto:" + user + "@" + domain;
+    }
 
-		<script>	/* Hamburger Menü Funktion */
-			function toggleMenu() {
-				const nav = document.getElementById("nav-menu");
-				if (nav) {
-					nav.classList.toggle("active");
-				}
-			}
+    /* 2. Hamburger Menü Logik (Toggle) */
+    function toggleMenu() {
+        const nav = document.getElementById("nav-menu");
+        if (nav) {
+            nav.classList.toggle("active");
+        }
+    }
 
-			/* Menü auf Mobile nach Klick automatisch schliessen */
-			$(document).on('click', '#sidebar nav a', function() {
-				if (window.innerWidth <= 980) {
-					const nav = document.getElementById("nav-menu");
-					if (nav) nav.classList.remove("active");
-				}
-			});
+    /* 3. Menü automatisch schliessen bei Klick auf einen Link */
+    $(document).on('click', '#nav-menu a', function() {
+        const nav = document.getElementById("nav-menu");
+        if (nav) {
+            nav.classList.remove("active");
+        }
+    });
 		</script>
 		
 
