@@ -4379,3 +4379,26 @@ h1.major:after, h2.major:after {
         transform: scaleY(1);
     }
 }
+
+	
+/* --- 10. SELF-BUILT NOTE HOVER --- */
+.built-info {
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.built-info .hover-text {
+    display: none;
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.95em;
+    padding-left: 5px;
+}
+
+.built-info:hover .hover-text {
+    display: inline;
+}
+
+.built-info:hover .main-text {
+    color: #78c6cf !important; /* Dein Mint-Farbton */
+}
