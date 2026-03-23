@@ -4263,8 +4263,9 @@ h1.major:after, h2.major:after {
     #main-logo-desktop { display: none !important; }
     #main-logo-mobile { 
         display: block !important; 
-        max-width: 130px; 
-        height: auto; 
+        max-width: 120px; 
+        height: auto;
+		margin-top: -5px !important;
     }
 
    /* Hamburger-Logik ab 980px (Absolut blickdicht & kompakt) */
