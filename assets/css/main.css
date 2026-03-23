@@ -4263,10 +4263,10 @@ h1.major:after, h2.major:after {
 
     #main-logo-mobile { 
         display: block !important; 
-        max-width: 130px; 
+        max-width: 110px; !important;
         height: auto;
         /* Schiebt das Logo 2px hoch, um die optische Mitte zu treffen */
-        margin-top: -2px; 
+        margin-top: -4px; !important;
     }
 
     /* 2. Navigation zentrieren, damit sie das Logo nicht vertikal verschiebt */
