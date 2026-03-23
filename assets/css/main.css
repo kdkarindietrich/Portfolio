@@ -4382,13 +4382,8 @@ h1.major:after, h2.major:after {
 
 	
 /* --- 10. SELF-BUILT NOTE HOVER --- */
-.built-info {
-    cursor: help;
-    transition: all 0.3s ease;
-}
-
 .built-info .hover-text {
-    display: none;
+    display: none !important; /* Zwingt den Text, versteckt zu bleiben */
     opacity: 0.6;
     font-style: italic;
     font-size: 0.95em;
@@ -4396,9 +4391,13 @@ h1.major:after, h2.major:after {
 }
 
 .built-info:hover .hover-text {
-    display: inline;
+    display: inline !important; /* Zeigt den Text nur beim Drüberfahren */
+}
+
+.built-info {
+    cursor: help;
 }
 
 .built-info:hover .main-text {
-    color: #78c6cf !important; /* Dein Mint-Farbton */
+    color: #78c6cf !important;
 }
