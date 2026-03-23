@@ -4341,8 +4341,9 @@ h1.major:after, h2.major:after {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        height: 4rem !important; 
-        padding: 0 2rem !important;
+        height: 3.8rem !important; 
+		line-height: 3.8rem !important;
+        padding: 0 2rem 0.7rem 2rem !important;
         color: #FFFFFF !important;
         text-transform: uppercase;
         font-weight: 300 !important;
