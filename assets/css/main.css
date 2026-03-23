@@ -4082,6 +4082,21 @@ h1.major:after, h2.major:after {
 #footer .menu li {
     color: #7F8CAA !important;
     border-left-color: rgba(127, 140, 170, 0.3) !important;
+	} /* Das schließt den Footer-Fix ab */
+
+			/* --- 10. SELF-BUILT NOTE HOVER --- */
+			.built-info .hover-text {
+				display: none !important;
+				opacity: 0.7;
+				font-style: italic;
+				font-size: 0.95em;
+				padding-left: 5px;
+			}
+			.built-info:hover .hover-text {
+				display: inline !important;
+			}
+			.built-info { cursor: help; }
+			.built-info:hover .main-text { color: #78c6cf !important; }
 }
 
 /* --- 8. SKILLS FRAME (Harmonisierung mit Meilensteinen) --- */
@@ -4380,24 +4395,3 @@ h1.major:after, h2.major:after {
     }
 }
 
-	
-/* --- 10. SELF-BUILT NOTE HOVER --- */
-.built-info .hover-text {
-    display: none !important; /* Zwingt den Text, versteckt zu bleiben */
-    opacity: 0.6;
-    font-style: italic;
-    font-size: 0.95em;
-    padding-left: 5px;
-}
-
-.built-info:hover .hover-text {
-    display: inline !important; /* Zeigt den Text nur beim Drüberfahren */
-}
-
-.built-info {
-    cursor: help;
-}
-
-.built-info:hover .main-text {
-    color: #78c6cf !important;
-}
