@@ -3747,7 +3747,7 @@ input, select, textarea {
 
 			#sidebar nav a:before, #sidebar nav a:after {
 				border-radius: 0.2em;
-				bottom: 0.9rem;
+				bottom: 1.2rem;
 				content: '';
 				height: 0.2em;
 				position: absolute;
