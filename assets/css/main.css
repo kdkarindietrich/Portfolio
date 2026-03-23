@@ -4274,7 +4274,7 @@ h1.major:after, h2.major:after {
         display: block !important;
         position: absolute;
         right: 1.5rem;
-        top: 1.1rem;
+        top: 1rem;
         color: #FFFFFF !important;
         font-size: 1.5rem;
         cursor: pointer;
