@@ -4345,11 +4345,11 @@ h1.major:after, h2.major:after {
         padding: 0 2rem !important;
         color: #FFFFFF !important;
         text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        font-size: 0.75rem;
+        font-weight: 300 !important;
+        letter-spacing: 0.2em;
+        font-size: 0.7rem;
         border-bottom: none !important;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease !important;
         /* 4. Ebene: Link blickdicht (finaler Schutz) */
         background-color: #222831 !important;
         background-image: none !important;
@@ -4359,6 +4359,7 @@ h1.major:after, h2.major:after {
     #nav-menu ul li a:hover {
         background-color: rgba(120, 198, 207, 0.1) !important;
         color: #78c6cf !important;
+		letter-spacing: 0.25em !important;
     }
 
     #nav-menu ul li a:after {
