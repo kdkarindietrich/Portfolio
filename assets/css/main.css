@@ -3467,7 +3467,7 @@ input, select, textarea {
 
 			#sidebar + #wrapper {
 				margin-left: 0;
-				padding-top: 4rem;
+				padding-top: 3.5rem !important;
 			}
 
 		}
@@ -4250,7 +4250,7 @@ h1.major:after, h2.major:after {
 
 @media screen and (max-width: 1280px) {
     #sidebar {
-        height: 4rem !important;
+        height: 3.5rem !important;
         width: 100% !important;
         position: fixed;
         top: 0;
