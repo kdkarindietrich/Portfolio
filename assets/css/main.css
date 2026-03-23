@@ -4211,6 +4211,15 @@ h1.major:after, h2.major:after {
         height: auto;
 		margin-top: -5px !important;
     }
+	
+	/* Korrektur für die Desktop-Menüpunkte */
+#sidebar nav a {
+    height: 4rem !important;       /* Gleiche Höhe wie die Bar */
+    line-height: 4rem !important;  /* Zentriert den Text vertikal */
+    padding: 0 !important;         /* Entfernt alte Abstände */
+    margin-top: -5px !important;   /* Schiebt die Schrift hoch, passend zum Logo */
+    border-bottom: none !important;
+}
 
     .logo-group {
         padding: 0 !important;
