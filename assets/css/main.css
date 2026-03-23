@@ -4209,6 +4209,7 @@ h1.major:after, h2.major:after {
         display: block !important; 
         max-width: 120px; /* Breite für den Schriftzug KarinDietrich_wht.svg */
         height: auto;
+		margin-top: -5px !important;
     }
 
     .logo-group {
