@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="de">
 	<head>
-		
 		<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZ9MZ7PNK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVZ9MZ7PNK"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
 
-  gtag('config', 'G-VVZ9MZ7PNK');
-</script>
+		  gtag('config', 'G-VVZ9MZ7PNK');
+		</script>
 		
 		<title>Karin Dietrich | Portfolio</title>
 		<meta charset="utf-8" />
@@ -49,13 +48,25 @@
 				height: 2px !important;
 			}
 
-			/* --- 3. SIDEBAR & NAVIGATION --- */
+			/* --- 3. SIDEBAR & NAVIGATION FIX --- */
 			#sidebar { 
 				background-color: #222831 !important;
 				border-right: 1px solid #333446 !important; 
 			}
 
-			#sidebar nav a { color: #7F8CAA !important; }
+			#sidebar nav a { 
+				color: #7F8CAA !important; 
+				transition: color 0.2s ease, background 0.2s ease;
+			}
+
+			#sidebar nav a:hover {
+				color: #FFFFFF !important;
+			}
+
+			#sidebar nav a:hover:after {
+				background: #78c6cf !important;
+				max-width: 100% !important;
+			}
 
 			#sidebar nav a:before, #sidebar nav a:after {
 				height: 2px !important;
@@ -73,27 +84,64 @@
 				max-width: 100% !important;
 			}
 
-			/* --- 4. CORE ACHIEVEMENTS & HOVER EFFECTS --- */
+		/* --- 4. CORE ACHIEVEMENTS & MODERN ICON BADGES --- */
 			#one .row > div.achievement-card {
 				background: #333446 !important;
-				padding: 2em !important;
-				border-radius: 8px;
+				padding: 2.2em 1.8em !important;
+				border-radius: 12px;
 				border: 1px solid rgba(127, 140, 170, 0.2);
 				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 				margin-bottom: 2em;
+				display: flex;
+				flex-direction: column;
 			}
 
 			#one .row > div.achievement-card:hover {
-				transform: translateY(-8px); 
+				transform: translateY(-6px); 
 				background: #3d3e54 !important; 
 				border-color: #78c6cf !important; 
-				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
+				box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); 
 			}
 
-			.icon.major, .icon.solid.major, .icon.major:before {
-				color: #78c6cf !important; /* Mint Icons */
+			/* Icon-Badge (zentriert, ohne Template-Konflikte) */
+			.achievement-card .card-icon {
+				width: 48px;
+				height: 48px;
+				border-radius: 50%; /* Für perfekte Kreise */
+				background: rgba(120, 198, 207, 0.12);
+				border: 1px solid rgba(120, 198, 207, 0.3);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 1.2rem;
+				transition: all 0.3s ease;
 			}
 
+			.achievement-card .card-icon i {
+				font-size: 1.3rem;
+				color: #78c6cf;
+				transition: color 0.3s ease;
+			}
+
+			/* Hover-Effekt: Badge füllt sich mit Mint, Icon wird dunkel */
+			#one .row > div.achievement-card:hover .card-icon {
+				background: #78c6cf;
+				border-color: #78c6cf;
+				box-shadow: 0 0 15px rgba(120, 198, 207, 0.5);
+			}
+
+			#one .row > div.achievement-card:hover .card-icon i {
+				color: #222831;
+			}
+
+			.achievement-card .card-link {
+				font-size: 0.8em;
+				color: #78c6cf;
+				font-weight: bold;
+				display: inline-block;
+				margin-top: auto;
+				padding-top: 0.8em;
+			}
 			/* --- 5. LOGOBAND --- */
 			.partner-section {
 				margin-top: 4rem;
@@ -149,7 +197,7 @@
 			.timeline-item {
 				display: flex !important;
 				position: relative;
-				margin-bottom: 2.5em; /* Verkleinerter Abstand */
+				margin-bottom: 2.5em;
 				width: 100%;
 			}
 
@@ -164,7 +212,7 @@
 			.timeline-dot {
 				position: absolute; left: 250px; margin-left: -6px;
 				top: 0.5em; width: 12px; height: 12px;
-				background: #78c6cf; /* Mint Punkt */
+				background: #78c6cf;
 				border-radius: 50%; z-index: 2;
 				box-shadow: 0 0 0 5px #222831;
 			}
@@ -172,16 +220,263 @@
 			.timeline-right { flex: 1; padding-left: 70px; }
 			.timeline-right h3 { margin-bottom: 0.5rem; color: #FFFFFF !important; }
 
-			@media screen and (max-width: 980px) {
-				.timeline-container::before { left: 15px; }
-				.timeline-item { flex-direction: column !important; padding-left: 40px; }
-				.timeline-left { text-align: left; margin-bottom: 0.5em; flex: none !important; width: 100%; }
-				.timeline-dot { left: 15px; }
-				.timeline-right { padding-left: 0; }
-				.logo-band { justify-content: center; }
+			/* --- 7. EXPERTISE & TECH STACK --- */
+			.expertise-container {
+				display: flex;
+				gap: 4rem;
+				align-items: flex-start;
+				margin-top: 3rem;
 			}
 
-			/* --- 7. FOOTER FIX --- */
+			.tech-stack-column {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 2.5rem;
+			}
+
+			.tech-group h4 {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: #7F8CAA;
+				margin-bottom: 1.2rem;
+				border-bottom: 1px solid rgba(127, 140, 170, 0.2);
+				padding-bottom: 0.4rem;
+			}
+
+			.icon-cloud {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.8rem;
+			}
+
+			.icon-wrapper {
+				position: relative;
+				display: inline-block;
+			}
+
+			.icon-cloud img {
+				height: 28px;
+				width: auto;
+				filter: grayscale(100%) brightness(1.5);
+				opacity: 0.6;
+				transition: all 0.4s ease;
+				display: block;
+			}
+
+			.icon-wrapper:hover img {
+				filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px rgba(120, 198, 207, 0.8));
+				transform: scale(1.1);
+				opacity: 1;
+			}
+
+			.icon-wrapper::after {
+				content: attr(data-name);
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: rgba(34, 40, 49, 0.95);
+				color: #78c6cf;
+				font-size: 0.65rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				padding: 4px 8px;
+				border-radius: 4px;
+				white-space: nowrap;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				border: 1px solid rgba(120, 198, 207, 0.2);
+				z-index: 10;
+			}
+
+			.icon-wrapper:hover::after {
+				opacity: 1;
+				visibility: visible;
+				bottom: -35px;
+			}
+
+			.skills-column {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 1.2rem;
+			}
+
+			.skill-bar-row { width: 100%; }
+
+			.skill-bar-label {
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: #FFFFFF;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin-bottom: 0.4rem;
+				display: block;
+			}
+
+			.skill-bar-bg {
+				background: rgba(255, 255, 255, 0.05);
+				height: 4px;
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.skill-bar-fill {
+				background: #78c6cf;
+				height: 100%;
+				border-radius: 2px;
+			}
+
+			/* --- 8. STRATEGIC TIME ADVANTAGE --- */
+			.advantage-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 4rem;
+				margin-top: 2rem;
+			}
+
+			.advantage-text-side { flex: 1; }
+
+			.advantage-text-side p strong {
+				color: #78c6cf;
+				display: block;
+				margin-bottom: 0.5rem;
+				font-size: 1.1rem;
+			}
+
+			.sync-monitor-box {
+				flex: 0 0 300px;
+				background: rgba(255, 255, 255, 0.03);
+				border: 1px solid rgba(120, 198, 207, 0.2);
+				border-radius: 10px;
+				padding: 1.5rem;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+			}
+
+			.monitor-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 1rem;
+			}
+
+			.monitor-row:last-child {
+				margin-bottom: 0;
+				padding-top: 1rem;
+				border-top: 1px solid rgba(127, 140, 170, 0.1);
+			}
+
+			.monitor-label {
+				font-size: 0.65rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: #7F8CAA;
+			}
+
+			.monitor-time {
+				font-family: 'Courier New', monospace;
+				font-size: 1.4rem;
+				font-weight: 700;
+				color: #FFFFFF;
+			}
+
+			.lead-badge {
+				display: inline-flex;
+				align-items: center;
+				font-size: 0.6rem;
+				font-weight: 800;
+				color: #78c6cf;
+				background: rgba(120, 198, 207, 0.1);
+				padding: 3px 8px;
+				border-radius: 4px;
+				margin-top: 5px;
+			}
+
+			.lead-dot {
+				height: 6px;
+				width: 6px;
+				background-color: #78c6cf;
+				border-radius: 50%;
+				margin-right: 8px;
+				box-shadow: 0 0 8px #78c6cf;
+				animation: sync-pulse 2s infinite;
+			}
+
+			@keyframes sync-pulse {
+				0% { opacity: 1; transform: scale(1); }
+				50% { opacity: 0.4; transform: scale(1.2); }
+				100% { opacity: 1; transform: scale(1); }
+			}
+
+			/* --- 9. POPUP / MODAL STYLING --- */
+			dialog.site-modal {
+				background: #222831 !important;
+				color: #CBD5E0 !important;
+				border: 1px solid #78c6cf !important;
+				border-radius: 8px;
+				padding: 2em;
+				max-width: 650px;
+				width: 90%;
+				margin: auto;
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+			}
+
+			dialog.site-modal::backdrop {
+				background: rgba(15, 18, 24, 0.85);
+				backdrop-filter: blur(5px);
+			}
+
+			.modal-content h3 { color: #FFFFFF !important; margin-bottom: 0.2em; }
+			.modal-content strong { color: #78c6cf; }
+			.modal-action-bar {
+				display: flex;
+				gap: 1em;
+				align-items: center;
+				margin-top: 1.5em;
+				flex-wrap: wrap;
+			}
+
+			.modal-grid-2x2 {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.8rem;
+				margin-top: 1em;
+				margin-bottom: 1.5em;
+			}
+
+			.modal-grid-2x2 .img-wrapper {
+				overflow: hidden;
+				border-radius: 6px;
+				border: 1px solid rgba(127, 140, 170, 0.25);
+				background: rgba(0, 0, 0, 0.2);
+				aspect-ratio: 3 / 4;
+				transition: border-color 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.modal-grid-2x2 img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+			}
+
+			.modal-grid-2x2 .img-wrapper:hover img {
+				transform: scale(1.12);
+				filter: brightness(1.08);
+			}
+
+			.modal-grid-2x2 .img-wrapper:hover {
+				border-color: #78c6cf;
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+			}
+
+			/* --- 10. FOOTER FIX & RESPONSIVE --- */
 			#footer.wrapper.style1-alt, #footer {
 				background-color: #222831 !important;
 				background-image: none !important;
@@ -191,37 +486,54 @@
 				color: #7F8CAA !important;
 				border-left-color: rgba(127, 140, 170, 0.3) !important;
 			}
+
+			@media screen and (max-width: 1280px) {
+				.expertise-container { gap: 2rem; }
+			}
+
+			@media screen and (max-width: 980px) {
+				.timeline-container::before { left: 15px; }
+				.timeline-item { flex-direction: column !important; padding-left: 40px; }
+				.timeline-left { text-align: left; margin-bottom: 0.5em; flex: none !important; width: 100%; }
+				.timeline-dot { left: 15px; }
+				.timeline-right { padding-left: 0; }
+				.logo-band { justify-content: center; }
+				.expertise-container { flex-direction: column; gap: 4rem; }
+				.tech-stack-column, .skills-column { width: 100%; }
+				.icon-cloud { justify-content: center; }
+				.advantage-row { flex-direction: column; gap: 3rem; }
+				.sync-monitor-box { width: 100%; flex: none; }
+			}
 		</style>
 	</head>
 	<body class="is-preload">
 
 	<section id="sidebar">
-    <div class="inner">
-        <div class="logo-group">
-            <a href="#intro" class="scrolly">
-                <img src="images/Karindietrich_sq_white.svg" alt="Logo" id="main-logo-desktop" class="site-logo" />
-                <img src="images/KarinDietrich_wht.svg" alt="Logo" id="main-logo-mobile" class="site-logo" />
-            </a>
-        </div>
+		<div class="inner">
+			<div class="logo-group">
+				<a href="#intro" class="scrolly">
+					<img src="images/Karindietrich_sq_white.svg" alt="Logo" id="main-logo-desktop" class="site-logo" />
+					<img src="images/KarinDietrich_wht.svg" alt="Logo" id="main-logo-mobile" class="site-logo" />
+				</a>
+			</div>
 
-        <a href="javascript:void(0);" class="menu-toggle" onclick="toggleMenu()">
-    <span class="icon solid fa-bars"></span>
-</a>
+			<a href="javascript:void(0);" class="menu-toggle" onclick="toggleMenu()">
+				<span class="icon solid fa-bars"></span>
+			</a>
 
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#intro">Home</a></li>
-                <li><a href="#one">Meilensteine</a></li>
-                <li><a href="#resume">Werdegang</a></li>
-                <li><a href="#two">Kompetenzen</a></li>
-                <li><a href="#advantage">Strategischer Zeitvorteil</a></li>
-                <li><a href="#three">Kontakt</a></li>
-            </ul>
-        </nav>
-    </div>
-</section>
+			<nav id="nav-menu">
+				<ul>
+					<li><a href="#intro">Home</a></li>
+					<li><a href="#one">Meilensteine</a></li>
+					<li><a href="#resume">Werdegang</a></li>
+					<li><a href="#two">Kompetenzen</a></li>
+					<li><a href="#advantage">Strategischer Zeitvorteil</a></li>
+					<li><a href="#three">Kontakt</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
 
-	
 		<div id="wrapper">
 
 			<section id="intro" class="wrapper style1 fullscreen fade-up">
@@ -234,9 +546,9 @@
 						</div>
 						<div class="col-8 col-12-medium">
 							<h1>Karin Dietrich</h1>
-								<p><strong>Senior Marketing Operations & Project Lead<br> 15+ Jahre Erfahrung • 10 Jahre Remote-Exzellenz • 100 % MEZ-Abdeckung</strong><br> Verlässliche Operativ-Exzellenz für Schweizer KMU und Konzerne: Ich steuere B2B-Kampagnen, Teams und Budgets mit Fokus auf moderne KI-Workflow-Optimierung. Mein Set-up verbindet ungestörte Fokuszeiten für hohe Umsetzungsgeschwindigkeit mit nahtloser Erreichbarkeit im Schweizer Arbeitsrhythmus. </p>
-								<ul class="actions">
-									<li><a href="#one" class="button scrolly">Expertise ansehen</a></li>
+							<p><strong>Senior Marketing Operations & Project Lead<br> 15+ Jahre Erfahrung • 10 Jahre Remote-Exzellenz • 100 % MEZ-Abdeckung</strong><br> Verlässliche Operativ-Exzellenz für Schweizer KMU und Konzerne: Ich steuere B2B-Kampagnen, Teams und Budgets mit Fokus auf moderne KI-Workflow-Optimierung. Mein Set-up verbindet ungestörte Fokuszeiten für hohe Umsetzungsgeschwindigkeit mit nahtloser Erreichbarkeit im Schweizer Arbeitsrhythmus. </p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Expertise ansehen</a></li>
 								<li><a href="CV_Karin_Dietrich_2026.pdf" class="button primary icon solid fa-download" download>Lebenslauf (PDF)</a></li>
 							</ul>
 						</div>
@@ -247,21 +559,30 @@
 			<section id="one" class="wrapper style2">
 				<div class="inner">
 					<h2>Meilensteine meiner Karriere</h2>
+					
 					<div class="row gtr-150">
-						<div class="col-4 col-12-medium achievement-card">
-							<span class="icon solid major fa-chart-pie"></span>
+						<!-- Karte 1: Samsung -->
+						<div class="col-4 col-12-medium achievement-card" onclick="const m = document.getElementById('modal-samsung'); m.showModal(); m.scrollTop = 0;" style="cursor: pointer;">
+							<div class="card-icon"><i class="fas fa-chart-pie"></i></div>
 							<h3>Enterprise Project Lead</h3>
 							<p>Leitung des Kreativ- und UI/UX-Produktionsstreams für die Samsung Retail-Trainingsplattform in der DACH-Region.</p>
+							<span class="card-link">Details & PM-Approach ➔</span>
 						</div>
-						<div class="col-4 col-12-medium achievement-card">
-							<span class="icon solid major fa-microchip"></span>
+
+						<!-- Karte 2: Klickwerk KI -->
+						<div class="col-4 col-12-medium achievement-card" onclick="const m = document.getElementById('modal-klickwerk'); m.showModal(); m.scrollTop = 0;" style="cursor: pointer;">
+							<div class="card-icon"><i class="fas fa-microchip"></i></div>
 							<h3>KI-Workflow-Architektur</h3>
-							<p>Implementierung einer proprietären KI-Content-Engine, die die Produktionszeit für Marketing-Assets um ca. 40% reduzierte.</p>
+							<p>Implementierung einer proprietären KI-Content-Engine, die die Produktionszeit für Marketing-Assets um ca. 60 % reduzierte.</p>
+							<span class="card-link">Details & PM-Approach ➔</span>
 						</div>
-						<div class="col-4 col-12-medium achievement-card">
-							<span class="icon solid major fa-shield-alt"></span>
+
+						<!-- Karte 3: Merker -->
+						<div class="col-4 col-12-medium achievement-card" onclick="const m = document.getElementById('modal-merker'); m.showModal(); m.scrollTop = 0;" style="cursor: pointer;">
+							<div class="card-icon"><i class="fas fa-shield-alt"></i></div>
 							<h3>Strategic Rebranding</h3>
-							<p>Federführung bei einem umfassenden Corporate Rebranding inklusive Website-Overhaul und Verwaltung eines 8 Mio. CHF Budgets.</p>
+							<p>Ganzheitliches Corporate Rebranding & Produktlaunch-Kampagne für die Schweizer B2B-Traditionsmarke Merker AG.</p>
+							<span class="card-link">Details & PM-Approach ➔</span>
 						</div>
 					</div>
 
@@ -288,7 +609,6 @@
 					<p>Ein Auszug meiner Stationen in der operativen Leitung und Marketing-Steuerung.</p>
 					
 					<div class="timeline-container">
-						
 						<div class="timeline-item">
 							<div class="timeline-left">
 								<span class="date">04/2023 — 2026</span>
@@ -297,7 +617,7 @@
 							<div class="timeline-dot"></div>
 							<div class="timeline-right">
 								<h3>Lead Project Manager Real Estate Marketing / Process Lead</h3>
-								<p>Als Process Lead verantwortete ich die Steuerung anspruchsvoller Immobilienmarketingprojekte im Premium-Segment. Durch die Einführung strukturierter Approval Gates und KI-gestützter Workflows konnte ich die Produktionszeiten um rund 40 % senken und Fehler in der Finalisierung eliminieren. Mein Fokus lag auf der effizienten Orchestrierung interdisziplinärer Teams für Design, Web und 3D unter Einhaltung strikter Qualitätsstandards.</p>
+								<p>Als Process Lead verantwortete ich die Steuerung anspruchsvoller Immobilienmarketingprojekte im Premium-Segment. Durch die Einführung strukturierter Approval Gates und KI-gestützter Workflows konnte ich die Produktionszeiten um rund 70 % senken und Fehler in der Finalisierung eliminieren. Mein Fokus lag auf der effizienten Orchestrierung interdisziplinärer Teams für Design, Web und 3D unter Einhaltung strikter Qualitätsstandards.</p>
 							</div>
 						</div>
 
@@ -349,7 +669,6 @@
 							</div>
 						</div>
 
-
 						<div class="timeline-item">
 							<div class="timeline-left">
 								<span class="date">2004 — 2013</span>
@@ -361,480 +680,324 @@
 								<p>Stationen bei der Expovina AG (Event-Koordination für Grossmessen) und Promotion Tools AG (Personal-Logistik und Schulung von über 300 Field-Agents für nationale Kampagnen). Diese Rollen bilden das operative Fundament meiner heutigen Expertise in der effizienten Ressourcen- und Projektplanung.</p>
 							</div>
 						</div>
-						<h3 style="margin-top: 4em; margin-bottom: 2em;">Ausbildung & Zertifizierungen</h3>
+
+					<h3 style="margin-top: 4em; margin-bottom: 2em;">Ausbildung & Zertifizierungen</h3>
 
 <div class="timeline-container" style="margin-top: 0;">
 
-    <div class="timeline-item">
-        <div class="timeline-left">
-            <span class="date">Aktueller Fokus</span>
-            <span class="company">PMI</span>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-right">
-            <h3>PMP – Project Management Professional</h3>
-            <p> Zertifizierung zur Vertiefung internationaler Standards im Projektmanagement und agiler Methoden. Abschluss per Mitte 2026 geplant.</p>
-        </div>
-    </div>
+	<!-- Lean Six Sigma Green Belt -->
+	<div class="timeline-item">
+		<div class="timeline-left">
+			<span class="date">08/2026</span>
+			<span class="company">Six Sigma Academy</span>
+		</div>
+		<div class="timeline-dot"></div>
+		<div class="timeline-right">
+			<h3>Lean Six Sigma Green Belt</h3>
+			<p>Data-driven Prozessoptimierung, Fehlerreduktion und systematische Qualitätssteigerung in operativen Abläufen.<br>
+			<a href="https://www.virtualbadge.io/certificate-validator?credential=d8ee7e50-7528-4ec6-88b1-b67fabeabd46" target="_blank" style="color: #78c6cf; font-size: 0.85em; text-decoration: underline;">Zertifikat verifizieren ↗</a></p>
+		</div>
+	</div>
 
-    <div class="timeline-item">
-        <div class="timeline-left">
-            <span class="date">2011 — 2013</span>
-            <span class="company">SAWI</span>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-right">
-            <h3>Marketingplanerin mit eidg. Fachausweis</h3>
-            <p>Umfassende Ausbildung in strategischer Marketingplanung und Marktkommunikation</p>
-        </div>
-    </div>
+	<!-- Prompt Engineering for ChatGPT -->
+	<div class="timeline-item">
+		<div class="timeline-left">
+			<span class="date">01/2026</span>
+			<span class="company">Vanderbilt University</span>
+		</div>
+		<div class="timeline-dot"></div>
+		<div class="timeline-right">
+			<h3>Prompt Engineering for ChatGPT</h3>
+			<p>Fortgeschrittene Techniken zur KI-Workflow-Automatisierung, Prompt-Architektur und Integration generativer Systeme.<br>
+			<a href="https://www.coursera.org/account/accomplishments/verify/HSPSO38WWLM7" target="_blank" style="color: #78c6cf; font-size: 0.85em; text-decoration: underline;">Zertifikat verifizieren ↗</a></p>
+		</div>
+	</div>
 
-    <div class="timeline-item">
-        <div class="timeline-left">
-            <span class="date">2001 — 2004</span>
-            <span class="company">SfG Bern</span>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-right">
-            <h3>Goldschmiedin EFZ</h3>
-            <p>Berufliche Basis mit Fokus auf handwerkliche Präzision und höchste Detailtreue</p>
-        </div>
-    </div>
+	<!-- SAWI -->
+	<div class="timeline-item">
+		<div class="timeline-left">
+			<span class="date">2011 — 2013</span>
+			<span class="company">SAWI</span>
+		</div>
+		<div class="timeline-dot"></div>
+		<div class="timeline-right">
+			<h3>Marketingplanerin mit eidg. Fachausweis</h3>
+			<p>Umfassende Ausbildung in strategischer Marketingplanung und Marktkommunikation.</p>
+		</div>
+	</div>
+
+	<!-- SfG Bern -->
+	<div class="timeline-item">
+		<div class="timeline-left">
+			<span class="date">2001 — 2004</span>
+			<span class="company">SfG Bern</span>
+		</div>
+		<div class="timeline-dot"></div>
+		<div class="timeline-right">
+			<h3>Goldschmiedin EFZ</h3>
+			<p>Berufliche Basis mit Fokus auf handwerkliche Präzision und höchste Detailtreue.</p>
+		</div>
+	</div>
 
 </div>
+			</section>
 
+			<section id="two" class="wrapper style3 fade-up">
+				<div class="inner">
+					<div class="skills-outer-frame">
+						<h2>Core Skills & Tools</h2>
+						<p>Eine Auswahl der Schwerpunkte meiner operativen Expertise und meines Tech-Stack für hocheffiziente und skalierbare Business-Workflows.</p>
+
+						<div class="expertise-container">
+							<div class="tech-stack-column">
+								<div class="tech-group">
+									<h4>Workflows & Collaboration</h4>
+									<div class="icon-cloud">
+										<div class="icon-wrapper" data-name="Atlassian"><img src="images/atlassian.svg" alt="Atlassian"></div>
+										<div class="icon-wrapper" data-name="Jira"><img src="images/jira.svg" alt="Jira"></div>
+										<div class="icon-wrapper" data-name="Asana"><img src="images/asana.svg" alt="Asana"></div>
+										<div class="icon-wrapper" data-name="Trello"><img src="images/trello.svg" alt="Trello"></div>
+										<div class="icon-wrapper" data-name="Confluence"><img src="images/confluence.svg" alt="Confluence"></div>
+										<div class="icon-wrapper" data-name="SharePoint"><img src="images/social-sharepoint-svgrepo-com.svg" alt="SharePoint"></div>
+									</div>
+								</div>
+
+								<div class="tech-group">
+									<h4>Business & Marketing Ops</h4>
+									<div class="icon-cloud">
+										<div class="icon-wrapper" data-name="HubSpot"><img src="images/hubspot.svg" alt="HubSpot"></div>
+										<div class="icon-wrapper" data-name="Salesforce"><img src="images/salesforce-svgrepo-com.svg" alt="Salesforce"></div>
+										<div class="icon-wrapper" data-name="SAP"><img src="images/sap.svg" alt="SAP"></div>
+										<div class="icon-wrapper" data-name="Google Ads"><img src="images/googleads.svg" alt="Google Ads"></div>
+										<div class="icon-wrapper" data-name="Google Workspace"><img src="images/google.svg" alt="Google Workspace"></div>
+										<div class="icon-wrapper" data-name="WordPress"><img src="images/wordpress.svg" alt="WordPress"></div>
+									</div>
+								</div>
+
+								<div class="tech-group">
+									<h4>Creative & AI Innovation</h4>
+									<div class="icon-cloud">
+										<div class="icon-wrapper" data-name="Adobe CC"><img src="images/adobe-svgrepo-com.svg" alt="Adobe CC"></div>
+										<div class="icon-wrapper" data-name="Figma"><img src="images/figma.svg" alt="Figma"></div>
+										<div class="icon-wrapper" data-name="Gemini"><img src="images/googlegemini.svg" alt="Gemini"></div>
+										<div class="icon-wrapper" data-name="Proprietary AI"><img src="images/googleassistant.svg" alt="AI Support"></div>
+										<div class="icon-wrapper" data-name="GIMP"><img src="images/gimp.svg" alt="GIMP"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="skills-column">
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Project & Program Management</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Budget-Steuerung</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">AI Workflow Architecture</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Stakeholder-Management</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Business Process Optimization</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Remote Governance & Async Ops</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Agile & Hybrid Methodologies</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+								</div>
+								<div class="skill-bar-row">
+									<span class="skill-bar-label">Rapid Tool Adaptability</span>
+									<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
-<style>
-    /* --- Layout Container --- */
-    .expertise-container {
-        display: flex;
-        gap: 4rem;
-        align-items: flex-start;
-        margin-top: 3rem;
-    }
+			<section id="advantage" class="wrapper style2 fade-up">
+				<div class="inner">
+					<h2>Strategischer Zeitvorteil</h2>
+					<div class="advantage-row">
+						<div class="advantage-text-side">
+							<p><strong>Operative Beschleunigung statt nur Remote-Work:</strong> Mein Setup verwandelt geografische Distanz in einen massiven Geschwindigkeitsvorteil. Durch diesen asynchronen Workflow eliminiere ich den morgendlichen „Kaltstart“ Ihres Teams.</p>
+							<p>Wenn Ihre Kollegen die Arbeit aufnehmen, sind administrative Hürden bereits genommen und strategische Vorarbeiten abgeschlossen. Dieser nahtlose Übergang garantiert Schweizer Präzision bei deutlich verkürzter Time-to-Market – voll integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von 5 bis 6 Stunden.</p>
+						</div>
 
-    /* --- Linke Spalte: Tech-Stack Icon Cloud --- */
-    .tech-stack-column {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-    }
-
-    .tech-group h4 {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: #7F8CAA;
-        margin-bottom: 1.2rem;
-        border-bottom: 1px solid rgba(127, 140, 170, 0.2);
-        padding-bottom: 0.4rem;
-    }
-
-    .icon-cloud {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.8rem; /* Etwas mehr Platz für die Tooltips */
-    }
-
-    /* Wrapper für Tooltip & Glow */
-    .icon-wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    .icon-cloud img {
-        height: 28px;
-        width: auto;
-        filter: grayscale(100%) brightness(1.5);
-        opacity: 0.6;
-        transition: all 0.4s ease;
-        display: block;
-    }
-
-    /* Mint Aufleuchten & Glow */
-    .icon-wrapper:hover img {
-        filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px rgba(120, 198, 207, 0.8));
-        transform: scale(1.1);
-        opacity: 1;
-    }
-
-    /* Tooltip Styling */
-    .icon-wrapper::after {
-        content: attr(data-name);
-        position: absolute;
-        bottom: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(34, 40, 49, 0.95);
-        color: #78c6cf; /* Mint Name */
-        font-size: 0.65rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 4px 8px;
-        border-radius: 4px;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(120, 198, 207, 0.2);
-        z-index: 10;
-    }
-
-    .icon-wrapper:hover::after {
-        opacity: 1;
-        visibility: visible;
-        bottom: -35px;
-    }
-
-    /* --- Rechte Spalte: Progressbalken --- */
-    .skills-column {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-
-    .skill-bar-row {
-        width: 100%;
-    }
-
-    .skill-bar-label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: #FFFFFF;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.4rem;
-        display: block;
-    }
-
-    .skill-bar-bg {
-        background: rgba(255, 255, 255, 0.05);
-        height: 4px;
-        border-radius: 2px;
-        overflow: hidden;
-    }
-
-    .skill-bar-fill {
-        background: #78c6cf; /* Mint Akzent */
-        height: 100%;
-        border-radius: 2px;
-    }
-
-    /* Responsive Anpassung */
-    @media screen and (max-width: 1280px) {
-        .expertise-container { gap: 2rem; }
-    }
-
-    @media screen and (max-width: 980px) {
-        .expertise-container { flex-direction: column; gap: 4rem; }
-        .tech-stack-column, .skills-column { width: 100%; }
-        .icon-cloud { justify-content: center; }
-    }
-</style>
-
-<section id="two" class="wrapper style3 fade-up">
-    <div class="inner">
-        <div class="skills-outer-frame">
-            
-            <h2>Core Skills & Tools</h2>
-            <p>Eine Auswahl der Schwerpunkte meiner operativen Expertise und meines Tech-Stack für hocheffiziente und skalierbare Business-Workflows.</p>
-
-            <div class="expertise-container">
-                
-                <div class="tech-stack-column">
-                    <div class="tech-group">
-                        <h4>Workflows & Collaboration</h4>
-                        <div class="icon-cloud">
-                            <div class="icon-wrapper" data-name="Atlassian"><img src="images/atlassian.svg" alt="Atlassian"></div>
-                            <div class="icon-wrapper" data-name="Jira"><img src="images/jira.svg" alt="Jira"></div>
-                            <div class="icon-wrapper" data-name="Asana"><img src="images/asana.svg" alt="Asana"></div>
-                            <div class="icon-wrapper" data-name="Trello"><img src="images/trello.svg" alt="Trello"></div>
-                            <div class="icon-wrapper" data-name="Confluence"><img src="images/confluence.svg" alt="Confluence"></div>
-                            <div class="icon-wrapper" data-name="SharePoint"><img src="images/social-sharepoint-svgrepo-com.svg" alt="SharePoint"></div>
-                        </div>
-                    </div>
-
-                    <div class="tech-group">
-                        <h4>Business & Marketing Ops</h4>
-                        <div class="icon-cloud">
-                            <div class="icon-wrapper" data-name="HubSpot"><img src="images/hubspot.svg" alt="HubSpot"></div>
-                            <div class="icon-wrapper" data-name="Salesforce"><img src="images/salesforce-svgrepo-com.svg" alt="Salesforce"></div>
-                            <div class="icon-wrapper" data-name="SAP"><img src="images/sap.svg" alt="SAP"></div>
-                            <div class="icon-wrapper" data-name="Google Ads"><img src="images/googleads.svg" alt="Google Ads"></div>
-                            <div class="icon-wrapper" data-name="Google Workspace"><img src="images/google.svg" alt="Google Workspace"></div>
-                            <div class="icon-wrapper" data-name="WordPress"><img src="images/wordpress.svg" alt="WordPress"></div>
-                        </div>
-                    </div>
-
-                    <div class="tech-group">
-                        <h4>Creative & AI Innovation</h4>
-                        <div class="icon-cloud">
-                            <div class="icon-wrapper" data-name="Adobe CC"><img src="images/adobe-svgrepo-com.svg" alt="Adobe CC"></div>
-                            <div class="icon-wrapper" data-name="Figma"><img src="images/figma.svg" alt="Figma"></div>
-                            <div class="icon-wrapper" data-name="Gemini"><img src="images/googlegemini.svg" alt="Gemini"></div>
-                            <div class="icon-wrapper" data-name="Proprietary AI"><img src="images/googleassistant.svg" alt="AI Support"></div>
-                            <div class="icon-wrapper" data-name="GIMP"><img src="images/gimp.svg" alt="GIMP"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-column">
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Project & Program Management</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Budget-Steuerung</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">AI Workflow Architecture</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Stakeholder-Management</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Business Process Optimization</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Remote Governance & Async Ops</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Agile & Hybrid Methodologies</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="skill-bar-row">
-                        <span class="skill-bar-label">Rapid Tool Adaptability</span>
-                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-                    </div>
-                </div>
-
-            </div> </div> </div> </section>
-
-			
-<style>
-    /* --- Layout: Strategic Time Advantage --- */
-    .advantage-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 4rem;
-        margin-top: 2rem;
-    }
-
-    .advantage-text-side {
-        flex: 1;
-    }
-
-    .advantage-text-side p strong {
-        color: #78c6cf;
-        display: block;
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-    }
-
-    /* Sync Monitor: Kompaktes Dashboard-Element */
-    .sync-monitor-box {
-        flex: 0 0 300px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(120, 198, 207, 0.2);
-        border-radius: 10px;
-        padding: 1.5rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .monitor-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-
-    .monitor-row:last-child {
-        margin-bottom: 0;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(127, 140, 170, 0.1);
-    }
-
-    .monitor-label {
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: #7F8CAA;
-    }
-
-    .monitor-time {
-        font-family: 'Courier New', monospace;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #FFFFFF;
-    }
-
-    /* Lead Badge */
-    .lead-badge {
-        display: inline-flex;
-        align-items: center;
-        font-size: 0.6rem;
-        font-weight: 800;
-        color: #78c6cf;
-        background: rgba(120, 198, 207, 0.1);
-        padding: 3px 8px;
-        border-radius: 4px;
-        margin-top: 5px;
-    }
-
-    .lead-dot {
-        height: 6px;
-        width: 6px;
-        background-color: #78c6cf;
-        border-radius: 50%;
-        margin-right: 8px;
-        box-shadow: 0 0 8px #78c6cf;
-        animation: sync-pulse 2s infinite;
-    }
-
-    @keyframes sync-pulse {
-        0% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.4; transform: scale(1.2); }
-        100% { opacity: 1; transform: scale(1); }
-    }
-
-    /* Responsive Stack */
-    @media screen and (max-width: 980px) {
-        .advantage-row {
-            flex-direction: column;
-            gap: 3rem;
-        }
-        .sync-monitor-box {
-            width: 100%;
-            flex: none;
-        }
-    }
-</style>
-
-<section id="advantage" class="wrapper style2 fade-up">
-    <div class="inner">
-        <h2>Strategischer Zeitvorteil</h2>
-        <div class="advantage-row">
-            
-            <div class="advantage-text-side">
-                <p><strong>Operative Beschleunigung statt nur Remote-Work:</strong> Mein Setup verwandelt geografische Distanz in einen massiven Geschwindigkeitsvorteil. Durch diesen asynchronen Workflow eliminiere ich den morgendlichen „Kaltstart“ Ihres Teams.</p>
-                <p>Wenn Ihre Kollegen die Arbeit aufnehmen, sind administrative Hürden bereits genommen und strategische Vorarbeiten abgeschlossen. Dieser nahtlose Übergang garantiert Schweizer Präzision bei deutlich verkürzter Time-to-Market – voll integriert in Ihre CET-Kernarbeitszeiten, aber mit dem entscheidenden Vorsprung von 5 bis 6 Stunden.</p>
-            </div>
-
-            <div class="sync-monitor-box">
-                <div class="monitor-row">
-                    <span class="monitor-label">Ihre Zeit (CET)</span>
-                    <span class="monitor-time" id="local-clock">00:00</span>
-                </div>
-                <div class="monitor-row">
-                    <span class="monitor-label">Bei mir (ICT)</span>
-                    <div style="text-align: right;">
-                        <span class="monitor-time" style="color: #78c6cf;" id="thai-clock">00:00</span>
-                        <div class="lead-badge" id="gap-info">
-                            <span class="lead-dot"></span>
-                            <span>Sync Active</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<script>
-    function updateOperationsClock() {
-        const now = new Date();
-        
-        // DACH-Zeit (Zürich/Berlin)
-        const localOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Zurich' };
-        const localTimeStr = now.toLocaleTimeString('de-CH', localOptions);
-        
-        // Thailand-Zeit (Bangkok)
-        const thaiOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Bangkok' };
-        const thaiTimeStr = now.toLocaleTimeString('de-CH', thaiOptions);
-        
-        // Differenz-Berechnung für den Badge
-        const dachDate = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Zurich"}));
-        const thaiDate = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"}));
-        const diff = Math.round((thaiDate - dachDate) / 3600000);
-
-        document.getElementById('local-clock').textContent = localTimeStr;
-        document.getElementById('thai-clock').textContent = thaiTimeStr;
-        document.getElementById('gap-info').innerHTML = `<span class="lead-dot"></span>+${diff}H VORSPRUNG`;
-    }
-
-    setInterval(updateOperationsClock, 1000);
-    updateOperationsClock();
-</script>
-
+						<div class="sync-monitor-box">
+							<div class="monitor-row">
+								<span class="monitor-label">Ihre Zeit (CET)</span>
+								<span class="monitor-time" id="local-clock">00:00</span>
+							</div>
+							<div class="monitor-row">
+								<span class="monitor-label">Bei mir (ICT)</span>
+								<div style="text-align: right;">
+									<span class="monitor-time" style="color: #78c6cf;" id="thai-clock">00:00</span>
+									<div class="lead-badge" id="gap-info">
+										<span class="lead-dot"></span>
+										<span>Sync Active</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section id="three" class="wrapper style1 fade-up">
-    <div class="inner">
-        <h2>Lassen Sie uns sprechen</h2>
-        <p>Ich freue mich darauf, mehr über Ihre aktuellen Herausforderungen zu erfahren. Lassen Sie uns gemeinsam herausfinden, wie wir Ihre Abläufe durch meinen Zeitvorteil spürbar entlasten und beschleunigen können.</p>
-        
-        <div class="contact-grid">
-            
-           <div class="contact-card">
-        <span class="icon solid fa-envelope"></span>
-        <h3>Nachricht senden</h3>
-        <p>Schreiben Sie mir unkompliziert – ich antworte Ihnen verlässlich und zeitnah.</p>
-        <a href="#" class="button small" onclick="decodeEmail(event)">E-Mail schreiben</a>
-    </div>
+				<div class="inner">
+					<h2>Lassen Sie uns sprechen</h2>
+					<p>Ich freue mich darauf, mehr über Ihre aktuellen Herausforderungen zu erfahren. Lassen Sie uns gemeinsam herausfinden, wie wir Ihre Abläufe durch meinen Zeitvorteil spürbar entlasten und beschleunigen können.</p>
+					
+					<div class="contact-grid">
+						<div class="contact-card">
+							<span class="icon solid fa-envelope"></span>
+							<h3>Nachricht senden</h3>
+							<p>Schreiben Sie mir unkompliziert – ich antworte Ihnen verlässlich und zeitnah.</p>
+							<a href="#" class="button small" onclick="decodeEmail(event)">E-Mail schreiben</a>
+						</div>
 
-            <div class="contact-card">
-                <span class="icon solid fa-calendar-check"></span>
-                <h3>Kennenlernen</h3>
-                <p>Suchen Sie sich einen Termin aus, der für Sie passt. Ich freue mich auf den Austausch.</p>
-                <a href="https://calendly.com/kd-karindietrich/30min" target="_blank" class="button primary small">Termin finden</a>
-            </div>
+						<div class="contact-card">
+							<span class="icon solid fa-calendar-check"></span>
+							<h3>Kennenlernen</h3>
+							<p>Suchen Sie sich einen Termin aus, der für Sie passt. Ich freue mich auf den Austausch.</p>
+							<a href="https://calendly.com/kd-karindietrich/30min" target="_blank" class="button primary small">Termin finden</a>
+						</div>
 
-            <div class="contact-card">
-                <span class="icon brands fa-linkedin-in"></span>
-                <h3>Networking</h3>
-                <p>Vernetzen Sie sich mit mir auf LinkedIn und werfen Sie einen Blick auf mein berufliches Umfeld.</p>
-                <a href="https://linkedin.com/in/karin-dietrich" target="_blank" class="button small">Vernetzen</a>
-            </div>
+						<div class="contact-card">
+							<span class="icon brands fa-linkedin-in"></span>
+							<h3>Networking</h3>
+							<p>Vernetzen Sie sich mit mir auf LinkedIn und werfen Sie einen Blick auf mein berufliches Umfeld.</p>
+							<a href="https://linkedin.com/in/karin-dietrich" target="_blank" class="button small">Vernetzen</a>
+						</div>
 
-            <div class="contact-card">
-    <span class="icon solid fa-map-marker-alt"></span>
-    <h3>Präsenz & Fokus</h3>
-    <p>Digital weltweit vernetzt, für wichtige Strategie-Phasen, Key-Events oder Teambuilding flexibel persönlich bei Ihnen vor Ort.</p>
-    <a href="#advantage" class="button small scrolly">Vorteil ansehen</a>
-</div>
-
-        </div>
-    </div>
-</section>
-			
+						<div class="contact-card">
+							<span class="icon solid fa-map-marker-alt"></span>
+							<h3>Präsenz & Fokus</h3>
+							<p>Digital weltweit vernetzt, für wichtige Strategie-Phasen, Key-Events oder Teambuilding flexibel persönlich bei Ihnen vor Ort.</p>
+							<a href="#advantage" class="button small scrolly">Vorteil ansehen</a>
+						</div>
+					</div>
+				</div>
+			</section>
 
 		</div>
 
-	<footer id="footer" class="wrapper style1-alt">
+		<footer id="footer" class="wrapper style1-alt">
 			<div class="inner">
-		<ul class="menu">
-    <li>&copy; Karin Dietrich. Alle Rechte vorbehalten.</li>
-    <li>kd [at] karindietrich.ch</li>
-    <li class="built-info">
-        <span class="main-text">Handcrafted by me</span>
-        <span class="hover-text"> With no previous knowledge, I used AI and GitHub to build this site.</span>
-    </li>
-</ul>
+				<ul class="menu">
+					<li>&copy; Karin Dietrich. Alle Rechte vorbehalten.</li>
+					<li>kd [at] karindietrich.ch</li>
+					<li class="built-info">
+						<span class="main-text">Handcrafted by me</span>
+						<span class="hover-text"> With no previous knowledge, I used AI and GitHub to build this site.</span>
+					</li>
+				</ul>
 			</div>
 		</footer>
 
+		<!-- MODALS -->
+
+		<!-- 1. SAMSUNG MODAL -->
+		<dialog id="modal-samsung" class="site-modal">
+			<div class="modal-content">
+				<h3 tabindex="-1" autofocus style="outline: none;">Samsung Circle (via Cocomore AG)</h3>
+				<p style="color: #7F8CAA; font-size: 0.85em; margin-bottom: 1.5em;">IT Project Manager | Stream Lead UI/UX & Creative (Dez. 2021 – Juni 2023)</p>
+				
+				<p><strong>Projekt & Scope:</strong><br>
+				Steuerung des UI/UX- und Content-Streams für die B2B-Retail-Trainingsplattform von Samsung Deutschland (DACH). Führung eines 15-köpfigen Teams (Design, Redaktion, Video, QA) zur Auslieferung von 50+ Multimedia-Assets pro Release.</p>
+
+				<p><strong>Challenge & PM-Approach:</strong><br>
+				<em>Flaschenhals-Problem:</em> Ein hoher Agentur-Output traf auf eine einzelne Freigabestelle beim Kunden, was zu Feedback-Backlogs und Delay-Risiken führte.<br>
+				<em>Lösung:</em> Einführung verbindlicher Approval-SLAs, Priorisierung nach Launch-Kritizität sowie agiles Umschichten von Kapazitäten. Kontrollierte Stufen-Releases sicherten Qualität und Termine ohne ungesteuerte Scope-Kürzungen.</p>
+
+				<p><strong>Impact:</strong><br>
+				100 % pünktliche Launches, null Leerlaufkosten im Agenturteam und volle Brand-Compliance in der DACH-Region.</p>
+
+				<div class="modal-action-bar">
+					<a href="https://www.cocomore.com/cases/samsung-circle" target="_blank" class="button small icon solid fa-external-link-alt">Case Study öffnen</a>
+					<button class="button small primary" onclick="document.getElementById('modal-samsung').close()">Schliessen</button>
+				</div>
+			</div>
+		</dialog>
+
+		<!-- 2. KLICKWERK MODAL -->
+		<dialog id="modal-klickwerk" class="site-modal">
+			<div class="modal-content">
+				<h3 tabindex="-1" autofocus style="outline: none;">Proprietäre KI-Plattform & Process Lead (Marketing Butler)</h3>
+				<p style="color: #7F8CAA; font-size: 0.85em; margin-bottom: 1.5em;">Senior Project Lead & AI Process Architect (Apr. 2023 – heute)</p>
+				
+				<p><strong>Projekt & Scope:</strong><br>
+				Konzeption, Erarbeitung und operative Einführung einer proprietären KI-SaaS-Engine im Immobilienmarketing. Das System übersetzt Rohdaten, Objektspezifikationen und Grundrisse automatisiert in markenkonforme Copy- und Creative-Assets für digitale und gedruckte Vermarktungskanäle.</p>
+
+				<p><strong>Challenge & PM-Approach:</strong><br>
+				<em>Anforderungs-Übersetzung:</em> Agieren als zentrale Übersetzungsschicht zwischen Fachbereich, Business-Stakeholdern und Dev-Teams. Übersetzung von Immobilien- und Design-Standards in strukturierte KI-Prompts, API-Workflows und Systemanforderungen.<br>
+				<em>Einführung & Governance:</em> Testen und Validieren neuer KI-Features vor Releases. Aufbau von Dokumentationsstandards (Wikis, SOPs) und strukturierten Approval-Gates für eine fehlerfreie asynchrone Zusammenarbeit im Team.</p>
+
+				<p><strong>Impact:</strong><br>
+				Verkürzung der Produktionszeiten um bis zu 83 % (Websites) bzw. 56 % (Broschüren), Skalierung auf über 280 Vermarktungsprojekte und Eliminierung von Freigabefehlern im Tagesgeschäft.</p>
+
+				<p style="margin-top: 1.5em; margin-bottom: 0.3em;"><strong>KI-Plattform & Workflow (Preview):</strong></p>
+				<div class="img-wrapper" style="overflow: hidden; border-radius: 6px; border: 1px solid rgba(127, 140, 170, 0.25); background: rgba(0, 0, 0, 0.2); margin-top: 0.8rem; margin-bottom: 1.5em;">
+					<img src="images/mbaitool.jpg" alt="Marketing Butler AI Tool Preview" style="width: 100%; height: auto; display: block;">
+				</div>
+
+				<div class="modal-action-bar">
+					<button class="button small primary" onclick="document.getElementById('modal-klickwerk').close()">Schliessen</button>
+				</div>
+			</div>
+		</dialog>
+
+		<!-- 3. MERKER MODAL -->
+		<dialog id="modal-merker" class="site-modal">
+			<div class="modal-content">
+				<h3 tabindex="-1" autofocus style="outline: none;">Merker AG (Schulthess Gruppe)</h3>
+				<p style="color: #7F8CAA; font-size: 0.85em; margin-bottom: 1.5em;">Head of Marketing (Okt. 2013 – Aug. 2015)</p>
+				
+				<p><strong>Projekt & Scope:</strong><br>
+				Verantwortung des MarCom-Gesamtbudgets von CHF 8 Mio. sowie End-to-End-Leitung eines umfassenden Rebrandings anlässlich der Einführung der neuen B2B-Gerätegeneration mit Touchscreen-Technologie.</p>
+
+				<p><strong>Challenge & PM-Approach:</strong><br>
+				<em>Ausgangslage:</em> Austauschbarer, veralteter Auftritt in Print und Web, der nicht der technologischen Innovation der neuen Produkte entsprach.<br>
+				<em>Umsetzung:</em> Durchführung eines Agentur-Pitches, Neukonzeption des Corporate Designs und komplette Überarbeitung aller Touchpoints (Kataloge, Website, POS-Materialien, Fachmessen, Kundenevents, Printwerbung und B2B-Mailing-Kampagnen)</p>
+
+				<p><strong>Impact:</strong><br>
+				Erfolgreiche Neupositionierung der Schweizer Traditionsmarke, Schärfung der Markenidentität im B2B-Markt und direkte Unterstützung des Aussendienstes bei der Kundenakquise.</p>
+
+				<p style="margin-top: 1.5em; margin-bottom: 0.3em;"><strong>Rebranding & Publikationen (Vorher / Nachher):</strong></p>
+				
+				<div class="modal-grid-2x2">
+					<div class="img-wrapper">
+						<img src="images/merkerorig1.jpg" alt="Merker Original: Produkteübersicht (Vorher)">
+					</div>
+					<div class="img-wrapper">
+						<img src="images/merkerorig2.jpg" alt="Merker Original: Innenseite (Vorher)">
+					</div>
+					<div class="img-wrapper">
+						<img src="images/merkerre1.jpg" alt="Merker Rebranding: Key Visual & Cover (Nachher)">
+					</div>
+					<div class="img-wrapper">
+						<img src="images/merkerre2.jpg" alt="Merker Rebranding: Inhaltsseite (Nachher)">
+					</div>
+				</div>
+
+				<div class="modal-action-bar">
+					<button class="button small primary" onclick="document.getElementById('modal-merker').close()">Schliessen</button>
+				</div>
+			</div>
+		</dialog>
+
+		<!-- JAVASCRIPT FILES -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -844,31 +1007,33 @@
 		<script src="assets/js/main.js"></script>
 
 		<script>
-			/* E-Mail Decoder gegen Spam-Bots */
-			function decodeEmail(event) {
-				event.preventDefault();
-				const user = "kd";
-				const domain = "karindietrich.ch";
-				window.location.href = "mailto:" + user + "@" + domain;
+			function updateOperationsClock() {
+				const now = new Date();
+				const localOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Zurich' };
+				const localTimeStr = now.toLocaleTimeString('de-CH', localOptions);
+				const thaiOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Bangkok' };
+				const thaiTimeStr = now.toLocaleTimeString('de-CH', thaiOptions);
+				
+				const dachDate = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Zurich"}));
+				const thaiDate = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Bangkok"}));
+				const diff = Math.round((thaiDate - dachDate) / 3600000);
+
+				const localElem = document.getElementById('local-clock');
+				const thaiElem = document.getElementById('thai-clock');
+				const gapElem = document.getElementById('gap-info');
+
+				if (localElem) localElem.textContent = localTimeStr;
+				if (thaiElem) thaiElem.textContent = thaiTimeStr;
+				if (gapElem) gapElem.innerHTML = `<span class="lead-dot"></span>+${diff}H VORSPRUNG`;
 			}
 
-			/* Hamburger Menü Funktion */
-			function toggleMenu() {
-				const nav = document.getElementById("nav-menu");
-				if (nav) {
-					nav.classList.toggle("active");
-				}
-			}
+			setInterval(updateOperationsClock, 1000);
+			updateOperationsClock();
 
-			/* Menü auf Mobile nach Klick automatisch schliessen */
-			$(document).on('click', '#sidebar nav a', function() {
-				if (window.innerWidth <= 980) {
-					const nav = document.getElementById("nav-menu");
-					if (nav) nav.classList.remove("active");
-				}
-			});
+			function decodeEmail(e) {
+				e.preventDefault();
+				window.location.href = "mailto:kd@karindietrich.ch";
+			}
 		</script>
-		
-
 	</body>
 </html>
